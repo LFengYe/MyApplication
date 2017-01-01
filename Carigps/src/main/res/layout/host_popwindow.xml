@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="#ffffffff">
+
+        <Button
+            android:id="@+id/hostswitch_ok"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="#ffffffff"
+            android:text="@string/btn_title_ok" />
+
+        <Button
+            android:id="@+id/hostswitch_cancle"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="#ffffffff"
+            android:text="@string/btn_title_cancel" />
+
+    </RelativeLayout>
+
+
+    <com.cn.carigps.widgets.Myscrollview
+        android:id="@+id/my_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="500px"
+        android:background="@drawable/background_2"
+        android:fadingEdge="vertical"
+        android:fadingEdgeLength="100px"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/addhostset_linear"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/hostset_textviewb1"
+                android:layout_width="fill_parent"
+                android:layout_height="100px" />
+
+            <TextView
+                android:id="@+id/hostset_textviewb2"
+                android:layout_width="fill_parent"
+                android:layout_height="100px" />
+
+            <TextView
+                android:id="@+id/hostset_textviewb3"
+                android:layout_width="fill_parent"
+                android:layout_height="100px" />
+
+            <TextView
+                android:id="@+id/hostset_textviewb4"
+                android:layout_width="fill_parent"
+                android:layout_height="100px" />
+        </LinearLayout>
+
+    </com.cn.carigps.widgets.Myscrollview>
+
+
+</LinearLayout>
+

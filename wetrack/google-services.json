@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "193149757493",
+    "project_id": "developertestye"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193149757493:android:07ceed9da37b43e7",
+        "android_client_info": {
+          "package_name": "com.cn.wetrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193149757493-111q4to7apgc3mral7vntebhvst91dg3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cn.wetrack",
+            "certificate_hash": "81A43E38E2CF79CD38C4C2BF7F66052B89B6DEE7"
+          }
+        },
+        {
+          "client_id": "193149757493-mta9dgpjj7anl6h3i8f2hpfssvec846e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI6bC-VsfcT9tNZGOV1hHwV6HSHNCjJaM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

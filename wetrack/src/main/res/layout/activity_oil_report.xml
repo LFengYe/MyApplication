@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#E8E8E8"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/title_linear"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/title_back" >
+
+        <!-- 返回 -->
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@null"
+            android:src="@drawable/back4" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:text="@string/main_btn_title_oil_statistics"
+            android:textColor="#ff000000"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/setting_line"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_below="@+id/title_linear"
+        android:background="#ffc9c9c9" />
+
+    <de.codecrafters.tableview.TableView
+        android:id="@+id/tableView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/setting_line"
+        android:divider="@android:color/white">
+    </de.codecrafters.tableview.TableView>
+
+</RelativeLayout>

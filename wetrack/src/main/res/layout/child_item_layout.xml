@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dip"
+    android:background="#FFFFFF"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal">
+    <!-- 车辆图标-->
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:src="@drawable/vehicle_1" />
+    <!-- 车辆名称 -->
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="40dip"
+        android:layout_toRightOf="@id/img"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+    <!-- 状态 -->
+    <TextView
+        android:id="@+id/child_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/item_name"
+        android:layout_below="@+id/item_name" />
+    <!-- 是否到期 -->
+    <TextView
+        android:id="@+id/child_IsOverdue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/child_state"
+        android:layout_marginLeft="10dip"
+        android:layout_toRightOf="@+id/child_state" />
+
+    <!-- 小箭头 -->
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dip"
+        android:src="@drawable/vehicle_monitoring" />
+
+
+</RelativeLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <!-- 标题栏和标题 -->
+
+    <RelativeLayout
+        android:id="@+id/title_lear"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@color/title_back">
+
+        <TextView
+            android:id="@+id/geofence_titleText"
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+            android:gravity="center"
+            android:text="@string/Setting_car_monitor"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <!-- 返回 -->
+        <ImageButton
+            android:id="@+id/monitor_back"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@null"
+            android:src="@drawable/back4" />
+
+        <!-- 监控 -->
+
+        <Button
+            android:id="@+id/monitor_monitorButton"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/alllocation_monitor"
+            android:visibility="gone"/>
+
+        <!-- 小箭头 -->
+
+        <Button
+            android:id="@+id/monitorlocation_routeplane"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:layout_toLeftOf="@+id/monitor_monitorButton"
+            android:background="@drawable/alllocation_jiantou"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <!-- 地图 -->
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/monitor_baidumap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_lear"
+        android:clickable="true" />
+
+    <!-- 图层 -->
+
+    <ImageButton
+        android:id="@+id/monitor_layerButton"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/title_lear"
+        android:layout_gravity="top|right"
+        android:layout_marginRight="5.0dip"
+        android:layout_marginTop="5.0dip"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/alllocation_switchmode"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

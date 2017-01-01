@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 全局变量 -->
+    <string name="app_name">Carigps</string>
+    <string name="online_system">ONLINE TRACKING SYSTEM</string>
+    <string name="change_server">切换服务器 >></string>
+    <string name="change_server_title">设置输入服务器</string>
+    <string name="input_server_address">请输入服务器地址</string>
+    <string name="input_server_port">请输入服务器端口</string>
+    <string name="server_address_nonull">服务器地址不能为空</string>
+    <string name="server_port_nonull">服务器端口不能为空</string>
+    <string name="btn_title_ok">确定</string>
+    <string name="btn_title_cancel">取消</string>
+    <string name="btn_title_delete">删除</string>
+    <string name="input_account_number">请输入帐号</string>
+    <string name="input_password">请输入密码</string>
+    <string name="account_number_nonull">账号不能为空</string>
+    <string name="password_nonull">密码不能为空</string>
+    <string name="alert_title">温馨提示</string>
+    <string name="exit_alert">您确定要退出吗?</string>
+    <string name="data_get_fail">数据获取失败，请重试</string>
+    <string name="second">秒</string>
+    <string name="delete_alert">您确认要删除吗?</string>
+    <string name="query_all">查询全部</string>
+    <string name="query_team">查询此队</string>
+    <string name="refreshing">加载中...</string>
+    <string name="refreshing_failed">加载失败</string>
+
+    <!-- 主界面 -->
+    <string name="main_btn_title_now_location">实时定位</string>
+    <string name="main_btn_title_orbit_query">轨迹查询</string>
+    <string name="main_btn_title_mileage_statistics">里程统计</string>
+    <string name="main_btn_title_oil_statistics">油量统计</string>
+    <string name="main_btn_title_alarm_infomation">警报信息</string>
+    <string name="main_btn_title_official_news">公告信息</string>
+    <string name="main_btn_title_remote_on_lock">远程开锁</string>
+    <string name="main_btn_title_remote_off_lock">远程关锁</string>
+    <string name="main_btn_title_app_settings">应用设置</string>
+
+
+    <string name="net_work_message">网络连接失败，请您查看您的网络设置!</string>
+    <string name="ERROR">网络异常,程序重启</string>
+    <string name="HELP">帮助</string>
+    <string name="settings">应用设置</string>
+    <string name="LOGOUT">退出</string>
+    <string name="SURETOLOGOUT">再按一次返回键注销!</string>
+    <string name="MAINMENU">主菜单</string>
+    <string name="GPSTip">请打开你的GPS!</string>
+    <string name="INIT">初始化</string>
+    <string name="BACK">返回</string>
+    <string name="CONNECT_FAIL">连接服务器失败</string>
+    <string name="OPERATE_FAIL">操作失败</string>
+
+    <!-- 自动更新 -->
+    <string name="update_title">软件更新</string>
+    <string name="update_findNewVersion">检测到新版本，立即更新吗?</string>
+    <string name="update_updateNow">立即更新</string>
+    <string name="update_notUpdate">暂不更新</string>
+    <string name="update_downloading">下载中...</string>
+
+    <!-- 单车监控 -->
+    <string name="monitor_distance">距离：</string>
+    <string name="monitor_meter">米</string>
+    <string name="monitor_vehno">车牌：</string>
+    <string name="monitor_mylocation">我的位置：</string>
+    <string name="monitor_carlocation">车的位置：</string>
+    <string name="monitor_nolocation">未获取到您的位置</string>
+    <string name="monitor_simid">SIM：</string>
+    
+
+    <!-- 离线地图使用帮助 -->
+    <string name="AppHelp">使用帮助</string>
+    <string name="AppHelpContent">APP使用帮助</string>
+    <!-- 油量查询 -->
+    <string name="SelectOil_querying">查询中...</string>
+    <string name="SelectOil_date">日期</string>
+    <string name="SelectOil_oil">当前油量</string>
+    <string name="SelectOil_avgoil">平均油耗</string>
+    <string name="SelectOil_sumoil">总油耗</string>
+    <string name="SelectOil_selectstartdate">请选择开始日期</string>
+    <string name="SelectOil_selectenddate">请选择结束日期</string>
+    <string name="SelectOil_error">只能查询一个月之內的数据</string>
+
+    <!-- 登录界面 -->
+    <string name="Login_init">初始化</string>
+    <string name="Login_net_work_message">网络连接失败，请您查看您的网络设置!</string>
+    <string name="Login_requestServerTips">请求服务器登录...</string>
+    <string name="Login_notNull">用户名和密码不能为空!</string>
+
+    <string name="Login_button">登录</string>
+    <string name="Login_remember_password">记住密码</string>
+    <string name="Login_auto_login">自动登录</string>
+    <string name="serverChange">服务器切换</string>
+    <!-- 电子围栏 -->
+    <string name="geofence">电子围栏</string>
+    <string name="geofence_tip1">米电子围栏</string>
+    <string name="geofence_200">200米电子围栏</string>
+    <string name="geofence_500">500米电子围栏</string>
+    <string name="geofence_custom">自定义电子围栏</string>
+    <string name="geofence_querying">查询中...</string>
+     <string name="geofence_isswitch">电子围栏未开启，是否开启电子围栏！</string>
+     <string name="geofence_add">添加电子围栏中...</string>
+     <string name="geofence_uploadgeofence">上传电子围栏</string>
+     
+
+    <string name="Main_menu2">服务商信息</string>
+    <string name="Main_menu4">电子围栏</string>
+    <string name="Main_menu5">油耗统计</string>
+    <string name="Main_menu9">我的备注</string>
+    <string name="get_location_info">获取位置信息</string>
+    <string name="get_vehicle_info">获取车辆列表</string>
+    <string name="Main_geting">获取中...</string>
+    <string name="Main_car_switch_title">请选择切换车辆</string>
+    <string name="Main_car_switch">车辆切换</string>
+    <string name="Main_switch_to">切换到:</string>
+    <string name="Main_get_Address_fail">获取地址失败</string>
+    <string name="Main_sure_logout">确定退出?</string>
+
+    <!-- 车辆选择列表 -->
+    <string name="vehicle_list_title">请选择操作车辆</string>
+    <string name="vehicle_no_locaton">无定位数据显示</string>
+    <string name="vehicle_all">全部</string>
+    <string name="vehicle_online">在线</string>
+    <string name="vehicle_static">静止</string>
+    <string name="vehicle_offline">离线</string>
+    <string name="vehicle_overdue">服务到期</string>
+    <string name="vehicle_availability">服务有效</string>
+    <string name="vehicle_searchcar">搜索车辆</string>
+
+    <!-- 设置 -->
+    <string name="push_switch">推送消息</string>
+    <string name="default_open">默认开启</string>
+    <string name="personl_info">个人信息</string>
+    <string name="nick_name">昵称</string>
+    <string name="company_name">公司名称</string>
+    <string name="company_address">公司地址</string>
+    <string name="contacts">联 系 人</string>
+    <string name="contact_tele">联系电话</string>
+    <string name="address">地址</string>
+    <string name="map_baidu">百度地图</string>
+    <string name="map_google">谷歌地图</string>
+    <string name="change_map">切换地图</string>
+    <string name="change_map_alert">您确定要切换地图吗？</string>
+    <string name="map_change_success">地图切换成功</string>
+    <string name="location_refresh_time">定位信息刷新间隔</string>
+    <string name="fix_time">修改频率</string>
+    <string name="choose_refresh_time">请选择定位信息刷新频率</string>
+    <string name="about">关于</string>
+
+    
+    <string name="Setting_clean">清除缓存</string>
+    <string name="Setting_yijianfankui">意见反馈</string>
+    <string name="Setting_about_us">关于我们</string>
+    <string name="Setting_map_awake">地图界面唤醒</string>
+    <string name="Setting_show_mylocation">显示我的位置</string>
+    <string name="Setting_car_monitor">车辆监控模式</string>
+    <string name="Setting_use_help">使用帮助</string>
+    <string name="Setting_check_update">版本更新</string>
+    <string name="Setting_not_find_new_version">未发现新版本</string>
+    <string name="Setting_account_switch">切换帐号</string>
+
+    <!-- 实时定位 -->
+    <string name="Location_modechoose">模式选择</string>
+    <string name="Location_ditumode">地图模式</string>
+    <string name="Location_weixinmode">卫星模式</string>
+    <string name="Location_jiejinmode">街景模式</string>
+    <string name="Location_title">立即定位</string>
+    <string name="Location_monitor">车辆选择</string>
+    <string name="car_state">状态：</string>
+    <string name="car_time">时间：</string>
+    <string name="car_location">地址：</string>
+    <string name="Location_static">静止：</string>
+    <string name="Location_address_getting">获取中...</string>
+    <string name="Location_address_fail">获取地址失败</string>
+    <string name="Location_location">定位中...</string>
+    <string name="Location_location_success">定位成功</string>
+    <string name="Location_location_fail">定位失败</string>
+    <string name="Location_routeplan">路径规划中...</string>
+    <string name="Location_hour">小时</string>
+    <string name="Location_minute">分</string>
+    <string name="Location_tips1">请先在地图上定位我的位置</string>
+    <string name="Location_tips2">抱歉，未找到结果</string>
+    <string name="Location_tips3">起终点或途经点地址有歧义</string>
+    <string name="Location_acc_on">开启</string>
+    <string name="Location_acc_off">熄火</string>
+    <string name="Location_nogps">请打开GPS</string>
+
+    <!-- 地址解析 -->
+    <string name="system_number_id">系统编号</string>
+    <string name="phone_number">SIM号码</string>
+    <string name="open_time">开通时间</string>
+    <string name="expire_time">到期时间</string>
+    <string name="position_time">定位时间</string>
+    <string name="car_detail">车辆信息</string>
+    <!-- 地图弹窗 -->
+    <!--<string name="MapTip_status">状态：</string>-->
+    <!--<string name="MapTip_time">时间：</string>-->
+    <!--<string name="MapTip_address">位置：</string>-->
+    <!--<string name="MapTip_status_static">静止</string>-->
+    <!--<string name="MapTip_status_moving">行驶</string>-->
+    <!--<string name="MapTip_status_direction">方向：</string>-->
+    <!--<string name="MapTip_offline">当前车辆离线</string>-->
+    <!-- 方向 -->
+    <string name="Direction_north">正北</string>
+    <string name="Direction_northeastbynorth">东北偏北</string>
+    <string name="Direction_northeast">东北</string>
+    <string name="Direction_northeastbyesat">东北偏东</string>
+    <string name="Direction_east">正东</string>
+    <string name="Direction_southeastbyeast">东南偏东</string>
+    <string name="Direction_southeast">东南</string>
+    <string name="Direction_southeastbysouth">东南偏南</string>
+    <string name="Direction_south">正南</string>
+    <string name="Direction_southbysouthwest">西南偏南</string>
+    <string name="Direction_southwest">西南</string>
+    <string name="Direction_southwestbywest">西南偏西</string>
+    <string name="Direction_west">正西</string>
+    <string name="Direction_northwestbywest">西北偏西</string>
+    <string name="Direction_northwest">西北</string>
+    <string name="Direction_northbynorthwest">西北偏北</string>
+
+    <!-- 轨迹查询 -->
+    <string name="History_title">历史回放</string>
+    <string name="History_select_date">选择查询日期</string>
+    <string name="History_date">日期：</string>
+    <string name="History_start_time">开始：</string>
+    <string name="History_end_time">结束：</string>
+    <string name="History_query">查询</string>
+    <string name="History_nodata">系统没有您要查询的数据！</string>
+    <string name="History_query_ing">请求服务器查询...</string>
+    <string name="History_dateTip1">开始时间必须小于结束时间!</string>
+    <string name="History_dateTip2">日期不能大于当前日期!</string>
+    <string name="History_start_button">播放</string>
+    <string name="History_pause_button">暂停</string>
+    <string name="History_today">今天</string>
+    <string name="History_yesterday">昨天</string>
+    <string name="History_TheDayBeforeYesterday">前天</string>
+    <string name="History_AnHourAgo">一小时前</string>
+    <string name="History_custom">自定义</string>
+
+    <!-- 账户信息 -->
+    <string name="AccountInfo_title">服务商信息</string>
+    <string name="AccountInfo_Remark">备    注</string>
+
+    <!-- 车主信息 -->
+    <string name="CarInfo_title">车主信息</string>
+    <string name="CarInfo_VehNoF">车牌号码</string>
+    <string name="CarInfo_simID">SIM卡号</string>
+    <string name="CarInfo_systemNo">系统编号</string>
+    <string name="CarInfo_vehicleType">车辆类型</string>
+    <string name="CarInfo_brand">车型</string>
+    <string name="CarInfo_vehicle_color">车辆颜色</string>
+    <string name="CarInfo_operation_psw">操作密码</string>
+    <string name="CarInfo_link_tel">车主手机</string>
+    <string name="CarInfo_colors">其他,蓝色,黄色,黑色,白色</string>
+
+    <!-- 告警统计 -->
+    <string name="Alarm_edit">编辑</string>
+    <string name="Alarm_title">告警信息</string>
+    <string name="Alarm_detail">告警详细</string>
+    <string name="Alarm_type">告警类型</string>
+    <string name="Alarm_time">告警时间</string>
+    <string name="Alarm_address">产生地址</string>
+    <string name="Alarm_select_date_title">请选择查询时间</string>
+    <string name="Alarm_start_date">开始：</string>
+    <string name="Alarm_end_date">结束：</string>
+    <string name="Alarm_query">查询</string>
+    <string name="Alarm_address_getting">地址获取中</string>
+    <string name="Alarm_getting">查询中</string>
+
+    <!-- 累计里程 -->
+    <string name="Mileage_title">累计里程</string>
+    <string name="Mileage_total">累计里程</string>
+
+    <!-- 我的消息 -->
+    <string name="Message_title">我的消息</string>
+    <string name="Message_detail">消息详细</string>
+
+    <!-- 开油断油 -->
+    <string name="KDY_please_input">请输入操作密码</string>
+    <string name="KDY_psw_error">操作密码错误</string>
+
+    <!-- 服务器切换 -->
+    <string name="HostSetting_title">服务器设置</string>
+    <string name="HostSetting_switch">切换</string>
+    <string name="HostSetting_getting">获取中</string>
+    <string name="HostSetting_default_name">默认服务器</string>
+    <string name="HostSetting_host_list">服务器列表</string>
+    <!-- 意见反馈 -->
+    <string name="feedback_title">意见反馈</string>
+    <string name="feedback_submit">提交</string>
+    <string name="feedback_text">请输入你的宝贵的意见</string>
+    <string name="feedback_submiting">正在提交</string>
+    <string name="feedback_nodata">请先填写您的意见</string>
+    <string name="feedback_success">提交成功</string>
+    <string name="feedback_fail">提交失败</string>
+    <string name="choose_vehicle">车辆列表</string>
+
+
+    <string name="MapTip_status_direction">方向</string>
+    <string name="all_oil">总油耗</string>
+    <string name="arg_speed">平均速度</string>
+    <string name="avreage_oil">平均油耗</string>
+    <string name="temperature">温      度</string>
+    <string name="speed">速度：</string>
+    <string name="oils">油量：%1$.2fL</string>
+    <string name="car_today_mileage">今日里程：%1$.2fkm</string>
+    <string name="add_oil">加油量: %1$.2fL</string>
+    <string name="car_number">车牌：</string>
+    <string name="car_mileage">里程</string>
+    <string name="car_all_mileage">总里程</string>
+    <string name="open">开</string>
+    <string name="off">关</string>
+    <string name="runing">行驶</string>
+    <string name="stoping">停止</string>
+    <string name="no_location">不定位</string>
+    <string name="start_point">起点</string>
+    <string name="end_point">终点</string>
+    <string name="btn_title_orbit_replay">轨迹回放</string>
+    <string name="btn_title_track">追踪</string>
+
+    <string name="pull_to_refresh">下拉刷新</string>
+    <string name="more">加载更多</string>
+    <string name="loadmore_label">加载更多</string>
+    <string name="loading">正在加载...</string>
+    <string name="refresh_succeed">刷新成功</string>
+    <string name="release_to_refresh">释放立即刷新</string>
+    <!--<string name="refreshing">正在刷新...</string>-->
+    <string name="refresh_fail">刷新失败</string>
+    <string name="car_number_n">车牌号</string>
+    <string name="list_no">序号</string>
+    <string name="service_expired">提醒：服务到期提醒</string>
+</resources>

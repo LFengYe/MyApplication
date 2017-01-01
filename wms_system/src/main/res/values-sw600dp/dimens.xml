@@ -1,0 +1,21 @@
+<resources>
+
+    <!--
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw600dp devices (e.g. 7" tablets) here.
+    -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- 列表功能字体大小 -->
+    <dimen name="fun_list_button_text_size">20sp</dimen>
+    <!-- 详细功能字体大小 -->
+    <dimen name="fun_detail_item_text_size">21sp</dimen>
+    <!-- 列表功能按钮间隔 -->
+    <dimen name="component_distance">20dp</dimen>
+    <!-- 登录界面编辑框垂直距离 -->
+    <dimen name="land_edit_text_vertical_distance">20dp</dimen>
+    <!-- 标题栏高度 -->
+    <dimen name="the_title_height">38dip</dimen>
+    <!-- 标题栏字体大小 -->
+    <dimen name="the_title_text_size">18sp</dimen>
+</resources>

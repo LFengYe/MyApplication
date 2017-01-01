@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/notice_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"
+        android:paddingLeft="12dp">
+
+        <TextView
+            android:id="@+id/notice_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:textColor="@color/word_hei"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/notice_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/notice_title"
+            android:layout_marginLeft="12dp"
+            android:textColor="@color/word_hui"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</LinearLayout>

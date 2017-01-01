@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 全局变量 -->
+    <string name="app_name">Carigps</string>
+    <string name="online_system">ONLINE TRACKING SYSTEM</string>
+    <string name="change_server">Change Server >></string>
+    <string name="change_server_title">Setting Input Server</string>
+    <string name="input_server_address">Please Input Server Address</string>
+    <string name="input_server_port">Please Input Server Port Number</string>
+    <string name="server_address_nonull">Server Address Cannot Be Blank</string>
+    <string name="server_port_nonull">Server Port Cannot Be Blank</string>
+    <string name="btn_title_ok">Sure</string>
+    <string name="btn_title_delete">Delete</string>
+    <string name="btn_title_cancel">Cancel</string>
+    <string name="input_account_number">Please Enter Your Username</string>
+    <string name="input_password">Please Enter Your Password</string>
+    <string name="account_number_nonull">Username Cannot Be Blank</string>
+    <string name="password_nonull">Password Cannot Be Blank</string>
+    <string name="alert_title">Remind</string>
+    <string name="exit_alert">Are You Sure Logout ?</string>
+    <string name="data_get_fail">Download Data Fail，Please Try Again</string>
+    <string name="second">Second</string>
+    <string name="delete_alert">Are You Sure Delete ?</string>
+    <string name="query_all">Search</string>
+    <string name="query_team">Search Fleet</string>
+    <string name="choose_vehicle">Vehicle List</string>
+    <string name="refreshing">Loading...</string>
+    <string name="refreshing_failed">Loading Failed</string>
+    <string name="btn_title_orbit_replay">Playback</string>
+    <string name="btn_title_track">Tracking</string>
+
+    <string name="service_expired">Notice: Service Expired Notice</string>
+
+    <string name="net_work_message">Network connection failed, please check your network Settings!</string>
+    <string name="ERROR">Network anomalies, restart the APP</string>
+    <string name="HELP">Help</string>
+    <string name="settings">Setting</string>
+    <string name="LOGOUT">Exit</string>
+    <string name="SURETOLOGOUT">Press the return key once again and logout!</string>
+    <string name="MAINMENU">Main menu</string>
+    <string name="GPSTip">Please open your GPS!</string>
+    <string name="INIT">Init</string>
+    <string name="BACK">Back</string>
+    <string name="CONNECT_FAIL">Connect to the server failed</string>
+    <string name="OPERATE_FAIL">Operate fail</string>
+
+    <!-- 自动更新 -->
+    <string name="update_title">Software update</string>
+    <string name="update_findNewVersion">Detected a new version, update now?</string>
+    <string name="update_updateNow">Update now</string>
+    <string name="update_notUpdate">Not update</string>
+    <string name="update_downloading">Download...</string>
+
+    <!-- 单车监控 -->
+    <string name="monitor_distance">Distance:</string>
+    <string name="monitor_meter">Meters</string>
+    <string name="monitor_vehno">plateNo:</string>
+    <string name="monitor_mylocation">My Location:</string>
+    <string name="monitor_carlocation">Car Location:</string>
+    <string name="monitor_nolocation">Unable to get your location</string>
+    <string name="monitor_simid">SIM:</string>
+
+    <!-- 离线地图使用帮助 -->
+    <string name="AppHelp">App Help</string>
+    <string name="AppHelpContent">APP help content</string>
+    <!-- 油量查询 -->
+    <string name="SelectOil_querying">querying...</string>
+    <string name="SelectOil_date">Date</string>
+    <string name="SelectOil_oil">Current oil</string>
+    <string name="SelectOil_avgoil">Average oil</string>
+    <string name="SelectOil_sumoil">Sum oil</string>
+    <string name="SelectOil_selectstartdate">Please select a start date</string>
+    <string name="SelectOil_selectenddate">Please select a end date</string>
+    <string name="SelectOil_error">Can only query within one month of data</string>
+
+    <!-- 登录界面 -->
+    <string name="Login_init">Init</string>
+    <string name="Login_net_work_message">Network connection failed, please check your network Settings!</string>
+    <string name="Login_requestServerTips">Request server to login...</string>
+    <string name="Login_notNull">The user name and password cannot be empty!</string>
+    <string name="Login_button">Login</string>
+    <string name="Login_remember_password">Save Password</string>
+    <string name="Login_auto_login">Auto Login</string>
+    <string name="serverChange">Server switch</string>
+
+    <!-- 主界面 -->
+    <string name="main_btn_title_now_location">Monitoring</string>
+    <string name="main_btn_title_orbit_query">Playback</string>
+    <string name="main_btn_title_mileage_statistics">Total Mileage</string>
+    <string name="main_btn_title_oil_statistics">Fuel Report</string>
+    <string name="main_btn_title_alarm_infomation">Alert Message</string>
+    <string name="main_btn_title_official_news">Offcial News</string>
+    <string name="main_btn_title_remote_on_lock">Unlock</string>
+    <string name="main_btn_title_remote_off_lock">Lock</string>
+    <string name="main_btn_title_app_settings">Setting</string>
+
+
+    <string name="Main_menu2">Information</string>
+    <string name="Main_menu4">Gefence</string>
+    <string name="Main_menu5">Oil Query</string>
+    <string name="Main_menu9">MyRemark</string>
+    <string name="get_location_info">Get Locations</string>
+    <string name="get_vehicle_info">Get Vehicles</string>
+    <string name="Main_geting">Getting...</string>
+    <string name="Main_car_switch_title">Please select vehicle</string>
+    <string name="Main_car_switch">Vehicle switch</string>
+    <string name="Main_switch_to">Switch to:</string>
+    <string name="Main_get_Address_fail">Get address fail!</string>
+    <string name="Main_sure_logout">Are you sure to exit?</string>
+
+    <!-- 车辆选择列表 -->
+    <string name="vehicle_list_title">Select operate vehicle</string>
+    <string name="vehicle_no_locaton">No location to show</string>
+    <string name="vehicle_online">On-line</string>
+    <string name="vehicle_static">static</string>
+    <string name="vehicle_offline">off-line</string>
+    <string name="vehicle_overdue">Service due</string>
+    <string name="vehicle_availability">Service availability</string>
+    <string name="vehicle_searchcar">Search vehicles</string>
+
+    <!-- 设置 -->
+    <string name="push_switch">Message Notification</string>
+    <string name="default_open">Default On</string>
+    <string name="personl_info">Personal information</string>
+    <string name="nick_name">Nickname</string>
+    <string name="company_name">Company Name</string>
+    <string name="contacts">Contacts</string>
+    <string name="contact_tele">Contact Number</string>
+    <string name="address">Address</string>
+    <string name="company_address">Company address</string>
+    <string name="map_baidu">Baidu Map</string>
+    <string name="map_google">Google Map</string>
+    <string name="change_map">Change Map</string>
+    <string name="change_map_alert">Are you sure change map?</string>
+    <string name="map_change_success">Change Map Success</string>
+    <string name="location_refresh_time">Information Location Interval</string>
+    <string name="fix_time">Change Frequency</string>
+    <string name="choose_refresh_time">Please Select Location Message Refresh Frequency</string>
+
+
+    <string name="Setting_clean">Wipe cache partition</string>
+    <string name="Setting_yijianfankui">Feedback</string>
+    <string name="Setting_about_us">About us</string>
+    <string name="Setting_map_awake">Map awake</string>
+    <string name="Setting_show_mylocation">Show my location</string>
+    <string name="Setting_car_monitor">Monitor vehicle</string>
+    <string name="Setting_use_help">Help</string>
+    <string name="Setting_check_update">Check update</string>
+    <string name="about">About</string>
+    <string name="Setting_not_find_new_version">Not found new version!</string>
+    <string name="Setting_account_switch">Switch account</string>
+
+    <!-- 电子围栏 -->
+    <string name="geofence_tip1">meters geofence</string>
+    <string name="geofence">Geofence</string>
+    <string name="geofence_200">200 meters geofence</string>
+    <string name="geofence_500">500 meters geofence</string>
+    <string name="geofence_custom">custom meters geofence</string>
+    <string name="geofence_querying">querying...</string>
+     <string name="geofence_isswitch">Geofence is not open,do you want open it?</string>
+     <string name="geofence_add">Adding geofence...</string>
+     <string name="geofence_uploadgeofence">Upload geofence</string>
+
+    <!-- 实时定位 -->
+    <string name="Location_modechoose">Mode selection</string>
+    <string name="Location_ditumode">Normal</string>
+    <string name="Location_weixinmode">Satetellite</string>
+    <string name="Location_jiejinmode">Panorama</string>
+    <string name="Location_title">Real time positioning</string>
+    <string name="Location_monitor">Car switch</string>
+    <string name="Location_static">Static</string>
+    <string name="Location_address_getting">Getting address...</string>
+    <string name="Location_address_fail">Get address fail</string>
+    <string name="Location_location">Locating...</string>
+    <string name="Location_location_success">Location succeed</string>
+    <string name="Location_location_fail">Location fail</string>
+    <string name="Location_routeplan">Route planning...</string>
+    <string name="Location_hour"> hour and </string>
+    <string name="Location_minute"> minute</string>
+    <string name="Location_tips1">Please locate my position on the map</string>
+    <string name="Location_tips2">I am sorry,but the result was not found</string>
+    <string name="Location_tips3">Since the end or via point address is ambiguous</string>
+    <string name="Location_acc_on">on</string>
+    <string name="Location_acc_off">off</string>
+    <string name="Location_nogps">Please open GPS</string>
+    <!-- 地址解析 -->
+    <string name="car_detail">Car Detail</string>
+    <string name="system_number_id">System number</string>
+    <string name="phone_number">SIM Number</string>
+    <string name="open_time">Invalid Time</string>
+    <string name="expire_time">Expire Time</string>
+    <string name="position_time">Locate Time</string>
+
+
+    <!-- 地图弹窗 -->
+    <string name="list_no">No.</string>
+    <string name="car_number_n">Plate</string>
+    <string name="car_number">Plate:</string>
+    <string name="car_mileage">Mileage</string>
+    <string name="car_all_mileage">Total Km</string>
+    <string name="avreage_oil">Average Fuel</string>
+    <string name="all_oil">Total Fuel</string>
+    <string name="arg_speed">Average Speed</string>
+    <string name="speed">Speed:</string>
+    <string name="temperature">Temp℃</string>
+    <string name="oils">Fuel:%1$.2fL</string>
+    <string name="car_today_mileage">Today Km:%1$.2fkm</string>
+    <string name="add_oil">Refuel: %1$.2fL</string>
+    <string name="car_state">Status:</string>
+    <string name="car_time">Time:</string>
+    <string name="car_location">Location:</string>
+
+    <string name="open">On</string>
+    <string name="off">Off</string>
+    <string name="runing">Driving</string>
+    <string name="stoping">Stop</string>
+    <string name="no_location">Un-locate</string>
+    <string name="start_point">Start</string>
+    <string name="end_point">End</string>
+    <!--<string name="MapTip_status">Status:</string>-->
+    <!--<string name="MapTip_time">Time:</string>-->
+    <!--<string name="MapTip_address">Address:</string>-->
+    <!--<string name="MapTip_status_static">Static:</string>-->
+    <!--<string name="MapTip_status_moving">Moving:</string>-->
+    <string name="MapTip_status_direction">Direction:</string>
+
+    <!--<string name="MapTip_offline">The current vehicle offline</string>-->
+    <!-- 方向 -->
+    <string name="Direction_north">North</string>
+    <string name="Direction_northeastbynorth">Northeast by north</string>
+    <string name="Direction_northeast">Northeast</string>
+    <string name="Direction_northeastbyesat">Northeast by east</string>
+    <string name="Direction_east">East</string>
+    <string name="Direction_southeastbyeast">Southeast by east</string>
+    <string name="Direction_southeast">Southeast</string>
+    <string name="Direction_southeastbysouth">Sotheast bysouth</string>
+    <string name="Direction_south">South</string>
+    <string name="Direction_southbysouthwest">South by southwest</string>
+    <string name="Direction_southwest">Southwest</string>
+    <string name="Direction_southwestbywest">Southwest by west</string>
+    <string name="Direction_west">West</string>
+    <string name="Direction_northwestbywest">Northwest by west</string>
+    <string name="Direction_northwest">Northwest</string>
+    <string name="Direction_northbynorthwest">North by northwest</string>
+
+    <!-- 账户信息 -->
+    <string name="AccountInfo_title">My Information</string>
+    <string name="AccountInfo_Remark">Remark</string>
+
+    <!-- 轨迹查询 -->
+    <string name="History_title">Playback</string>
+    <string name="History_select_date">Please select dateTime</string>
+    <string name="History_date">Date:</string>
+    <string name="History_start_time">Start：</string>
+    <string name="History_end_time">End：</string>
+    <string name="History_query">Query</string>
+    <string name="History_nodata">No data to show</string>
+    <string name="History_query_ing">Request server to query...</string>
+    <string name="History_dateTip1">Start time must be smaller than the end of time!</string>
+    <string name="History_dateTip2">The date is not greater than the current date!</string>
+    <string name="History_start_button">Play</string>
+    <string name="History_pause_button">Pause</string>
+    <string name="History_today">Today</string>
+    <string name="History_yesterday">Yesterday</string>
+    <string name="History_TheDayBeforeYesterday">The day before yesterday</string>
+    <string name="History_AnHourAgo">An hour ago</string>
+    <string name="History_custom">Custom</string>
+
+    <!-- 车主信息 -->
+    <string name="CarInfo_title">Information</string>
+    <string name="CarInfo_VehNoF">CarNO</string>
+    <string name="CarInfo_simID">SIMNO</string>
+    <string name="CarInfo_systemNo">NO</string>
+    <string name="CarInfo_vehicleType">Type</string>
+    <string name="CarInfo_brand">Brand</string>
+    <string name="CarInfo_vehicle_color">Color</string>
+    <string name="CarInfo_operation_psw">OPsw</string>
+    <string name="CarInfo_link_tel">Phone</string>
+    <string name="CarInfo_colors">Other,Blue,Yellow,black,white</string>
+
+    <!-- 告警统计 -->
+    <string name="Alarm_edit">Edit</string>
+    <string name="Alarm_title">Alarm</string>
+    <string name="Alarm_detail">Alarm detail</string>
+    <string name="Alarm_type">Alarm type</string>
+    <string name="Alarm_time">Alarm time</string>
+    <string name="Alarm_address">Address</string>
+    <string name="Alarm_select_date_title">Please select time</string>
+    <string name="Alarm_start_date">Start:</string>
+    <string name="Alarm_end_date">End:</string>
+    <string name="Alarm_query">Query</string>
+    <string name="Alarm_address_getting">Getting address</string>
+    <string name="Alarm_getting">Getting</string>
+
+    <!-- 累计里程 -->
+    <string name="Mileage_title">Mileage</string>
+    <string name="Mileage_total">All mileage</string>
+
+    <!-- 我的消息 -->
+    <string name="Message_title">MyMessage</string>
+    <string name="Message_detail">Message detail</string>
+
+    <!-- 开油断油 -->
+    <string name="KDY_please_input">Please input operate password</string>
+    <string name="KDY_psw_error">operate password error</string>
+
+    <!-- 服务器切换 -->
+    <string name="HostSetting_title">Server Settings</string>
+    <string name="HostSetting_switch">Switch</string>
+    <string name="HostSetting_getting">getting</string>
+    <string name="HostSetting_default_name">Default server</string>
+    <string name="HostSetting_host_list">Server list</string>
+    <!-- 意见反馈 -->
+    <string name="feedback_title">Feedback</string>
+    <string name="feedback_submit">Submit</string>
+    <string name="feedback_text">Please input your precious opinions</string>
+    <string name="feedback_submiting">Submitting</string>
+    <string name="feedback_nodata">Please fill in your comments</string>
+    <string name="feedback_success">Submitted successfully</string>
+    <string name="feedback_fail">Submitted failed</string>
+    <string name="vehicle_all">All</string>
+
+    <string name="pull_to_refresh">Pull to Refresh</string>
+    <string name="more">Morn</string>
+    <string name="loadmore_label">Load More</string>
+    <string name="loading">loading</string>
+    <string name="refresh_succeed">Refresh Succeed</string>
+    <string name="release_to_refresh">Release To Refresh</string>
+    <!--<string name="refreshing">正在刷新...</string>-->
+    <string name="refresh_fail">Refresh Failed</string>
+
+</resources>

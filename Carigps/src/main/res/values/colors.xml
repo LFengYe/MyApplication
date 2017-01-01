@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="word_hei">#353535</color>
+    <color name="word_hui">#999999</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#eeeeee</color>
+
+    <color name="title_back">#4e6bb9</color>
+    <color name="now_location_back">#F26B42</color>
+    <color name="orbit_query_back">#51C8FD</color>
+    <color name="oil_statistics_back">#29B0ED</color>
+    <color name="mileage_statistics_back">#1192CC</color>
+    <color name="alarm_infomation_back">#00BAF2</color>
+    <color name="remote_on_lock_back">#0274A8</color>
+    <color name="remote_off_lock_back">#DFC012</color>
+    <color name="official_news_back">#14B96A</color>
+    <color name="app_settings_back">#3DB900</color>
+    <color name="exit_login_back">#44AEF1</color>
+</resources>

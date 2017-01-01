@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="#ffffffff"
+        >
+
+        <Button
+            android:background="#ffffffff"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/btn_title_ok"
+            android:id="@+id/selectgeofencessize_ok"
+             />
+        <Button
+            android:background="#ffffffff"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/btn_title_cancel"
+            android:id="@+id/selectgeofencessize_cancel"
+            />
+
+    </RelativeLayout>
+
+    
+        <com.seeworld.widgets.Myscrollview
+            android:fadingEdge="vertical"
+            android:scrollbars="none"
+            android:fadingEdgeLength="100px"
+            android:id="@+id/setGEOpop_scrollview"
+             android:layout_width="fill_parent"
+        android:layout_height="500px"
+        android:background="@drawable/background_2" >
+            <LinearLayout
+                android:id="@+id/addGEOsize_linear"
+                android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+         >
+         <TextView 
+             android:id="@+id/GEOset_textviewb1"
+             android:layout_width="fill_parent"
+        android:layout_height="100px"
+             />
+          <TextView 
+              android:id="@+id/GEOset_textviewb2"
+             android:layout_width="fill_parent"
+        android:layout_height="100px"
+             />
+           <TextView 
+               android:id="@+id/GEOset_textviewb3"
+             android:layout_width="fill_parent"
+        android:layout_height="100px"
+             />
+            <TextView 
+                android:id="@+id/GEOset_textviewb4"
+             android:layout_width="fill_parent"
+        android:layout_height="100px"
+             />
+              </LinearLayout>
+            
+        </com.seeworld.widgets.Myscrollview>
+  
+
+</LinearLayout>
+

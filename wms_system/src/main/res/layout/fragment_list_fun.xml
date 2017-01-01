@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_list_fun_bg"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/component_distance"
+        android:layout_weight="1"
+        android:background="@drawable/custom_button"
+        android:gravity="center"
+        android:onClick="button1Click"
+        android:textSize="@dimen/fun_list_button_text_size" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/component_distance"
+        android:layout_weight="1"
+        android:background="@drawable/custom_button"
+        android:gravity="center"
+        android:onClick="button2Click"
+        android:textSize="@dimen/fun_list_button_text_size" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/component_distance"
+        android:layout_weight="1"
+        android:background="@drawable/custom_button"
+        android:gravity="center"
+        android:onClick="button3Click"
+        android:textSize="@dimen/fun_list_button_text_size" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/component_distance"
+        android:layout_weight="1"
+        android:background="@drawable/custom_button"
+        android:gravity="center"
+        android:onClick="button4Click"
+        android:textSize="@dimen/fun_list_button_text_size" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/component_distance"
+        android:layout_weight="1"
+        android:background="@drawable/custom_button"
+        android:gravity="center"
+        android:onClick="button5Click"
+        android:textSize="@dimen/fun_list_button_text_size" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/component_distance"
+        android:layout_weight="1"
+        android:background="@drawable/custom_button"
+        android:gravity="center"
+        android:onClick="button7Click"
+        android:textSize="@dimen/fun_list_button_text_size" />
+    
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/component_distance"
+        android:layout_weight="1"
+        android:background="@drawable/custom_button"
+        android:gravity="center"
+        android:onClick="button6Click"
+        android:textSize="@dimen/fun_list_button_text_size" />
+</LinearLayout>

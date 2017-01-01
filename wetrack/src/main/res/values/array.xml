@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="change_map_array">
+        <item>Google Maps</item>
+        <item>Baidu Maps</item>
+    </string-array>
+
+    <string-array name="location_refresh_time_array">
+        <item>10s</item>
+        <item>20s</item>
+        <item>30s</item>
+        <item>60s</item>
+        <item>90s</item>
+        <item>120s</item>
+    </string-array>
+
+    <string-array name="alert_message_table_title">
+        <item>Plate</item>
+        <item>Content Alert</item>
+        <item>Time</item>
+        <item>Address</item>
+    </string-array>
+
+    <string-array name="total_mileage_table_title">
+        <item>Plate</item>
+        <item>Mileage</item>
+        <item>Average Fuel</item>
+        <item>Total Fuel</item>
+        <item>Average Speed</item>
+    </string-array>
+
+    <string-array name="fuel_report_table_title">
+        <item>Plate</item>
+        <item>Date</item>
+        <item>Refuel</item>
+        <item>No. Refuel</item>
+        <item>Oil Stolen</item>
+        <item>Address</item>
+    </string-array>
+</resources>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/main_layout">
+
+
+    <RelativeLayout
+        android:id="@+id/title_lear"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/title_back">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+            android:gravity="center"
+            android:text="@string/main_btn_title_now_location"
+            android:textColor="#ff000000"
+            android:textSize="20dp" />
+
+        <!-- 返回 -->
+
+        <ImageButton
+            android:id="@+id/alllocation_back"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@null"
+            android:src="@drawable/back4" />
+
+        <!-- 监控 -->
+
+        <Button
+            android:id="@+id/monitorButton"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/alllocation_monitor" />
+        <!-- 小箭头 -->
+
+        <Button
+            android:id="@+id/alllocation_routeplane"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:layout_toLeftOf="@+id/monitorButton"
+            android:background="@drawable/alllocation_jiantou"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <!--<com.cn.wetrack.widgets.MapWrapperLayout-->
+        <!--android:id="@+id/allLocation_map_layout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@id/title_lear">-->
+        <!--<fragment-->
+            <!--android:id="@+id/alllocation_googlemap"-->
+            <!--class="com.google.android.gms.maps.SupportMapFragment"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+    <!--</com.cn.wetrack.widgets.MapWrapperLayout>-->
+
+    <fragment
+        android:id="@+id/alllocation_googlemap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_lear"
+        class="com.google.android.gms.maps.SupportMapFragment"/>
+
+    <ImageButton
+        android:id="@+id/layerButton"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/title_lear"
+        android:layout_gravity="top|right"
+        android:layout_marginRight="5.0dip"
+        android:layout_marginTop="5.0dip"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/alllocation_switchmode"
+        android:visibility="gone" />
+
+    <!--路径规划-->
+    <ImageButton
+        android:id="@+id/lujghbutton"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="40dip"
+        android:layout_marginLeft="10dip"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/alllocation_lujgh"
+        android:visibility="gone" />
+    <!-- 左箭头 -->
+
+    <ImageButton
+        android:id="@+id/alllocation_nextcarleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/map_btnleft" />
+    <!-- 右箭头 -->
+
+    <ImageButton
+        android:id="@+id/alllocation_nextcarright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/map_btnright" />
+
+</RelativeLayout>

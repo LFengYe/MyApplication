@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffffff" >
+
+
+   
+<!-- 第一个线性布局 -->
+    <LinearLayout
+        android:id="@+id/routeinfo_firstlinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dip" 
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/monitor_distance"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/routeinfo_mails"
+            android:textColor="#ff00dc60"
+            android:textSize="20sp" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/monitor_meter"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <!-- 第二个线性布局 -->
+    <LinearLayout
+        android:id="@+id/routeinfo_secondlinear"
+        android:layout_below="@id/routeinfo_firstlinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dip" 
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/monitor_vehno"
+            android:textSize="15sp"
+            android:textColor="@color/white" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/routeinfo_vefo"
+            android:textSize="15sp"
+            android:textColor="#ff626262" />
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/alllocation_routeinfosmall"
+            android:layout_marginLeft="5dip"
+            />
+    </LinearLayout>
+    <!-- 第三个线性布局 -->
+    <LinearLayout
+        android:id="@+id/routeinfo_thirdlinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/routeinfo_secondlinear"
+        android:layout_marginLeft="10dip"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/monitor_mylocation"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/routeinfo_mylocation"
+            android:textColor="#ff626262"
+            android:textSize="15sp" />
+    </LinearLayout>
+    
+     <!-- 第四个线性布局 -->
+    <LinearLayout
+        android:id="@+id/routeinfo_fourthlinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/routeinfo_thirdlinear"
+        android:layout_marginLeft="10dip"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/monitor_carlocation"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/routeinfo_carlocation"
+            android:textColor="#ff626262"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</RelativeLayout>

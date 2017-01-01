@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layout_title_line0"
+        android:layout_width="fill_parent"
+        android:layout_height="160dip"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/title_back"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/online_system"
+                android:textColor="@android:color/holo_blue_light"
+                android:textStyle="bold"
+                android:textSize="22sp"/>
+
+            <ImageView
+                android:id="@+id/main_switchAccountbtn"
+                android:layout_width="200dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="10dip"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/main_btn_logout"
+                android:background="@drawable/rounded_back"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/framlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/layout_title_line0"
+        android:gravity="center">
+
+        <LinearLayout
+            android:id="@+id/layout_mainmenu"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="top"
+            android:paddingTop="50dip">
+
+            <LinearLayout
+                android:id="@+id/layoutMainMenu"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <GridView
+                    android:id="@+id/gridView1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:columnWidth="120dp"
+                    android:gravity="top"
+                    android:numColumns="3"
+                    android:stretchMode="spacingWidth"
+                    android:verticalSpacing="30dip"></GridView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_sys_log"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="top"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/linearlayout_line4"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#30ffffff"
+                android:orientation="horizontal" />
+
+            <EditText
+                android:id="@+id/edit_sys_log"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#18456b"
+                android:editable="false"
+                android:enabled="true"
+                android:focusable="false"
+                android:gravity="left"
+                android:inputType="textMultiLine"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbars="vertical"
+                android:singleLine="false"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- 底部菜单 -->
+
+</RelativeLayout>

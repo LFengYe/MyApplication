@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <!-- <item name="android:windowNoTitle">true</item> -->
+        <!-- 设置无标题 -->
+        <!-- <item name="android:windowFullscreen">?android:windowNoTitle</item> -->
+        <!-- 是否填充慢屏幕，引用android:windowNoTitle 的值 ?android:windowNoTitle，取决于android:windowNoTitle的值 -->
+    </style>
+
+    <style name="CustomWindowTitleBackground">
+        <item name="android:background">#565656</item>
+    </style>
+
+    <style name="TitleTheme" parent="@style/AppTheme">
+        <item name="android:windowTitleSize">33dip</item>
+        <item name="android:background">@style/CustomWindowTitleBackground</item>
+    </style>
+
+    <!-- 自定义标题栏主题 -->
+    <style name="XTheme" parent="@style/AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTitleSize">@dimen/the_title_height</item>
+        <item name="android:windowTitleStyle">@style/XWindowTitle</item>
+        <item name="android:windowTitleBackgroundStyle">@style/StatusBarBackground</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="StatusBarBackground">
+        <item name="android:background">@drawable/ic_back_title</item>
+    </style>
+
+    <style name="XWindowTitle" parent="android:TextAppearance.WindowTitle">
+        <item name="android:shadowColor">#BB000000</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <!-- 自定义 CheckBox风格 -->
+    <style name="MyCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style</item>
+    </style>
+
+    <style name="CustomButtonStyle" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">20dp</item>
+    </style>
+
+    <style name="CustomEditTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:background">@color/text_color</item>
+        <item name="android:focusable">false</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="LoginFormContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#E8E8E8"
+    android:orientation="vertical" >
+
+    <!-- 标题栏和标题 -->
+
+    <RelativeLayout
+        android:id="@+id/date_title"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/title_back" >
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+            android:gravity="center"
+            android:text="@string/History_select_date"
+            android:textColor="#ff000000"
+            android:textSize="20dp" />
+
+        <!-- 返回 -->
+
+        <ImageButton
+            android:id="@+id/selectOilReportdate_back"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@null"
+            android:src="@drawable/back4" />
+    </RelativeLayout>
+    <!-- the middle layout -->
+
+    <LinearLayout
+        android:id="@+id/selectOilReport_middlelinear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_title"
+        android:layout_marginTop="20dip"
+        android:background="#ffffffff"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#ffc9c9c9" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:gravity="center"
+            android:text="@string/SelectOil_selectstartdate"
+            android:textColor="#ff000000"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginLeft="45dip"
+            android:background="#ffc9c9c9" />
+
+        <!-- startdate -->
+
+        <RelativeLayout
+            android:id="@+id/selectOilReport_chosestartdateRelativelayout"
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/selectOilReport_startdateimg"
+                android:layout_width="25dip"
+                android:layout_height="25dip"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="45dip"
+                android:background="@drawable/select_calendar" />
+
+            <TextView
+                android:id="@+id/selectOilReport_startdatetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dip"
+                android:layout_toRightOf="@id/selectOilReport_startdateimg"
+                android:text="2015-01-21"
+                android:textColor="#ffc9c9c9"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="25dip"
+                android:layout_height="25dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dip"
+                android:background="@drawable/selectdate_next" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginLeft="45dip"
+            android:background="#ffc9c9c9" />
+        <!-- starttime -->
+
+        <RelativeLayout
+            android:id="@+id/selectOilReport_chosestarttimeRelativelayout"
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/selectOilReport_starttimeimg"
+                android:layout_width="25dip"
+                android:layout_height="25dip"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="45dip"
+                android:background="@drawable/selectdate_time" />
+
+            <TextView
+                android:id="@+id/selectOilReport_starttimetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dip"
+                android:layout_toRightOf="@id/selectOilReport_starttimeimg"
+                android:text="00:00:00-06:02:33"
+                android:textColor="#ffc9c9c9"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="25dip"
+                android:layout_height="25dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dip"
+                android:background="@drawable/selectdate_next" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#ffc9c9c9" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:gravity="center"
+            android:text="@string/SelectOil_selectenddate"
+            android:textColor="#ff000000"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginLeft="45dip"
+            android:background="#ffc9c9c9" />
+
+        <!-- enddate -->
+
+        <RelativeLayout
+            android:id="@+id/selectOilReport_choseenddateRelativelayout"
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/selectOilReport_enddateimg"
+                android:layout_width="25dip"
+                android:layout_height="25dip"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="45dip"
+                android:background="@drawable/select_calendar" />
+
+            <TextView
+                android:id="@+id/selectOilReport_enddatetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dip"
+                android:layout_toRightOf="@id/selectOilReport_enddateimg"
+                android:text="2015-01-21"
+                android:textColor="#ffc9c9c9"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="25dip"
+                android:layout_height="25dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dip"
+                android:background="@drawable/selectdate_next" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginLeft="45dip"
+            android:background="#ffc9c9c9" />
+        <!-- endtime -->
+
+        <RelativeLayout
+            android:id="@+id/selectOilReport_choseendtimeRelativelayout"
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/selectOilReport_endtimeimg"
+                android:layout_width="25dip"
+                android:layout_height="25dip"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="45dip"
+                android:background="@drawable/selectdate_time" />
+
+            <TextView
+                android:id="@+id/selectOilReport_endtimetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dip"
+                android:layout_toRightOf="@id/selectOilReport_endtimeimg"
+                android:text="00:00:00-06:02:33"
+                android:textColor="#ffc9c9c9"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="25dip"
+                android:layout_height="25dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dip"
+                android:background="@drawable/selectdate_next" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- 查询按钮 -->
+
+     <Button
+        android:id="@+id/selectOilReport_query"
+        android:layout_width="300dip"
+        android:layout_height="50dip"
+        android:layout_below="@id/selectOilReport_middlelinear"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dip"
+        android:background="#ff008DF9"
+        android:textColor="#ffffffff"
+        android:text="@string/btn_title_ok"
+        android:textSize="25sp" />
+
+</RelativeLayout>

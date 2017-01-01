@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/newsitem"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@android:color/white" >
+        
+    <ImageView
+        android:id="@+id/messageImage"
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:layout_marginTop="5dip"
+        android:layout_alignParentLeft="true"
+        android:scaleType="fitXY"
+        android:focusable="false" 
+        android:src="@drawable/message"/>
+    <TextView
+        android:id="@+id/messageText"
+        android:layout_width="wrap_content"
+        android:layout_height="40dip"
+        android:layout_marginLeft="5dip"
+        android:layout_toRightOf="@+id/messageImage"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textColor="#575757"
+        android:text=""
+        android:textSize="14dip"/>
+</RelativeLayout>

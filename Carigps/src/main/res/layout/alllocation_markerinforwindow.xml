@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_info_bubble"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/info_window_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip">
+
+            <ImageView
+                android:id="@+id/inforwindow_car"
+                android:layout_width="25dip"
+                android:layout_height="25dip"
+                android:background="@drawable/alllocation_inforwindowcar"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/inforwindow_vehnof"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@string/car_number"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/inforwindow_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inforwindow_vehnof"
+                android:singleLine="true"
+                android:text="@string/car_time"
+                android:textSize="13sp" />
+
+            <!--<TextView-->
+            <!--android:id="@+id/inforwindow_static"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@id/inforwindow_vehnof"-->
+            <!--android:text="@string/Location_status"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="13sp" />-->
+
+            <TextView
+                android:id="@+id/inforwindow_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inforwindow_time"
+                android:singleLine="true"
+                android:text="@string/car_state"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/inforwindow_acc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/inforwindow_state"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/inforwindow_state"
+                android:singleLine="true"
+                android:text="ACC:"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/inforwindow_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inforwindow_state"
+                android:singleLine="true"
+                android:text="@string/speed"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/inforwindow_fuel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/inforwindow_speed"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/inforwindow_speed"
+                android:singleLine="true"
+                android:text="@string/oils"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/inforwindow_today_mileage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inforwindow_speed"
+                android:singleLine="true"
+                android:text="@string/car_today_mileage"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/inforwindow_carlocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/inforwindow_today_mileage"
+                android:text=""
+                android:textSize="13sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/inforwindow_right"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/next" />
+
+            <!-- 关闭按钮 -->
+            <ImageView
+                android:id="@+id/inforwindow_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/alllocation_infordowclose" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/word_hei"></View>
+
+    <LinearLayout
+        android:id="@+id/inforwindow_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/track_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:text="@string/btn_title_track"
+            android:textSize="16sp"
+            android:textColor="@android:color/holo_blue_light"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/word_hei"
+            android:layout_marginTop="5dp"></View>
+
+        <TextView
+            android:id="@+id/orbit_reply_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:text="@string/btn_title_orbit_replay"
+            android:textSize="16sp"
+            android:textColor="@android:color/holo_blue_light"/>
+    </LinearLayout>
+
+</LinearLayout>

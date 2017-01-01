@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="mSpecifications">
+        <item>Φ6x1</item>
+        <item>Φ8x1</item>
+        <item>Φ10x1.25</item>
+        <item>Φ12x1.25</item>
+        <item>Φ14x1.5</item>
+        <item>Φ19x1.5</item>
+    </string-array>
+
+
+    <string-array name="mColors">
+        <item>红色</item>
+        <item>橙色</item>
+        <item>黄色</item>
+        <item>绿色</item>
+        <item>蓝色</item>
+        <item>紫色</item>
+        <item>粉红色</item>
+        <item>浅黄色</item>
+        <item>天蓝色</item>
+        <item>乳白色</item>
+        <item>苹果绿</item>
+        <item>浅紫色</item>
+        <item>无颜色</item>
+    </string-array>
+</resources>

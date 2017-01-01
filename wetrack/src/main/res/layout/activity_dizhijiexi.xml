@@ -1,0 +1,387 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffececec"
+    tools:context=".MainActivity">
+
+    <!-- 标题栏和标题 -->
+    <RelativeLayout
+        android:id="@+id/dzjxtitle_lear"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/title_back">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+            android:gravity="center"
+            android:text="@string/car_detail"
+            android:textColor="#ff000000"
+            android:textSize="20sp" />
+
+        <!-- 返回 -->
+        <ImageButton
+            android:id="@+id/dzjx_back"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@null"
+            android:src="@drawable/back4" />
+
+        <!-- 监控 -->
+        <Button
+            android:id="@+id/dzjx_monitorList"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/alllocation_monitor" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/border"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_below="@+id/dzjxtitle_lear"
+        android:background="#ffa0a0a0" />
+
+    <!-- 第一个区域 -->
+    <RelativeLayout
+        android:id="@+id/dzjx_firstpart"
+        android:layout_width="fill_parent"
+        android:layout_height="90dip"
+        android:layout_below="@id/border"
+        android:layout_marginTop="20dip"
+        android:background="#ffffffff">
+
+        <!-- 两条边界线 -->
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_alignParentTop="true"
+            android:background="#ffa0a0a0" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_alignParentBottom="true"
+            android:background="#ffa0a0a0" />
+
+        <!-- 车子图标 -->
+        <ImageView
+            android:id="@+id/dzjx_tubiao"
+            android:layout_width="70dip"
+            android:layout_height="70dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/dzjx_logo" />
+
+        <!-- 车辆车牌号 -->
+        <TextView
+            android:id="@+id/dzjx_carnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:layout_toRightOf="@id/dzjx_tubiao"
+            android:textColor="#ff000000"
+            android:textSize="20sp" />
+
+        <!-- 详细地址 -->
+        <TextView
+            android:id="@+id/dzjx_carlocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/dzjx_carnumber"
+            android:layout_alignLeft="@id/dzjx_carnumber"
+            android:textColor="#ffa0a0a0"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <!-- 第二个区域 -->
+    <LinearLayout
+        android:id="@+id/dzjx_secondpart"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dzjx_firstpart"
+        android:layout_marginTop="10dip"
+        android:background="#ffffffff"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#ffa0a0a0" />
+        <!-- 系统编号 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dip"
+                android:layout_height="30dip"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/detail_sysno" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:text="@string/system_number_id"
+                android:textColor="#ff000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/dzjx_systemno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dip"
+                android:textColor="#ffa0a0a0"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginLeft="10dip"
+            android:background="#ffa0a0a0" />
+        <!-- 电话号码 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dip"
+                android:layout_height="30dip"
+
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/detail_phone_number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:text="@string/phone_number"
+                android:textColor="#ff000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/dzjx_PhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+
+                android:layout_marginLeft="20dip"
+                android:textColor="#ffa0a0a0"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginLeft="10dip"
+            android:background="#ffa0a0a0"/>
+
+        <!-- 温度 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dip"
+                android:layout_height="30dip"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/detail_temperature" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:text="@string/temperature"
+                android:textColor="#ff000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/dzjx_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dip"
+                android:textColor="#ffa0a0a0"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginLeft="10dip"
+            android:background="#ffa0a0a0" />
+        <!-- 到期时间 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dip"
+                android:layout_height="30dip"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/dzjx_dqtime" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:text="@string/expire_time"
+                android:textColor="#ff000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/dzjx_overduetime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dip"
+                android:textColor="#ffa0a0a0"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginLeft="10dip"
+            android:background="#ffa0a0a0" />
+        <!-- 定位时间 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dip"
+                android:layout_height="30dip"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/detail_location_time" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:text="@string/position_time"
+                android:textColor="#ff000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/dzjx_locationtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+
+                android:layout_marginLeft="20dip"
+                android:textColor="#ffa0a0a0"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginLeft="10dip"
+            android:background="#ffa0a0a0" />
+        <!-- 总里程 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dip"
+                android:layout_height="30dip"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/detail_all_mileage" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dip"
+                android:text="@string/car_all_mileage"
+                android:textColor="#ff000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/dzjx_all_mileage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dip"
+                android:textColor="#ffa0a0a0"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#ffa0a0a0" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dzjx_secondpart"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dzjx_monitor_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:background="#ff008DF9"
+            android:text="@string/btn_title_track"
+            android:textColor="#ffffffff"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/dzjx_histor_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:background="#ff008DF9"
+            android:text="@string/btn_title_orbit_replay"
+            android:textColor="#ffffffff"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

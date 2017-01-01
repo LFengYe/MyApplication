@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="dialog_text_width">100dp</dimen>
+    <dimen name="dialog_text_width1">60dp</dimen>
+    <!-- 列表功能字体大小 -->
+    <dimen name="fun_list_button_text_size">20sp</dimen>
+    <!-- 详细功能字体大小 -->
+    <dimen name="fun_detail_item_text_size">16sp</dimen>
+    <!-- 列表功能按钮间隔 -->
+    <dimen name="component_distance">10dp</dimen>
+    <!-- 登录界面编辑框垂直距离 -->
+    <dimen name="land_edit_text_vertical_distance">10dp</dimen>
+    <!-- 标题栏高度 -->
+    <dimen name="the_title_height">33dip</dimen>
+    <!-- 标题栏字体大小 -->
+    <dimen name="the_title_text_size">12sp</dimen>
+</resources>

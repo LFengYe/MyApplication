@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_info_bubble"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/carNO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#ff000000"
+            android:textSize="14dp"
+            android:text="车牌号"
+            android:textStyle="bold" />
+        <!-- 线 -->
+    	<LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="1dip"
+	        android:background="#FF0000" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#ff7f7f7f"
+            android:text="车辆状态"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#ff7f7f7f"
+            android:text="时间"
+            android:textSize="13dp" />
+        
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textColor="#ff7f7f7f"
+            android:text="g广东省广州市天河区中山路棠下250号"
+            android:textSize="13dp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 备货管理子功能列表 -->
+    <string-array name="stocking_plan_list">
+        <item >一工厂备货计划</item>
+        <item >二工厂备货计划</item>
+        <item >三工厂备货计划</item>
+    </string-array>
+    <!-- 领货管理子功能列表 -->
+    <string-array name="picking_plan_list">
+        <item >一工厂领货计划</item>
+        <item >二工厂领货计划</item>
+        <item >三工厂领货计划</item>
+    </string-array>
+    <!-- 配送管理子功能列表 -->
+    <string-array name="distribution_plan_list">
+        <item >一工厂配送计划</item>
+        <item >二工厂配送计划</item>
+        <item >三工厂配送计划</item>
+    </string-array>
+    <!-- 领料及退货子功能列表 -->
+    <string-array name="pick_return_list">
+        <item >非生产领料</item>
+        <item >部品退货</item>
+        <item >送检出库</item>
+        <item >送检返还</item>
+        <item >返修出库</item>
+        <item >返修入库</item>
+        <item >部品退库</item>
+    </string-array>
+    <!-- 库存管理子功能列表 -->
+    <string-array name="stock_manager_list">
+        <item >报检信息查询</item>
+        <item >部品库存查询</item>
+        <item >库存报警信息</item>
+        <item >出库计划完成情况</item>
+        <item >出库分录报表</item>
+        <item >入库分录报表</item>
+        <item >退货分录报表</item>
+        <item >入库明细报表</item>
+    </string-array>
+    <!-- 交接单子功能列表 -->
+    <string-array name="delivery_receipt_list">
+        <item >全部交接单</item>
+        <item >未传回</item>
+        <item >已传回</item>
+    </string-array>
+    <!-- 交接单表头 -->
+    <string-array name="delivery_receipt_list_table_header">
+        <item >序号</item>
+        <item >班次</item>
+        <item >单据发出时间</item>
+        <item >发出单据号</item>
+        <item >回传单据号</item>
+        <item >录入人</item>
+        <item >发出单备注</item>
+        <item >传回单备注</item>
+    </string-array>
+    <!-- 系统设置子功能列表 -->
+    <string-array name="system_setting_list">
+        <item >用户管理</item>
+        <item >系统参数设置</item>
+    </string-array>
+    
+    <!-- 备货管理计划单、领货管理计划单、配送管理计划单表头 -->
+    <string-array name="stock_plan_list_table_header">
+        <item >计划类型</item>
+        <!-- <item >计划单号</item> -->
+        <item >计划需求日期</item>
+        <item >终端客户</item>
+        <item >备货人员</item>
+        <item >计划员</item>
+        <item >备注</item>
+        <item >计划下达日期</item>
+        <item >计划单号</item>
+        <item >完成</item>
+    </string-array>
+    
+    <!-- 备货管理计划明细表头 -->
+    <string name="plan_odd_num">计划单号:</string>
+    <string name="plan_type">计划类型:</string>
+    <string-array name="stock_plan_detail_table_header">
+        <item >供应商代码</item>
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >单位</item>
+        <item >计划数量</item>
+        <item >备货数量</item>
+        <item >剩余数量</item>
+        <item >备注</item>
+        <item >包装盛具</item>
+        <item >盛具需求</item>
+        <item >车型</item>
+        <item >部品批次</item>
+        <item >存放地址</item>
+        <!--
+        <item >换装数量</> 
+         -->
+    </string-array>
+    
+    <!-- 领货管理计划明细表头 -->
+    <string-array name="pick_plan_detail_table_header">
+        <!-- <item >备货完成时间</item> -->
+        <item >供应商代码</item>
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >单位</item>
+        <item >计划数量</item>
+        <item >备货数量</item>
+        <item >领取数量</item>
+        <item >剩余数量</item>
+        <item >备注</item>
+        <item >包装盛具</item>
+        <item >盛具需求</item>
+        <item >车型</item>
+        <item >部品批次</item>
+        <item >存放地址</item>
+    </string-array>
+    
+    <!-- 配送管理计划明细表头 -->
+    <string-array name="distribution_plan_detail_table_header">
+        <item >供应商代码</item>
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >单位</item>
+        <item >计划数量</item>
+        <item >领取数量</item>
+        <item >配送数量</item>
+        <item >剩余数量</item>
+        <item >备注</item>
+        <item >包装盛具</item>
+        <item >盛具需求</item>
+        <item >车型</item>
+        <item >部品批次</item>
+        <item >配送地址</item>
+    </string-array>
+    
+    <!-- 非生产领料计划单表头 -->
+    <string-array name="non_pro_pick_list_table_header">
+        <item >计划下达时间</item>
+        <item >计划类型</item>
+        <item >计划单号</item>
+        <item >领料人</item>
+        <item >备货人员</item>
+        <item >计划员</item>
+        <item >备注</item>
+        <item >完成</item>
+    </string-array>
+    
+    <!-- 非生产领料计划明细表头 -->
+    <string-array name="non_pro_pick_detail_table_header">
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >部品批次</item>
+        <item >车型</item>
+        <item >单位</item>
+        <item >数量</item>
+        <item >发料人</item>
+        <item >发料时间</item>
+        <item >备注</item>
+    </string-array>
+    
+    <!-- 部品退货计划单表头 -->
+    <string-array name="return_list_table_header">
+        <item >计划下达时间</item>
+        <item >计划类型</item>
+        <item >计划单号</item>
+        <item >退货人</item>
+        <item >备货人员</item>
+        <item >计划员</item>
+        <item >备注</item>
+        <item >完成</item>
+    </string-array>
+    
+    <!-- 部品退货计划明细表头 -->
+    <string-array name="return_detail_table_header">
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >部品批次</item>
+        <item >单位</item>
+        <item >数量</item>
+        <item >状态</item>
+        <item >发料人</item>
+        <item >发料时间</item>
+        <item >备注</item>
+    </string-array>
+    
+    <!-- 退库、送检、返修计划单表头 -->
+    <string-array name="return_rework_check_list_table_header">
+        <item >日期</item>
+        <item >计划类型</item>
+        <item >计划单号</item>
+        <item >发货人员</item>
+        <item >计划员</item>
+        <item >备注</item>
+        <item >完成</item>
+    </string-array>
+    
+    <!-- 退库、送检、返修计划明细表头 -->
+    <string-array name="return_rework_check_detail_table_header">
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >部品批次</item>
+        <item >单位</item>
+        <item >数量</item>
+        <item >发料人</item>
+        <item >发料时间</item>
+        <item >备注</item>
+    </string-array>
+    
+    <!-- 部品退库计划单表头 -->
+    <string-array name="return_warehouse_list_table_header">
+        <item >日期</item>
+        <item >计划类型</item>
+        <item >计划单号</item>
+        <item >收货人员</item>
+        <item >计划员</item>
+        <item >备注</item>
+        <item >完成</item>
+    </string-array>
+    
+    <!-- 部品退库计划明细表头 -->
+    <string-array name="return_warehouse_detail_table_header">
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >部品批次</item>
+        <item >单位</item>
+        <item >数量</item>
+        <item >状态</item>
+        <item >发料人</item>
+        <item >发料时间</item>
+        <item >备注</item>
+        <!-- <item >部品批次</item> -->
+    </string-array>
+    
+    <!-- 报检信息显示报表表头 -->
+    <!-- <string-array name="inspec_information_display_table_header">
+        <item >检验结论</item>
+        <item >检验完成时间</item>
+        <item >入库时间</item>
+        <item >供应商代码</item>
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >单位</item>
+        <item >入库数量</item>
+        <item >共计箱数</item>
+        <item >入库批次</item>
+        <item >原厂批次</item>
+        <item >检验人员</item>
+        <item >备注</item>
+    </string-array> -->
+    <string-array name="inspec_information_display_table_header">
+        <item >序号</item>
+        <item >入库时间</item>
+        <item >供应商代码</item>
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >单位</item>
+        <item >入库数量</item>
+        <item >入库箱数</item>
+        <item >入库批次</item>
+        <item >原厂批次</item>
+        <item >检验结论</item>
+        <item >检验完成时间</item>
+        <item >检验人员</item>
+        <item >备注</item>
+    </string-array>
+    
+    <!--部品库存信息查询报表表头 -->
+    <string-array name="stock_information_display_table_header">
+        <item >序号</item>
+        <item >供应商代码</item>
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >车型</item>
+        <item >待检品</item>
+        <item >送检品</item>
+        <item >良品</item>
+        <item >不良品</item>
+        <item >返修品</item>
+        <item >合计</item>
+    </string-array>
+    
+    <!-- 库存报警信息报表表头 -->
+    <string-array name="stock_alarm_message_display_table_header">
+        <item >序号</item>
+        <item >供应商代码</item>
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >单位</item>
+        <item >库存上限</item>
+        <item >库存下限</item>
+        <item >库存总量</item>
+        <item >合格库库存</item>
+        <item >库存余量</item>
+        <item >缺件及溢出数</item>
+        <item >备注</item>
+    </string-array>
+    
+    <!-- 出库计划完成情况报表表头 -->
+    <string-array name="outbound_plan_comple_table_header">
+        <item >序号</item>
+        <item >客户</item>
+        <item >计划类型</item>
+        <item >计划需求时间</item>
+        <item >备货人</item>
+        <item >厂家名称</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >单位</item>
+        <item >计划数量</item>
+        <item >备注</item>
+        <item >已备货完成数量</item>
+        <item >未备货数量</item>
+        <item >备货完成时间</item>
+        <item >已发至集配区数量</item>
+        <item >未发至集配区数量</item>
+        <item >领料完成时间</item>
+        <item >已配送上线数量</item>
+        <item >未配送上线数量</item>
+        <item >上线完成时间</item>
+    </string-array>
+    
+    <!-- 出库分录报表表头 -->
+    <string-array name="outbound_detail_record_table_header">
+        <item >序号</item>
+        <item >供应商代码</item>
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >计划出库及领料合计</item>
+        <item >良品返修出库</item>
+        <item >不良品返修出库</item>
+    </string-array>
+    
+    <!-- 入库分录报表表头 -->
+    <string-array name="inbound_detail_record_table_header">
+        <item >序号</item>
+        <item >供应商代码</item>
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >待检入库</item>
+        <item >良品入库</item>
+        <item >不良品入库</item>
+        <item >返修良品入库</item>
+        <item >返修不良品入库</item>
+        <item >送检出库</item>
+        <item >送检退库</item>
+    </string-array>
+    
+    <!-- 退货分录报表表头 -->
+    <string-array name="return_detail_record_table_header">
+        <item >序号</item>
+        <item >供应商代码</item>
+        <item >供应商</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >待检退货</item>
+        <item >良品退货</item>
+        <item >不良品退货</item>
+        <item >返修退货</item>
+        <item >退货合计</item>
+    </string-array>
+    
+    <!-- 入库明细报表表头 -->
+    <string-array name="inbound_detail_table_header">
+        <item >序号</item>
+        <item >日期</item>
+        <item >厂家代码</item>
+        <item >厂家名称</item>
+        <item >部品名称</item>
+        <item >部品件号</item>
+        <item >数量</item>
+        <item >入库批次</item>
+        <item >备注</item>
+    </string-array><!-- 有差异 -->
+    
+</resources>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff">
+
+    <!-- 标题栏和标题 -->
+
+    <RelativeLayout
+        android:id="@+id/title_lear"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@color/title_back">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+            android:gravity="center"
+            android:text="@string/History_title"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <!-- 返回 -->
+
+
+        <ImageButton
+            android:id="@+id/showhistory_backRe"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@null"
+            android:src="@drawable/back4" />
+
+        <!-- 播放速度 -->
+
+        <Button
+            android:id="@+id/showhistory_vehicle"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/alllocation_monitor" />
+    </RelativeLayout>
+
+    <!-- 地图 -->
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/showhistory_baidumap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_lear"
+        android:clickable="true" />
+    <!-- 图层 -->
+
+    <ImageButton
+        android:id="@+id/showhistory_layerButton"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/title_lear"
+        android:layout_gravity="top|right"
+        android:layout_marginRight="5.0dip"
+        android:layout_marginTop="5.0dip"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/alllocation_switchmode"
+        android:visibility="gone" />
+    <!-- 下面的控制区域 -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dip"
+        android:layout_alignParentBottom="true"
+        android:background="#e0171717"
+        android:clickable="false">
+
+        <!-- 进度条 -->
+        <LinearLayout
+            android:id="@+id/showhistoryseekbarlinear"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/showhistory_firsttime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <SeekBar
+                android:id="@+id/showhistory_seekbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="13"
+                android:maxHeight="3dip"
+                android:paddingLeft="8dip"
+                android:paddingRight="8dip"
+                android:thumb="@drawable/showhistory_thumb_small" />
+
+            <TextView
+                android:id="@+id/showhistory_secondtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/showhistory_timeandangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/showhistoryseekbarlinear"
+            android:layout_centerHorizontal="true" />
+        <!-- 播放按钮 -->
+
+        <Button
+            android:id="@+id/showhistory_playandpause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/showhistory_timeandangle"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/showhistory_playandpause_small" />
+        <!-- 快退按钮 -->
+
+        <RelativeLayout
+
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_alignTop="@+id/showhistory_playandpause"
+            android:layout_marginRight="20dip"
+            android:layout_toLeftOf="@+id/showhistory_playandpause">
+
+            <Button
+                android:id="@+id/showhistory_reversebtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/showhistory_reversebtn_small" />
+        </RelativeLayout>
+        <!-- 快进按钮 -->
+
+        <RelativeLayout
+
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_alignTop="@+id/showhistory_playandpause"
+            android:layout_marginLeft="20dip"
+            android:layout_toRightOf="@+id/showhistory_playandpause">
+
+            <Button
+                android:id="@+id/showhistory_speedbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/showhistory_speedbtn_small" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

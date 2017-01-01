@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape4"
+    android:gravity="center"
+    android:padding="10dp"
+    android:textColor="#434343"
+    android:textSize="18sp">
+
+</EditText>

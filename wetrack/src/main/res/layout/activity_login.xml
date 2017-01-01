@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/title_back"
+    android:orientation="vertical">
+    <!-- logo -->
+    <LinearLayout
+        android:id="@+id/image_logolin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/online_system"
+            android:textColor="@android:color/holo_blue_light"
+            android:textStyle="bold"
+            android:textSize="22sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dip"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/login_pic3" />
+    </LinearLayout>
+
+    <!-- 帐号密码 -->
+    <LinearLayout
+        android:id="@+id/linearLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_logolin"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:orientation="horizontal"
+            android:background="@drawable/login_loginbutton">
+
+            <RelativeLayout
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:background="@drawable/login_usernameleft">
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/login_user" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50dip"
+                android:background="@drawable/login_usernameright">
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dip"
+                    android:layout_marginLeft="10dip"
+                    android:background="@null"
+                    android:hint="@string/input_account_number"
+                    android:textColorHint="@android:color/holo_blue_light"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:singleLine="true" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:layout_marginTop="20dip"
+            android:orientation="horizontal"
+            android:background="@drawable/login_loginbutton">
+
+            <RelativeLayout
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:background="@drawable/login_usernameleft">
+
+                <ImageView
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/login_pass" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50dip"
+                android:background="@drawable/login_usernameright">
+
+                <EditText
+                    android:id="@+id/psw"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dip"
+                    android:layout_marginLeft="10dip"
+                    android:background="@null"
+                    android:hint="@string/input_password"
+                    android:textColorHint="@android:color/holo_blue_light"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColor="@android:color/holo_blue_light" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 登录按钮 -->
+    <Button
+        android:id="@+id/dologin"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_below="@id/linearLayout01"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/login_loginbutton"
+        android:text="@string/Login_button"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="18sp" />
+
+    <!-- 记住密码、自动登录 -->
+    <RelativeLayout
+        android:id="@+id/checkbox_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dologin"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingTop="10dip">
+
+        <CheckBox
+            android:id="@+id/savepsw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:button="@null"
+            android:checked="true"
+            android:drawableLeft="@drawable/checkbox_bg"
+            android:paddingTop="5dp"
+            android:text="@string/Login_remember_password"
+            android:textColor="@android:color/holo_blue_light" />
+
+        <CheckBox
+            android:id="@+id/autologin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:button="@null"
+            android:checked="true"
+            android:drawableLeft="@drawable/checkbox_bg"
+            android:paddingTop="5dp"
+            android:text="@string/Login_auto_login"
+            android:textColor="@android:color/holo_blue_light" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/hostSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/checkbox_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:id="@+id/serverChangeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/change_server"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>

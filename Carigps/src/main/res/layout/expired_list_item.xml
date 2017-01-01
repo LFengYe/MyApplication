@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/expired_item_no"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/list_no"
+            android:background="@drawable/textview_shape"
+            android:textColor="@color/word_hei"/>
+
+        <TextView
+            android:id="@+id/expired_item_carNo"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/car_number_n"
+            android:background="@drawable/textview_shape"
+            android:textColor="@color/word_hei"/>
+
+        <TextView
+            android:id="@+id/expired_item_time"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/expire_time"
+            android:background="@drawable/textview_shape"
+            android:textColor="@color/word_hei"/>
+    </LinearLayout>
+</LinearLayout>

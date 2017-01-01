@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffffff" >
+
+
+    <!-- 第一个线性布局 -->
+    <LinearLayout
+        android:layout_alignParentTop="true"
+        android:id="@+id/carinfo_firstlinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dip" 
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/monitor_vehno"
+            android:textSize="15sp"
+            android:textColor="#ff000000" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/carinfo_vefo"
+            android:textSize="15sp"
+            android:textColor="#ff626262" />
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/alllocation_routeinfosmall"
+            android:layout_marginLeft="5dip"
+            />
+    </LinearLayout>
+    <!-- 电话线性布局 -->
+    <LinearLayout
+        android:layout_below="@id/carinfo_firstlinear"
+        android:id="@+id/carinfo_simidlinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/monitor_simid"
+            android:textSize="15sp"
+            android:textColor="#ff000000" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/carinfo_simid"
+            android:textSize="15sp"
+            android:textColor="#ff626262" />
+    </LinearLayout>
+    <!-- 第二个线性布局 -->
+    <LinearLayout
+        android:id="@+id/carinfo_secondlinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/carinfo_simidlinear"
+        android:layout_marginLeft="10dip"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/car_state"
+            android:textColor="#ff000000"
+            android:textSize="15sp" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/carinfo_states"
+            android:textColor="#ff626262"
+            android:textSize="15sp" />
+    </LinearLayout>
+    <!-- 第三个线性布局 -->
+    <LinearLayout
+        android:id="@+id/carinfo_thirdlinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/carinfo_secondlinear"
+        android:layout_marginLeft="10dip"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MapTip_status_direction"
+            android:textColor="#ff000000"
+            android:textSize="15sp" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/carinfo_direction"
+            android:textColor="#ff626262"
+            android:textSize="15sp" />
+    </LinearLayout>
+    <!-- 第四个线性布局 -->
+    <LinearLayout
+        android:id="@+id/carinfo_fourthlinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/carinfo_thirdlinear"
+        android:layout_marginLeft="10dip"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/car_time"
+            android:textColor="#ff000000"
+            android:textSize="15sp" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/carinfo_time"
+            android:textColor="#ff626262"
+            android:textSize="15sp" />
+    </LinearLayout>
+    
+     <!-- 第五个线性布局 -->
+    <LinearLayout
+        android:id="@+id/carinfo_fifthlinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/carinfo_fourthlinear"
+        android:layout_marginLeft="10dip"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/monitor_carlocation"
+            android:textColor="#ff000000"
+            android:textSize="15sp" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/carinfo_carlocation"
+            android:textColor="#ff626262"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</RelativeLayout>
