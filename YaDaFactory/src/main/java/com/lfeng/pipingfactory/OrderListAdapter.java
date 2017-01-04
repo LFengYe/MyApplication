@@ -81,7 +81,7 @@ public class OrderListAdapter extends BaseAdapter {
         holder.productCode.setText(orderInfo.getProductCode());
         holder.productStandard.setText(orderInfo.getProductStandard());
         holder.productPlanNum.setText(orderInfo.getPlanNum() + "");
-        holder.cardNum.setText(orderInfo);
+        //holder.cardNum.setText();
         if (isBtnVisible) {
             holder.itemBtn.setVisibility(View.VISIBLE);
             holder.itemBtn.setText(context.getString(R.string.auto_xiaLiao));
