@@ -30,7 +30,6 @@ public class AutoXiaLiaoSelectActivity extends Activity {
     private OrderListAdapter.ItemBtnClickListener itemBtnClickListener = new OrderListAdapter.ItemBtnClickListener() {
         @Override
         public void itemBtnClick(int orderId) {
-            System.out.println("orderId:" + orderId);
             JSONObject object = new JSONObject();
             object.put("orderId", orderId);
             object.put("xiaLiaoState", 3);

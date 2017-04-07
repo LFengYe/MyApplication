@@ -51,10 +51,10 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout ll_total;
     private TextView tv_title;
     private EditText et_search;
-    private LinearLayout guanShuSelectLayout;
-    private RadioGroup guanShuSelectGroup;
-    private RadioButton guanShuYes;
-    private RadioButton guanShuNo;
+//    private LinearLayout guanShuSelectLayout;
+//    private RadioGroup guanShuSelectGroup;
+//    private RadioButton guanShuYes;
+//    private RadioButton guanShuNo;
 
     private ArrayList<LinearLayout> ll_heads;
     private ArrayList<LinearLayout> ll_contents;
@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
             "{\"fieldName\":\"BcaozuoValue\",\"fieldValue\":\"\",\"viewType\":5,\"fieldType\":3,\"childRowNum\":1,\"textHorizon\":true,\"width\":3}]" +
             "}";
 
+    /*
     private RadioGroup.OnCheckedChangeListener onCheckedChangeListener = new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -112,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,10 +131,10 @@ public class MainActivity extends AppCompatActivity {
         ll_content = (LinearLayout) findViewById(R.id.ll_content);
         ll_total = (LinearLayout) findViewById(R.id.ll_total);
         tv_title = (TextView) findViewById(R.id.tv_title);
-        guanShuYes = (RadioButton) findViewById(R.id.guan_shu_select_yes);
-        guanShuNo = (RadioButton) findViewById(R.id.guan_shu_select_no);
-        guanShuSelectLayout = (LinearLayout) findViewById(R.id.guan_shu_select_layout);
-        guanShuSelectGroup = (RadioGroup) findViewById(R.id.guan_shu_select_group);
+//        guanShuYes = (RadioButton) findViewById(R.id.guan_shu_select_yes);
+//        guanShuNo = (RadioButton) findViewById(R.id.guan_shu_select_no);
+//        guanShuSelectLayout = (LinearLayout) findViewById(R.id.guan_shu_select_layout);
+//        guanShuSelectGroup = (RadioGroup) findViewById(R.id.guan_shu_select_group);
         et_search = (EditText) findViewById(R.id.et_search);
         bt_search = (Button) findViewById(R.id.bt_search);
         bt_finish = (Button) findViewById(R.id.btn_finish);
@@ -157,29 +159,36 @@ public class MainActivity extends AppCompatActivity {
         String head = null;
         String content = null;
         String head_name = null;
-        if (status == 0) {
+        if (status == 0) {//第一个工序
             XlData xlData = JSON.parseObject(loginData, XlData.class);
             head = xlData.getProductLineStructJson();
             content = xlData.getStationStructJson();
             head_name = xlData.getProductLineShort();
             orderId = xlData.getOrderId();
             isGuanShu = xlData.getIsGuanShu();
-            changeViewWithGuanShuState(isGuanShu);
-            bt_search.setText(R.string.history_order);
-            bt_search.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    historyOrderList();
-                }
-            });
-            guanShuSelectLayout.setVisibility(View.VISIBLE);
+            bt_finish.setVisibility(View.GONE);
+            if (isGuanShu == 1) {
+                bt_finish.setVisibility(View.VISIBLE);
+                bt_search.setText(R.string.history_order);
+                bt_search.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        historyOrderList();
+                    }
+                });
+            } else {
+                bt_search.setVisibility(View.GONE);
+            }
+//            changeViewWithGuanShuState(isGuanShu);
+//            guanShuSelectLayout.setVisibility(View.VISIBLE);
             getUserInfo();
-        } else if (status == 1) {
+        } else if (status == 1) {//后续工序
             OtherData otherData = JSON.parseObject(loginData, OtherData.class);
             head = data_head;
             content = otherData.getStationStructJson();
             stationId = otherData.getStationId();
             head_name = otherData.getStationName();
+
             bt_search.setText(R.string.select);
             bt_search.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -187,8 +196,8 @@ public class MainActivity extends AppCompatActivity {
                     select(v);
                 }
             });
-            guanShuSelectLayout.setVisibility(View.GONE);
-        } else if (status == -99) {
+//            guanShuSelectLayout.setVisibility(View.GONE);
+        } else if (status == -99) {//自动下料
             System.out.println("loginData:" + loginData);
             if (loginData != null) {
                 XlData xlData = JSON.parseObject(loginData, XlData.class);
@@ -209,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
                     couldAutoXiaLiaoOrderList();
                 }
             });
-            guanShuSelectLayout.setVisibility(View.GONE);
+//            guanShuSelectLayout.setVisibility(View.GONE);
             getUserInfo();
         }
         confirm_content.put("confirm_content", content);
@@ -238,6 +247,7 @@ public class MainActivity extends AppCompatActivity {
             case ACTIVITY_RESULT_HISTORY_LIST: {
                 if (resultCode == RESULT_OK) {
                     int orderId = data.getIntExtra("orderId", 0);
+                    getOrderInfoWithId(orderId, stationId);
                 }
                 break;
             }
@@ -902,6 +912,8 @@ public class MainActivity extends AppCompatActivity {
 
         JSONObject object = new JSONObject();
         object.put("orderId", orderId);
+        object.put("xiaLiaoState", 1);
+        new UpdateXiaLiaoStateTask().execute(object);
     }
 
     public void select(View v) {
@@ -916,6 +928,17 @@ public class MainActivity extends AppCompatActivity {
         new GetOrderInfoAsyncTask().execute(getOrderInfo);
     }
 
+    public void getOrderInfoWithId(int orderId, int stationId) {
+        if (!NetUtil.checkNetworkConnection(MainActivity.this)) {
+            Toast.makeText(MainActivity.this, R.string.Net_error, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        JSONObject object = new JSONObject();
+        object.put("orderId", orderId);
+        object.put("stationId", stationId);
+        new GetOrderInfoWithIdAsyncTask().execute(object);
+    }
+    /*
     public void switchGuanShuState(int isGuanShu) {
         if (!NetUtil.checkNetworkConnection(MainActivity.this)) {
             Toast.makeText(MainActivity.this, R.string.Net_error, Toast.LENGTH_SHORT).show();
@@ -928,18 +951,19 @@ public class MainActivity extends AppCompatActivity {
         new OrderIsGuanShuTask().execute(guanShuJons);
     }
 
+
     public void changeViewWithGuanShuState(int isGuanShu) {
         guanShuSelectGroup.setOnCheckedChangeListener(null);
         if (isGuanShu == 1) {
             bt_finish.setVisibility(View.VISIBLE);
             guanShuYes.setChecked(true);
         } else if(isGuanShu == 0) {
-//            bt_search.setVisibility(View.GONE);
             bt_finish.setVisibility(View.GONE);
             guanShuNo.setChecked(true);
         }
         guanShuSelectGroup.setOnCheckedChangeListener(onCheckedChangeListener);
     }
+    */
 
     public void getUserInfo() {
         System.out.println("getUserInfo");
@@ -952,6 +976,7 @@ public class MainActivity extends AppCompatActivity {
         new GetUserInfoTask().execute(object);
     }
 
+    /*
     class OrderIsGuanShuTask extends AsyncTask<JSONObject, String, String> {
 
         @Override
@@ -997,10 +1022,11 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(MainActivity.this, selectData.getMessage(), Toast.LENGTH_SHORT).show();
             }
-            changeViewWithGuanShuState(isGuanShu);
+//            changeViewWithGuanShuState(isGuanShu);
 
         }
     }
+    */
 
     class GetOrderInfoAsyncTask extends AsyncTask<JSONObject, String, String> {
         @Override
@@ -1043,6 +1069,65 @@ public class MainActivity extends AppCompatActivity {
                 String head_name = selectData.getData().getProductLineShort();
                 orderId = selectData.getData().getOrderId();
                 isGuanShu = selectData.getData().getIsGuanshu();
+                /*
+                bt_finish.setVisibility(View.GONE);
+                if (isGuanShu == 1) {
+                    bt_finish.setVisibility(View.VISIBLE);
+                }
+                */
+                json = new JSONArray();
+                createView(head, content, head_name);
+            } else {
+                Toast.makeText(MainActivity.this, selectData.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    class GetOrderInfoWithIdAsyncTask extends AsyncTask<JSONObject, String, String> {
+        @Override
+        protected void onPreExecute() {
+            Point size = new Point();
+            MainActivity.this.getWindowManager().getDefaultDisplay().getSize(size);
+            int width = (int) (size.x * 0.25);
+            int height = (int) (size.y * 0.15);
+            String text = "查询数据中...";
+            String type = "Load";
+            dialog = new MyDialog(MainActivity.this, width, height, text, type);
+            dialog.show();
+            super.onPreExecute();
+
+        }
+
+
+        @Override
+        protected String doInBackground(JSONObject... params) {
+            JSONObject jsonObject = params[0];
+            return HttpUtil.httpPost(HttpUtil.defaultHost + HttpUtil.getOrderInfoWithIdURL, jsonObject);
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            dialog.dismiss();
+            super.onPostExecute(s);
+            if (s.isEmpty()) {
+                Toast.makeText(MainActivity.this, R.string.servlet_error, Toast.LENGTH_SHORT).show();
+                return;
+            }
+            SelectData selectData = JSON.parseObject(s, SelectData.class);
+            if (selectData.getStatus() == 0) {
+                Toast.makeText(MainActivity.this, R.string.select_success, Toast.LENGTH_SHORT).show();
+                ll_head.removeAllViews();
+                ll_content.removeAllViews();
+                select_state = true;
+                String head = selectData.getData().getProductLineStructJson();
+                String content = selectData.getData().getStationStructJson();
+                String head_name = selectData.getData().getProductLineShort();
+                orderId = selectData.getData().getOrderId();
+                isGuanShu = selectData.getData().getIsGuanshu();
+                bt_finish.setVisibility(View.GONE);
+                if (isGuanShu == 1) {
+                    bt_finish.setVisibility(View.VISIBLE);
+                }
                 json = new JSONArray();
                 createView(head, content, head_name);
             } else {
@@ -1143,8 +1228,12 @@ public class MainActivity extends AppCompatActivity {
                     content = xlData.getStationStructJson();
                     head_name = xlData.getProductLineShort();
                     orderId = xlData.getOrderId();
-                    isGuanShu = xlData.getIsGuanShu();
-                    changeViewWithGuanShuState(isGuanShu);
+//                    isGuanShu = xlData.getIsGuanShu();
+                    bt_finish.setVisibility(View.GONE);
+                    if (isGuanShu == 1) {
+                        bt_finish.setVisibility(View.VISIBLE);
+                    }
+//                    changeViewWithGuanShuState(isGuanShu);
                 } else {
                     head = data_head;
                     content = confirm_content.get("confirm_content");
@@ -1157,6 +1246,46 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    class UpdateXiaLiaoStateTask extends AsyncTask<JSONObject, String, String> {
+        @Override
+        protected void onPreExecute() {
+            Point size = new Point();
+            MainActivity.this.getWindowManager().getDefaultDisplay().getSize(size);
+            int width = (int) (size.x * 0.25);
+            int height = (int) (size.y * 0.15);
+            String text = "数据更新中...";
+            String type = "Load";
+            dialog = new MyDialog(MainActivity.this, width, height, text, type);
+            dialog.show();
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected String doInBackground(JSONObject... params) {
+            JSONObject jsonObject = params[0];
+            String data = HttpUtil.httpPost(HttpUtil.defaultHost + HttpUtil.updateXiaLiaoStateURL, jsonObject);
+            return data;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            dialog.dismiss();
+            super.onPostExecute(s);
+            if (s.isEmpty()) {
+                Toast.makeText(MainActivity.this, R.string.servlet_error, Toast.LENGTH_SHORT).show();
+                return;
+            }
+            LoginBean loginBean = JSONObject.parseObject(s, LoginBean.class);
+            if (loginBean.getStatus() == 0) {
+                Toast.makeText(MainActivity.this, R.string.select_success, Toast.LENGTH_SHORT).show();
+
+            } else {
+                Toast.makeText(MainActivity.this, loginBean.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     class GetUpdateInfoTask extends AsyncTask<JSONObject, String, String> {
@@ -1174,7 +1303,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, R.string.servlet_error, Toast.LENGTH_SHORT).show();
                 return;
             }
-            System.out.println("json:" + s);
+
             LoginBean data = JSON.parseObject(s, LoginBean.class);
             if (data.getStatus() == 0) {
                 Version version = JSON.parseObject(data.getData(), Version.class);

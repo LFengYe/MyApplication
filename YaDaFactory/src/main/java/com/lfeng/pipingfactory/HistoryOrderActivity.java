@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -47,10 +49,20 @@ public class HistoryOrderActivity extends Activity {
         listView = (ListView) findViewById(R.id.history_order_list);
         adapter = new OrderListAdapter(this, orderList);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                OrderInfo info = orderList.get(position);
+                Intent intent = new Intent();
+                intent.putExtra("orderId", info.getOrderId());
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        });
 
         JSONObject object = new JSONObject();
         object.put("pageIndex", 1);
-        object.put("pageSize", 11);
+        object.put("pageSize", 9999);
         new GetOrderInfoAsyncTask().execute(object);
     }
 

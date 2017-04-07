@@ -20,6 +20,7 @@ public class HttpUtil {
     public static String loginURL = "PipingFactory/AppInterface/login.do";
     public static String inputOrderURL = "PipingFactory/AppInterface/inputOrder.do";
     public static String getOrderInfoURL = "PipingFactory/AppInterface/getOrderInfo.do";
+    public static String getOrderInfoWithIdURL = "PipingFactory/AppInterface/getOrderInfoWithId.do";
     public static String orderIsGuanShuURL = "PipingFactory/AppInterface/orderIsGuanShu.do";
     public static String updateXiaLiaoStateURL = "PipingFactory/AppInterface/updateXiaLiaoState.do";
     public static String getUserInfoURL = "PipingFactory/AppInterface/getUserInfo.do";

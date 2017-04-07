@@ -23,6 +23,7 @@ public class OtherData {
     private String stationName;
     private String stationStructJson;
 
+
     public String getPassword() {
         return password;
     }
