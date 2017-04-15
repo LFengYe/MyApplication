@@ -133,6 +133,15 @@ public class Main extends Activity {
 
 		/* 功能表格布局 */
         initGrid();
+
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                HttpRequestClient.alarmPushTest();
+                HttpRequestClient.noticePushTest();
+            }
+        }.start();
     }
 
     /**

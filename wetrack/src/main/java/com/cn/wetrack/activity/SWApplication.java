@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.multidex.MultiDexApplication;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.cn.wetrack.entity.Account;
 import com.cn.wetrack.entity.Alarm;
 import com.cn.wetrack.entity.Geofence;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import cn.jpush.android.api.JPushInterface;
 
 /**
  * 全局变量
@@ -100,6 +103,8 @@ public class SWApplication extends MultiDexApplication {
 //		/* 全局异常处理 */
 //		CrashHandler crashHandler = CrashHandler.getInstance();
 //		crashHandler.init(getApplicationContext());
+		JPushInterface.setDebugMode(true);
+		JPushInterface.init(this);
 	}
 
 	public void restartApp(){

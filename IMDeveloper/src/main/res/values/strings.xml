@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">爱萌开发者</string>
+    <string name="tab_message">消息</string>
+    <string name="tab_contact">联系人</string>
+    <string name="around">周边</string>
+    <string name="tab_me">我的</string>
+
+    <!-- profile -->
+    <string name="profile_title">详细资料</string>
+    <string name="profile_nickname">昵称</string>
+    <string name="profile_imsdk_cid">爱萌账号</string>
+    <string name="profile_modifypass">修改密码</string>
+    
+    <!-- groupinfo -->
+    <string name="groupinfo_name">群名称</string>
+    <string name="groupinfo_info">群信息</string>
+    <string name="groupinfo_creator">群创建者</string>
+    <string name="groupinfo_size">群聊大小</string>
+    
+    <!-- 顶部actionbar -->
+    <string name="msg_load_ing">加载中....</string>
+    <string name="action_search">搜索</string>
+    <string name="action_plus">功能</string>
+    <string name="action_album">我的相册</string>
+    <string name="action_collection">我的收藏</string>
+    <string name="action_card">我的银行卡</string>
+    <string name="action_settings">设置</string>
+    <string name="action_feed">意见反馈</string>
+    <string name="plus_group_chat">发起群聊</string>
+    <string name="plus_add_friend">添加朋友</string>
+    <string name="plus_video_chat">视频聊天</string>
+    <string name="plus_scan">扫一扫</string>
+    <string name="plus_take_photo">拍照分享</string>
+    <string name="pull_to_refresh_pull_label">Pull to refresh…</string>
+    <string name="pull_to_refresh_release_label">Release to refresh…</string>
+    <string name="pull_to_refresh_refreshing_label">Loading…</string>
+
+    <!-- Just use standard Pull Down String when pulling up. These can be set for languages which require it -->
+    <string name="pull_to_refresh_from_bottom_pull_label">@string/pull_to_refresh_pull_label</string>
+    <string name="pull_to_refresh_from_bottom_release_label">@string/pull_to_refresh_release_label</string>
+    <string name="pull_to_refresh_from_bottom_refreshing_label">@string/pull_to_refresh_refreshing_label</string>
+
+</resources>

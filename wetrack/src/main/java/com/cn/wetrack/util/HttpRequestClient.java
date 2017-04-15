@@ -17,66 +17,69 @@ import com.cn.wetrack.entity.ServiceExpired;
 import com.cn.wetrack.entity.Structure;
 import com.cn.wetrack.entity.Vehicle;
 
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpException;
-import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
-import org.apache.commons.httpclient.NameValuePair;
-import org.apache.commons.httpclient.methods.GetMethod;
-import org.apache.commons.httpclient.methods.PostMethod;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
-
-import java.io.IOException;
-import java.io.InputStream;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
 import java.util.List;
 
-//import android.util.Log;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+
+import cz.msebera.android.httpclient.Consts;
+import cz.msebera.android.httpclient.NameValuePair;
+import cz.msebera.android.httpclient.client.HttpClient;
+import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.conn.scheme.Scheme;
+import cz.msebera.android.httpclient.conn.scheme.SchemeRegistry;
+import cz.msebera.android.httpclient.conn.ssl.SSLSocketFactory;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.impl.client.HttpClientBuilder;
+import cz.msebera.android.httpclient.impl.conn.tsccm.ThreadSafeClientConnManager;
+import cz.msebera.android.httpclient.message.BasicNameValuePair;
+import cz.msebera.android.httpclient.util.EntityUtils;
+
 /**
  * 访问工具类
  */
 public class HttpRequestClient {
 	private static HttpClient client = null;
 	/*默认服务器*/
-	public static String  defaultHost="http://103.6.244.67/";
-	public static String host="http://103.6.244.67/";
+	public static String defaultHost = "https://wetrack.carigps.com/";
+	public static String host = "https://wetrack.carigps.com/";
+	public static String serverList = "https://appen.carigps.com/server.ashx?username=serveradmin&password=dd38eeb126ff3ecca564bbaa4f89c2be&action=getserverlist";
+
 	/* 语言 */
 	public static String systemLang = "zh-cn";
 
 	/** 单例，维持一个session */
 	public static HttpClient getClient() {
-		if (client == null) {
-			client = new HttpClient(new MultiThreadedHttpConnectionManager());
-			client.getHttpConnectionManager().getParams().setConnectionTimeout(60 * 1000);
-			client.getHttpConnectionManager().getParams().setSoTimeout(60 * 1000);
-			client.getParams().setContentCharset("UTF-8");
+		try {
+			if (client == null) {
+				client = HttpClientBuilder.create().build();
+			}
+			return client;
+		} catch (Exception e) {
+
 		}
-		return client;
+		return null;
 	}
 
-	/** 登录 */
-	public static SResponse login(String userName, String password) {
+	public static SResponse alarmPushTest() {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse respense = new SResponse();
-
 		try {
-			post = new PostMethod(host + "APPInterface/Handler.ashx?Method=UserLogin");
-			NameValuePair userNameP = new NameValuePair("userName", userName);
-			NameValuePair passwordP = new NameValuePair("password", password);
-			NameValuePair systemLangP = new NameValuePair("systemLang", systemLang);
-			post.setRequestBody(new NameValuePair[] {userNameP, passwordP,systemLangP });
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "AppInterface/Handler.ashx?Method=AlarmPushTest");
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
+			System.out.println("AlarmPushTest:" + result);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
 				respense.setCode(SProtocol.SUCCESS);
-				/*判断是否为车牌登录(车牌登录没有返回)*/
-				if(map.getString("result")!=null){
-					Account account = JSON.parseObject(map.getString("result"), Account.class);
-					respense.setResult(account);
-				}
+				List<MapPoint> mapPoints = JSON.parseArray(map.getString("result"), MapPoint.class);
+				respense.setResult(mapPoints);
 			} else {
 				respense.setCode(SProtocol.FAIL);
 				respense.setMessage(map.getString("desc"));
@@ -90,17 +93,86 @@ public class HttpRequestClient {
 		return respense;
 	}
 
+	public static SResponse noticePushTest() {
+		HttpClient client = getClient();
+		HttpPost post = null;
+		SResponse respense = new SResponse();
+		try {
+			post = new HttpPost(host + "AppInterface/Handler.ashx?Method=NoticePushTest");
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
+			System.out.println("NoticePushTest:" + result);
+			JSONObject map = JSON.parseObject(result);
+			Boolean res = map.getBoolean("res");
+			if (res) {
+				respense.setCode(SProtocol.SUCCESS);
+				List<MapPoint> mapPoints = JSON.parseArray(map.getString("result"), MapPoint.class);
+				respense.setResult(mapPoints);
+			} else {
+				respense.setCode(SProtocol.FAIL);
+				respense.setMessage(map.getString("desc"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			post.releaseConnection();
+		}
+
+		return respense;
+	}
+
+	/** 登录 */
+	public static SResponse login(String userName, String password) {
+		HttpClient client = getClient();
+		HttpPost post = null;
+		SResponse response = new SResponse();
+
+		try {
+			post = new HttpPost(host + "APPInterface/Handler.ashx?Method=UserLogin");
+			//System.out.println("host:" + host);
+			NameValuePair userNameP = new BasicNameValuePair("userName", userName);
+			NameValuePair passwordP = new BasicNameValuePair("password", password);
+			NameValuePair systemLangP = new BasicNameValuePair("systemLang", systemLang);
+			List<NameValuePair> nameValuePairs = new ArrayList<>();
+			nameValuePairs.add(userNameP);
+			nameValuePairs.add(passwordP);
+			nameValuePairs.add(systemLangP);
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
+
+			JSONObject map = JSON.parseObject(result);
+			Boolean res = map.getBoolean("res");
+			if (res) {
+				response.setCode(SProtocol.SUCCESS);
+				/*判断是否为车牌登录(车牌登录没有返回)*/
+				if(map.getString("result")!=null){
+					Account account = JSON.parseObject(map.getString("result"), Account.class);
+					response.setResult(account);
+				}
+			} else {
+				response.setCode(SProtocol.FAIL);
+				response.setMessage(map.getString("desc"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			post.releaseConnection();
+		}
+
+		return response;
+	}
+
 	/** 获取车队车辆数据 */
 	public static SResponse getVehicleData(String userName) {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse respense = new SResponse();
 		try {
-			post = new PostMethod(host + "APPInterface/Handler.ashx?Method=GetVehicleData");
-			NameValuePair userNameP = new NameValuePair("userName", userName);
-			post.setRequestBody(new NameValuePair[]{userNameP});
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "APPInterface/Handler.ashx?Method=GetVehicleData");
+			NameValuePair userNameP = new BasicNameValuePair("userName", userName);
+			List<NameValuePair> nameValuePairs = new ArrayList<>();
+			nameValuePairs.add(userNameP);
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -123,15 +195,16 @@ public class HttpRequestClient {
 	/** 查询车辆信息 */
 	public static SResponse getVehicleBySystemNo(String systemNo) {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse respense = new SResponse();
 
 		try {
-			post = new PostMethod(host + "APPInterface/Handler.ashx?Method=GetVehicleBySystemNo");
-			NameValuePair systemNoP = new NameValuePair("systemNo", systemNo);
-			post.setRequestBody(new NameValuePair[] { systemNoP });
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "APPInterface/Handler.ashx?Method=GetVehicleBySystemNo");
+			NameValuePair systemNoP = new BasicNameValuePair("systemNo", systemNo);
+			List<NameValuePair> nameValuePairs = new ArrayList<>();
+			nameValuePairs.add(systemNoP);
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -155,18 +228,22 @@ public class HttpRequestClient {
 	public static SResponse getVehicleLocation(String systemNo, String mapType,
                                                String userName, String password) {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse respense = new SResponse();
 
 		try {
-			post = new PostMethod(host + "APPInterface/Handler.ashx?Method=GetVehicleLocation");
-			NameValuePair systemNoP = new NameValuePair("systemNo", systemNo);
-			NameValuePair mapTypeP = new NameValuePair("mapType", mapType);
-            NameValuePair userNameP = new NameValuePair("userName", userName);
-            NameValuePair passwordP = new NameValuePair("password", password);
-            post.setRequestBody(new NameValuePair[] { systemNoP, mapTypeP, userNameP, passwordP });
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "APPInterface/Handler.ashx?Method=GetVehicleLocation");
+			NameValuePair systemNoP = new BasicNameValuePair("systemNo", systemNo);
+			NameValuePair mapTypeP = new BasicNameValuePair("mapType", mapType);
+            NameValuePair userNameP = new BasicNameValuePair("userName", userName);
+            NameValuePair passwordP = new BasicNameValuePair("password", password);
+			List<NameValuePair> nameValuePairs = new ArrayList<>();
+			nameValuePairs.add(userNameP);
+			nameValuePairs.add(passwordP);
+			nameValuePairs.add(systemNoP);
+			nameValuePairs.add(mapTypeP);
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -192,13 +269,13 @@ public class HttpRequestClient {
 	 */
 	public static SResponse getMapPoint() {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse respense = new SResponse();
-
 		try {
-			post = new PostMethod(host + "AppInterface/Handler.ashx?Method=MapPoint");
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "AppInterface/Handler.ashx?Method=MapPoint");
+//			post.setEntity(new UrlEncodedFormEntity(null, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
+			System.out.println("getMapPoint:" + result);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -221,17 +298,20 @@ public class HttpRequestClient {
 	/** 告警信息 */
 	public static SResponse getAlarmList(String userName, String password, String endTime) {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse response = new SResponse();
 		
 		try {
-			post = new PostMethod(host + "APPInterface/Handler.ashx?Method=GetAlarmList");
-            NameValuePair userNameP = new NameValuePair("userName", userName);
-            NameValuePair passwordP = new NameValuePair("password", password);
-			NameValuePair endTimeP = new NameValuePair("eTime", endTime);
-            post.setRequestBody(new NameValuePair[]{userNameP, passwordP, endTimeP});
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "APPInterface/Handler.ashx?Method=GetAlarmList");
+            NameValuePair userNameP = new BasicNameValuePair("userName", userName);
+            NameValuePair passwordP = new BasicNameValuePair("password", password);
+			NameValuePair endTimeP = new BasicNameValuePair("eTime", endTime);
+			List<NameValuePair> nameValuePairs = new ArrayList<>();
+			nameValuePairs.add(userNameP);
+			nameValuePairs.add(passwordP);
+			nameValuePairs.add(endTimeP);
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -253,17 +333,20 @@ public class HttpRequestClient {
 	/** 车辆指令 */
 	public static SResponse vehicleOperational(String systemNo, Integer operate, Integer Value) {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse respense = new SResponse();
 
 		try {
-			post = new PostMethod(host + "APPInterface/Handler.ashx?Method=VehicleOperational");
-			NameValuePair systemNoP = new NameValuePair("systemNo", systemNo);
-			NameValuePair operateP = new NameValuePair("operate", String.valueOf(operate));
-			NameValuePair ValueP = new NameValuePair("Value", String.valueOf(Value));
-			post.setRequestBody(new NameValuePair[]{systemNoP, operateP, ValueP });
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "APPInterface/Handler.ashx?Method=VehicleOperational");
+			NameValuePair systemNoP = new BasicNameValuePair("systemNo", systemNo);
+			NameValuePair operateP = new BasicNameValuePair("operate", String.valueOf(operate));
+			NameValuePair ValueP = new BasicNameValuePair("Value", String.valueOf(Value));
+			List<NameValuePair> nameValuePairs = new ArrayList<>();
+			nameValuePairs.add(systemNoP);
+			nameValuePairs.add(operateP);
+			nameValuePairs.add(ValueP);
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -285,19 +368,24 @@ public class HttpRequestClient {
 	/** 历史数据 */
 	public static SResponse getVehHistoryData(String systemNo, String date, String startTime, String endTime, Integer mapType) {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse respense = new SResponse();
 
 		try {
-			post = new PostMethod(host + "APPInterface/Handler.ashx?Method=GetVehHistoryData");
-			NameValuePair systemNoP = new NameValuePair("systemNo", systemNo);
-			NameValuePair dateP = new NameValuePair("date", date);
-			NameValuePair startTimeP = new NameValuePair("startTime", startTime);
-			NameValuePair endTimeP = new NameValuePair("endTime", endTime);
-			NameValuePair mapTypeP = new NameValuePair("mapType", String.valueOf(mapType));
-			post.setRequestBody(new NameValuePair[] { systemNoP, dateP, startTimeP, endTimeP, mapTypeP });
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "APPInterface/Handler.ashx?Method=GetVehHistoryData");
+			NameValuePair systemNoP = new BasicNameValuePair("systemNo", systemNo);
+			NameValuePair dateP = new BasicNameValuePair("date", date);
+			NameValuePair startTimeP = new BasicNameValuePair("startTime", startTime);
+			NameValuePair endTimeP = new BasicNameValuePair("endTime", endTime);
+			NameValuePair mapTypeP = new BasicNameValuePair("mapType", String.valueOf(mapType));
+			List<NameValuePair> nameValuePairs = new ArrayList<>();
+			nameValuePairs.add(systemNoP);
+			nameValuePairs.add(dateP);
+			nameValuePairs.add(startTimeP);
+			nameValuePairs.add(endTimeP);
+			nameValuePairs.add(mapTypeP);
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -320,17 +408,20 @@ public class HttpRequestClient {
 	/** 今日里程 */
 	public static SResponse vehicleMileage(String systemNo, String startTime, String endTime) {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse response = new SResponse();
 
 		try {
-			post = new PostMethod(host + "APPInterface/Handler.ashx?Method=VehicleMileage");
-			NameValuePair systemNoP = new NameValuePair("SystemNo", systemNo);
-			NameValuePair startTimeP = new NameValuePair("StartTime", startTime);
-			NameValuePair endTimeP = new NameValuePair("EndTime", endTime);
-			post.setRequestBody(new NameValuePair[] { systemNoP, startTimeP, endTimeP });
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "APPInterface/Handler.ashx?Method=VehicleMileage");
+			NameValuePair systemNoP = new BasicNameValuePair("SystemNo", systemNo);
+			NameValuePair startTimeP = new BasicNameValuePair("StartTime", startTime);
+			NameValuePair endTimeP = new BasicNameValuePair("EndTime", endTime);
+			List<NameValuePair> nameValuePairs = new ArrayList<>();
+			nameValuePairs.add(systemNoP);
+			nameValuePairs.add(startTimeP);
+			nameValuePairs.add(endTimeP);
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
 			Log.i("vehicleMileage", result);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
@@ -357,13 +448,13 @@ public class HttpRequestClient {
      */
 	public static SResponse offcialNews() {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse response = new SResponse();
         try {
-            post = new PostMethod(host + "AppInterface/Handler.ashx?Method=OffcialNews");
-            client.executeMethod(post);
-            String result = post.getResponseBodyAsString();
-            JSONObject map = JSON.parseObject(result);
+            post = new HttpPost(host + "AppInterface/Handler.ashx?Method=OffcialNews");
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
+			System.out.println("offcialNews:" + result);
+			JSONObject map = JSON.parseObject(result);
             Boolean res = map.getBoolean("res");
             if (res) {
                 response.setCode(SProtocol.SUCCESS);
@@ -373,9 +464,7 @@ public class HttpRequestClient {
                 response.setCode(SProtocol.FAIL);
                 response.setMessage(map.getString("desc"));
             }
-        } catch (HttpException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             post.releaseConnection();
@@ -386,16 +475,18 @@ public class HttpRequestClient {
 	/** 地址解析 */
 	public static SResponse addressTranslate(Double Longitude, Double Latitude) {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse respense = new SResponse();
 
 		try {
-			post = new PostMethod(host + "APPInterface/Handler.ashx?Method=AddressTranslate");
-			NameValuePair LongitudeP = new NameValuePair("Longitude", String.valueOf(Longitude));
-			NameValuePair LatitudeP = new NameValuePair("Latitude", String.valueOf(Latitude));
-			post.setRequestBody(new NameValuePair[] {LongitudeP, LatitudeP });
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "APPInterface/Handler.ashx?Method=AddressTranslate");
+			NameValuePair LongitudeP = new BasicNameValuePair("Longitude", String.valueOf(Longitude));
+			NameValuePair LatitudeP = new BasicNameValuePair("Latitude", String.valueOf(Latitude));
+			List<NameValuePair> nameValuePairs = new ArrayList<>();
+			nameValuePairs.add(LongitudeP);
+			nameValuePairs.add(LatitudeP);
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -413,44 +504,32 @@ public class HttpRequestClient {
 
 		return respense;
 	}
-	
-	/** 心跳接口 */
-	public static SResponse keepAlive() {
-		HttpClient client = getClient();
-		GetMethod get = null;
-		SResponse respense = new SResponse();
-
-		try {
-			get = new GetMethod(host + "APPInterface/Handler.ashx?Method=SessionHeartbeat");
-			client.executeMethod(get);
-			String result = get.getResponseBodyAsString();
-			JSONObject map = JSON.parseObject(result);
-			Boolean res = map.getBoolean("res");
-			if (res) {
-				respense.setCode(SProtocol.SUCCESS);
-			} else {
-				respense.setCode(SProtocol.FAIL);
-				respense.setMessage(map.getString("desc"));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			get.releaseConnection();
-		}
-
-		return respense;
-	}
 
 	/** 获取服务器列表 */
 	public static SResponse getHostList() {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse response = new SResponse();
 
 		try {
-			post = new PostMethod("http://apps.carigps.com/server.ashx?username=serveradmin&password=dd38eeb126ff3ecca564bbaa4f89c2be&action=getserverlist");
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			SSLContext sslContext = SSLContext.getInstance("TLS");
+			X509TrustManager manager = new X509TrustManager() {
+				public X509Certificate[] getAcceptedIssuers() {
+					return null;
+				}
+				public void checkClientTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {}
+				public void checkServerTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {}
+			};
+			sslContext.init(null, new TrustManager[]{manager}, null);
+			SSLSocketFactory ssf = new SSLSocketFactory(sslContext, SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+			SchemeRegistry registry = new SchemeRegistry();
+			registry.register(new Scheme("https", 443, ssf));
+			ThreadSafeClientConnManager connManager = new ThreadSafeClientConnManager(registry);
+			client = new DefaultHttpClient(connManager, null);
+
+			post = new HttpPost(serverList);
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
+//			System.out.println("getHostList:" + result);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -470,44 +549,24 @@ public class HttpRequestClient {
 		return response;
 	}
 
-	/**获取更新信息*/
-	public static int getVersion() {
-		GetMethod get = null;
-		int result=0;
-		try {
-			get = new GetMethod(defaultHost + "version/android/version.xml");
-			getClient().executeMethod(get);
-			InputStream version = get.getResponseBodyAsStream();
-			SAXBuilder builder = new SAXBuilder(false);
-			Document doc = builder.build(version);
-			Element root = doc.getRootElement();
-			Element versionString = root.getChild("v");
-			result=Integer.parseInt(versionString.getValue());
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			get.releaseConnection();
-		}
-		return result;
-	}
-
 	/**油量查询*/
 	public static SResponse getOilReport(String systemNo, String startTime, String endTime) {
 		HttpClient client = getClient();
-		GetMethod getMethod = null;
+		HttpPost post = null;
 		SResponse response = new SResponse();
 		try {
-			getMethod = new GetMethod(host + "APPInterface/Handler.ashx");
-//			post = new PostMethod(host + "APPInterface/Handler.ashx");
-			NameValuePair methodP = new NameValuePair("Method", "FuelConsumption");
-			NameValuePair systemNoP = new NameValuePair("SystemNo", systemNo);
-			NameValuePair startTimeP = new NameValuePair("StartTime", startTime);
-			NameValuePair endTimeP = new NameValuePair("EndTime", endTime);
-			getMethod.setQueryString(new NameValuePair[]{methodP, systemNoP, startTimeP, endTimeP});
-//			post.setRequestBody(new NameValuePair[] {methodP, systemNoP, startTimeP, endTimeP});
-			client.executeMethod(getMethod);
-			String result = getMethod.getResponseBodyAsString();
-//			Log.i("getOilReport", result);
+			post = new HttpPost(host + "APPInterface/Handler.ashx");
+			NameValuePair methodP = new BasicNameValuePair("Method", "FuelConsumption");
+			NameValuePair systemNoP = new BasicNameValuePair("SystemNo", systemNo);
+			NameValuePair startTimeP = new BasicNameValuePair("StartTime", startTime);
+			NameValuePair endTimeP = new BasicNameValuePair("EndTime", endTime);
+			List<NameValuePair> nameValuePairs = new ArrayList<>();
+			nameValuePairs.add(methodP);
+			nameValuePairs.add(systemNoP);
+			nameValuePairs.add(startTimeP);
+			nameValuePairs.add(endTimeP);
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -521,8 +580,7 @@ public class HttpRequestClient {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			getMethod.releaseConnection();
-//			post.releaseConnection();
+			post.releaseConnection();
 		}
 
 		return response;
@@ -531,16 +589,18 @@ public class HttpRequestClient {
 	/** 意见反馈 */
 	public static SResponse AddFeedback(String FeedbackName,String FeedbackContent) {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse respense = new SResponse();
 
 		try {
-			post = new PostMethod(host + "APPInterface/Handler.ashx?Method=AddFeedback");
-			NameValuePair nameP = new NameValuePair("FeedbackName", FeedbackName);
-			NameValuePair contentP = new NameValuePair("FeedbackContent", FeedbackContent);
-			post.setRequestBody(new NameValuePair[]{nameP, contentP});
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "APPInterface/Handler.ashx?Method=AddFeedback");
+			NameValuePair nameP = new BasicNameValuePair("FeedbackName", FeedbackName);
+			NameValuePair contentP = new BasicNameValuePair("FeedbackContent", FeedbackContent);
+			List<NameValuePair> nameValuePairs = new ArrayList<>();
+			nameValuePairs.add(nameP);
+			nameValuePairs.add(contentP);
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -562,17 +622,20 @@ public class HttpRequestClient {
 	/** 添加电子围栏 */
 	public static SResponse AddFenceInfo(String systemNo,String CenterPoint,String Radius) {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse respense = new SResponse();
 
 		try {
-			post = new PostMethod(host + "APPInterface/Handler.ashx?Method=AddFenceInfo");
-			NameValuePair systemNoP = new NameValuePair("systemNo", systemNo);
-			NameValuePair CenterPointP = new NameValuePair("CenterPoint", CenterPoint);
-			NameValuePair RadiusP = new NameValuePair("Radius", Radius);
-			post.setRequestBody(new NameValuePair[]{systemNoP, CenterPointP, RadiusP});
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "APPInterface/Handler.ashx?Method=AddFenceInfo");
+			NameValuePair systemNoP = new BasicNameValuePair("systemNo", systemNo);
+			NameValuePair CenterPointP = new BasicNameValuePair("CenterPoint", CenterPoint);
+			NameValuePair RadiusP = new BasicNameValuePair("Radius", Radius);
+			List<NameValuePair> nameValuePairs = new ArrayList<>();
+			nameValuePairs.add(systemNoP);
+			nameValuePairs.add(CenterPointP);
+			nameValuePairs.add(RadiusP);
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -597,12 +660,11 @@ public class HttpRequestClient {
 	 */
 	public static SResponse getServerTime() {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse response = new SResponse();
 		try {
-			post = new PostMethod(host + "APPInterface/Handler.ashx?Method=GetSystemTime");
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "APPInterface/Handler.ashx?Method=GetSystemTime");
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -623,15 +685,17 @@ public class HttpRequestClient {
 
 	public static SResponse getServiceExpiredList(String userName, String password) {
 		HttpClient client = getClient();
-		PostMethod post = null;
+		HttpPost post = null;
 		SResponse response = new SResponse();
 		try {
-			post = new PostMethod(host + "AppInterface/Handler.ashx?Method=RunoutVeh");
-			NameValuePair userNameP = new NameValuePair("userName", userName);
-			NameValuePair passwordP = new NameValuePair("password", password);
-			post.setRequestBody(new NameValuePair[] {userNameP, passwordP });
-			client.executeMethod(post);
-			String result = post.getResponseBodyAsString();
+			post = new HttpPost(host + "AppInterface/Handler.ashx?Method=RunoutVeh");
+			NameValuePair userNameP = new BasicNameValuePair("userName", userName);
+			NameValuePair passwordP = new BasicNameValuePair("password", password);
+			List<NameValuePair> nameValuePairs = new ArrayList<>();
+			nameValuePairs.add(userNameP);
+			nameValuePairs.add(passwordP);
+			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, Consts.UTF_8));
+			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
 			JSONObject map = JSON.parseObject(result);
 			Boolean res = map.getBoolean("res");
 			if (res) {
@@ -650,4 +714,6 @@ public class HttpRequestClient {
 
 		return response;
 	}
+
+
 }

@@ -1,0 +1,148 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="lfeng.com.imdeveloper">
+
+    <!-- 允许程序打开网络套接字权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 保持屏幕常亮所需权限 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- 读取手机联系人信息所需权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- 向SD卡写入文件所需权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- 读取SD卡状态所需权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 读取或更改系统设置 所需权限 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <!-- 手机震动所需权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- 创建和删除文件所需权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 查询网络状态的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 调用系统窗口所需权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 允许一个程序获取信息有关当前或最近运行的任务，一个缩略的任务状态，是否活动等等 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!-- 用户定位所需权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <!-- 相机的权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 允许程序修改全局音频设置 比如说：存储位置 -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- 录制语音权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"
+        android:anyDensity="true" />
+
+    <application
+        android:name="lfeng.com.imdeveloper.app.IMApplication"
+        android:allowBackup="true"
+        android:largeHeap="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!-- <activity
+            android:name="imsdk.activity.CSChatActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="imsdk" />
+            </intent-filter>
+        </activity> -->
+
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.MainActivity"
+            android:logo="@drawable/logo"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.WelcomeActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.IMChatActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.shop.IMMerchantChatActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.IMGroupChatActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.PasswordModifyActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.MyProfileActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.ModifyPasswordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.SignActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.ChoosePhotoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.AddContactActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.MyGroupsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.shop.MyMerchantActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.GroupInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="lfeng.com.imdeveloper.ui.activity.GroupSearchMemberActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

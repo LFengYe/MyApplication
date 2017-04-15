@@ -45,8 +45,12 @@ import com.cn.wetrack.widgets.CustomProgressDialog;
 import com.cn.wetrack.widgets.Myscrollview;
 
 import java.util.List;
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 
 /**
  * 登录
@@ -87,6 +91,7 @@ public class Login extends Activity implements OnClickListener {
     private List<Alarm> alarms;
     Configuration config;
 
+    //region 服务器列表滚动选择处理
     private Handler myhandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -157,6 +162,7 @@ public class Login extends Activity implements OnClickListener {
             }
         }
     };
+    //endregion
 
     private Handler Testtimehandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -195,7 +201,8 @@ public class Login extends Activity implements OnClickListener {
                 /* 记录到本地 */
                 glob.sp.edit().putString("hostName", hosts.get(ColorPosition).getName()).commit();
                 glob.sp.edit().putString("hostEnName", hosts.get(ColorPosition).getEnname()).commit();
-                glob.sp.edit().putString("host", "http://" + hosts.get(ColorPosition).getIp() + ":" + hosts.get(ColorPosition).getPort() + "/").commit();
+                String portStr = (hosts.get(ColorPosition).getPort() == null) ? ("") : (":" + hosts.get(ColorPosition).getPort());
+                glob.sp.edit().putString("host", hosts.get(ColorPosition).getIp() + portStr + "/").commit();
 				/*改变显示*/
                 //hostText.setText(hosts.get(position).getName());
 				/*切换地址*/
@@ -260,47 +267,6 @@ public class Login extends Activity implements OnClickListener {
             glob.switchAutoLogin = true;
         }
 
-        /*
-        changeServer = (TextView) findViewById(R.id.change_server);
-        changeServer.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LayoutInflater inflater = LayoutInflater.from(Login.this);
-                View dialogView = inflater.inflate(R.layout.dialog_server_input, null);
-                serverAddress = (EditText) dialogView.findViewById(R.id.server_address);
-                serverPort = (EditText) dialogView.findViewById(R.id.server_port);
-
-                AlertDialog dialog = new Builder(Login.this)
-                        .setTitle(R.string.change_server_title)
-                        .setView(dialogView)
-                        .setNegativeButton(R.string.btn_title_cancel, null)
-                        .setPositiveButton(R.string.btn_title_ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                if (TextUtils.isEmpty(serverAddress.getText())) {
-                                    Toast.makeText(Login.this, R.string.server_address_nonull, Toast.LENGTH_LONG).show();
-                                    return;
-                                }
-                                if (TextUtils.isEmpty(serverPort.getText())) {
-                                    Toast.makeText(Login.this, R.string.server_port_nonull, Toast.LENGTH_LONG).show();
-                                    return;
-                                }
-                                String host = "http://" + serverAddress.getText() + ":" + serverPort.getText() + "/";
-                                HttpRequestClient.host = host;
-                                glob.sp.edit().putString("host", host);
-                            }
-                        })
-                        .create();
-
-                Window window = dialog.getWindow();
-                WindowManager.LayoutParams lp = window.getAttributes();
-                lp.alpha = 0.9f;
-                window.setAttributes(lp);
-                dialog.show();
-            }
-        });
-        */
-
 		/*服务器切换*/
         hostSwitch = (LinearLayout) findViewById(R.id.hostSwitch);
         hostSwitch.setOnClickListener(new OnClickListener() {
@@ -339,6 +305,18 @@ public class Login extends Activity implements OnClickListener {
                     case 0: {
                         String msg = b.getString("msg");
                         if (msg == null) {
+
+                            /**
+                             * 登录成功, 设置极光推送标签和别名
+                             */
+                            JPushInterface.setAliasAndTags(getApplicationContext(), userName.getText().toString(), null, new TagAliasCallback() {
+                                @Override
+                                public void gotResult(int status, String alias, Set<String> tags) {
+                                    System.out.println("alias:" + alias);
+                                    System.out.println("status:" + status);
+                                }
+                            });
+
                             Intent intent = new Intent(Login.this, Main.class);
                             startActivity(intent);
                             finish();
@@ -443,6 +421,18 @@ public class Login extends Activity implements OnClickListener {
         return super.onTouchEvent(event);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
+    }
+
     protected void onDestroy() {
         super.onDestroy();
     }
@@ -460,11 +450,10 @@ public class Login extends Activity implements OnClickListener {
                     case 0: {
                         String msg = b.getString("msg");
                         if (msg == null && hosts != null && hosts.size() > 0) {
-//                            String host = glob.sp.getString("host", HttpRequestClient.defaultHost);
                             if (hostNames == null) {
                                 hostNames = new String[hosts.size()];
                                 for (int i = 0; i < hosts.size(); i++) {
-                                    System.out.println("lan:" + config.locale.getLanguage());
+                                    //System.out.println("lan:" + config.locale.getLanguage());
                                     if (config.locale.getLanguage().contains("zh")) {
                                         hostNames[i] = hosts.get(i).getName();
                                     } else {
