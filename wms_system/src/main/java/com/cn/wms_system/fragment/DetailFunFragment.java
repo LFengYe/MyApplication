@@ -107,7 +107,6 @@ public class DetailFunFragment extends Fragment {
 	 * 获取对象单例，在Fragment重绘时（如屏幕翻转）保存参数
 	 * @param titles
 	 * @param images
-	 * @param updateNums
 	 * @param onItemClickListener
 	 * @return
 	 */
@@ -167,7 +166,7 @@ public class DetailFunFragment extends Fragment {
 	
 	@Override
 	public void onResume() {
-		downloadData();
+		//downloadData();
 		super.onResume();
 	}
 	

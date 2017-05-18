@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">表格</string>
+    <string name="default_cell">日期 [%1$d:%2$d]</string>
+    <string name="default_header">表头 %1$d</string>
+    <string name="sortable_indicator_content_description">可排序</string>
+</resources>

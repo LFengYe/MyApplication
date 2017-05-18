@@ -103,8 +103,9 @@ public class SWApplication extends MultiDexApplication {
 //		/* 全局异常处理 */
 //		CrashHandler crashHandler = CrashHandler.getInstance();
 //		crashHandler.init(getApplicationContext());
-		JPushInterface.setDebugMode(true);
+		JPushInterface.setDebugMode(false);
 		JPushInterface.init(this);
+		JPushInterface.requestPermission(getApplicationContext());
 	}
 
 	public void restartApp(){

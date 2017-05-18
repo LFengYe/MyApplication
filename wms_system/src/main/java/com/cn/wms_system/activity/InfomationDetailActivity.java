@@ -263,7 +263,7 @@ public class InfomationDetailActivity extends Activity {
 		}
 		
 		//设置tableView各属性
-		data = new ArrayList<String[]>();
+		data = new ArrayList<>();
 		tableView = new TableView(getApplicationContext(), titleValue, data, false);
 		tableView.setTitleTextSize(textSize);
 		tableView.setContentTextSize(textSize);

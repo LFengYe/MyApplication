@@ -40,7 +40,7 @@
             android:theme="@style/XTheme" >
         </activity>
         <activity
-            android:name="com.cn.wms_system.activity.InfomationListActivity"
+            android:name="com.cn.wms_system.activity.ListActivity"
             android:screenOrientation="sensorLandscape"
             android:theme="@style/XTheme"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" >

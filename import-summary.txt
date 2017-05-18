@@ -7,8 +7,8 @@ The following files were *not* copied into the new Gradle project; you
 should evaluate whether these are still needed in your project and if
 so manually move them:
 
-* Readme.txt
-* demokey.keystore
+* .gitignore
+* ic_launcher-web.png
 * proguard-project.txt
 
 Replaced Jars with Dependencies:
@@ -21,55 +21,56 @@ the .jar file in your project was of an older version than the
 dependency we picked, which could render the project not compileable.
 You can disable the jar replacement in the import wizard and try again:
 
-android-support-v4.jar => com.android.support:support-v4:18.0.0
+android-support-v4.jar => com.android.support:support-v4:19.+
+gson-2.2.4.jar => com.google.code.gson:gson:2.2.4
+
+Potentially Missing Dependency:
+-------------------------------
+When we replaced the following .jar files with a Gradle dependency, we
+inferred the dependency version number from the filename. This
+specific version may not actually be available from the repository.
+If you get a build error stating that the dependency is missing, edit
+the version number to for example "+" to pick up the latest version
+instead. (This may require you to update your code if the library APIs
+have changed.)
+
+gson-2.2.4.jar => version 2.2.4 in com.google.code.gson:gson:2.2.4
 
 Moved Files:
 ------------
 Android Gradle projects use a different directory structure than ADT
 Eclipse projects. Here's how the projects were restructured:
 
-* AndroidManifest.xml => SmartHousehold\src\main\AndroidManifest.xml
-* assets\ => SmartHousehold\src\main\assets
-* libs\armeabi\libBaiduMapSDK_v3_5_0_31.so => SmartHousehold\src\main\jniLibs\armeabi\libBaiduMapSDK_v3_5_0_31.so
-* libs\baidumapapi_v3_5_0.jar => SmartHousehold\libs\baidumapapi_v3_5_0.jar
-* libs\mframework.jar => SmartHousehold\libs\mframework.jar
-* libs\myview.jar => SmartHousehold\libs\myview.jar
-* libs\ShareSDK-Core-2.3.1.jar => SmartHousehold\libs\ShareSDK-Core-2.3.1.jar
-* libs\ShareSDK-Douban-2.3.1.jar => SmartHousehold\libs\ShareSDK-Douban-2.3.1.jar
-* libs\ShareSDK-Dropbox-2.3.1.jar => SmartHousehold\libs\ShareSDK-Dropbox-2.3.1.jar
-* libs\ShareSDK-Email-2.3.1.jar => SmartHousehold\libs\ShareSDK-Email-2.3.1.jar
-* libs\ShareSDK-Evernote-2.3.1.jar => SmartHousehold\libs\ShareSDK-Evernote-2.3.1.jar
-* libs\ShareSDK-Facebook-2.3.1.jar => SmartHousehold\libs\ShareSDK-Facebook-2.3.1.jar
-* libs\ShareSDK-Flickr-2.3.1.jar => SmartHousehold\libs\ShareSDK-Flickr-2.3.1.jar
-* libs\ShareSDK-Foursquare-2.3.1.jar => SmartHousehold\libs\ShareSDK-Foursquare-2.3.1.jar
-* libs\ShareSDK-GooglePlus-2.3.1.jar => SmartHousehold\libs\ShareSDK-GooglePlus-2.3.1.jar
-* libs\ShareSDK-Instagram-2.3.1.jar => SmartHousehold\libs\ShareSDK-Instagram-2.3.1.jar
-* libs\ShareSDK-KaiXin-2.3.1.jar => SmartHousehold\libs\ShareSDK-KaiXin-2.3.1.jar
-* libs\ShareSDK-Linkedin-2.3.1.jar => SmartHousehold\libs\ShareSDK-Linkedin-2.3.1.jar
-* libs\ShareSDK-NetEaseMicroBlog-2.3.1.jar => SmartHousehold\libs\ShareSDK-NetEaseMicroBlog-2.3.1.jar
-* libs\ShareSDK-Pinterest-2.3.1.jar => SmartHousehold\libs\ShareSDK-Pinterest-2.3.1.jar
-* libs\ShareSDK-QQ-2.3.1.jar => SmartHousehold\libs\ShareSDK-QQ-2.3.1.jar
-* libs\ShareSDK-QZone-2.3.1.jar => SmartHousehold\libs\ShareSDK-QZone-2.3.1.jar
-* libs\ShareSDK-Renren-2.3.1.jar => SmartHousehold\libs\ShareSDK-Renren-2.3.1.jar
-* libs\ShareSDK-ShortMessage-2.3.1.jar => SmartHousehold\libs\ShareSDK-ShortMessage-2.3.1.jar
-* libs\ShareSDK-SinaWeibo-2.3.1.jar => SmartHousehold\libs\ShareSDK-SinaWeibo-2.3.1.jar
-* libs\ShareSDK-SohuSuishenkan-2.3.1.jar => SmartHousehold\libs\ShareSDK-SohuSuishenkan-2.3.1.jar
-* libs\ShareSDK-SouhuMicroBlog-2.3.1.jar => SmartHousehold\libs\ShareSDK-SouhuMicroBlog-2.3.1.jar
-* libs\ShareSDK-TencentWeibo-2.3.1.jar => SmartHousehold\libs\ShareSDK-TencentWeibo-2.3.1.jar
-* libs\ShareSDK-Tumblr-2.3.1.jar => SmartHousehold\libs\ShareSDK-Tumblr-2.3.1.jar
-* libs\ShareSDK-Twitter-2.3.1.jar => SmartHousehold\libs\ShareSDK-Twitter-2.3.1.jar
-* libs\ShareSDK-VKontakte-2.3.1.jar => SmartHousehold\libs\ShareSDK-VKontakte-2.3.1.jar
-* libs\ShareSDK-Wechat-2.3.1.jar => SmartHousehold\libs\ShareSDK-Wechat-2.3.1.jar
-* libs\ShareSDK-Wechat-Core-2.3.1.jar => SmartHousehold\libs\ShareSDK-Wechat-Core-2.3.1.jar
-* libs\ShareSDK-Wechat-Favorite-2.3.1.jar => SmartHousehold\libs\ShareSDK-Wechat-Favorite-2.3.1.jar
-* libs\ShareSDK-Wechat-Moments-2.3.1.jar => SmartHousehold\libs\ShareSDK-Wechat-Moments-2.3.1.jar
-* libs\ShareSDK-Yixin-2.3.1.jar => SmartHousehold\libs\ShareSDK-Yixin-2.3.1.jar
-* libs\ShareSDK-Yixin-Core-2.3.1.jar => SmartHousehold\libs\ShareSDK-Yixin-Core-2.3.1.jar
-* libs\ShareSDK-Yixin-Moments-2.3.1.jar => SmartHousehold\libs\ShareSDK-Yixin-Moments-2.3.1.jar
-* libs\ShareSDK-YouDao-2.3.1.jar => SmartHousehold\libs\ShareSDK-YouDao-2.3.1.jar
-* lint.xml => SmartHousehold\lint.xml
-* res\ => SmartHousehold\src\main\res\
-* src\ => SmartHousehold\src\main\java\
+* AndroidManifest.xml => iMDeveloper_github\src\main\AndroidManifest.xml
+* assets\ => iMDeveloper_github\src\main\assets\
+* libs\android-async-http-1.4.8.jar => iMDeveloper_github\libs\android-async-http-1.4.8.jar
+* libs\arm64-v8a\libimsdk.so => iMDeveloper_github\src\main\jniLibs\arm64-v8a\libimsdk.so
+* libs\armeabi-v7a\libimsdk.so => iMDeveloper_github\src\main\jniLibs\armeabi-v7a\libimsdk.so
+* libs\armeabi\libimsdk.so => iMDeveloper_github\src\main\jniLibs\armeabi\libimsdk.so
+* libs\IMSDK_1.3.9.jar => iMDeveloper_github\libs\IMSDK_1.3.9.jar
+* libs\mips64\libimsdk.so => iMDeveloper_github\src\main\jniLibs\mips64\libimsdk.so
+* libs\mips\libimsdk.so => iMDeveloper_github\src\main\jniLibs\mips\libimsdk.so
+* libs\nineoldandroids-2.4.0.jar => iMDeveloper_github\libs\nineoldandroids-2.4.0.jar
+* libs\universal-image-loader-1.9.3-with-sources.jar => iMDeveloper_github\libs\universal-image-loader-1.9.3-with-sources.jar
+* libs\x86\libimsdk.so => iMDeveloper_github\src\main\jniLibs\x86\libimsdk.so
+* libs\x86_64\libimsdk.so => iMDeveloper_github\src\main\jniLibs\x86_64\libimsdk.so
+* res\ => iMDeveloper_github\src\main\res\
+* src\ => iMDeveloper_github\src\main\java\
+* show_head_toast_bg.9.PNG => show_head_toast_bg.9.png
+
+Missing Android Support Repository:
+-----------------------------------
+Some useful libraries, such as the Android Support Library, are
+installed from a special Maven repository, which should be installed
+via the SDK manager.
+
+It looks like this library is missing from your SDK installation at:
+null
+
+To install it, open the SDK manager, and in the Extras category,
+select "Android Support Repository". You may also want to install the
+"Google Repository" if you want to use libraries like Google Play
+Services.
 
 Next Steps:
 -----------

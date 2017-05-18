@@ -1,0 +1,210 @@
+[
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\grid_item.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\grid_item.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\im_emotion_pager_classical_item.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\im_emotion_pager_classical_item.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_modify_password.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_modify_password.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_searchandmakegroup.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_searchandmakegroup.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_loading.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\dialog_loading.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_addcontact.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_addcontact.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\alert_dialog.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\alert_dialog.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\item_sort_contact.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\item_sort_contact.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\item_user.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\item_user.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\pull_to_refresh_header_vertical.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\pull_to_refresh_header_vertical.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_choosephoto.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_choosephoto.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_gender.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\dialog_gender.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\city_picker.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\city_picker.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_sign.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_sign.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\item_tab.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\item_tab.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\tt_chatview_item_custom_view_2.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\tt_chatview_item_custom_view_2.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_group_search_member.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_group_search_member.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_profile.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\im_chatview_image.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\im_chatview_image.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_nickname.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\dialog_nickname.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\view_tips.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\view_tips.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\tt_chatview_item_custom_view.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\tt_chatview_item_custom_view.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\layout_line.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\layout_line.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_region.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\dialog_region.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\notify_status_bar_latest_event_content_large_icon.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\notify_status_bar_latest_event_content_large_icon.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_contacts_list_head.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_contacts_list_head.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_search_merchant.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_search_merchant.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_welcome.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_welcome.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_groupinfo.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_groupinfo.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\item_group.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\item_group.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\notify_status_bar_latest_event_view.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\notify_status_bar_latest_event_view.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_contacts.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\fragment_contacts.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_messages.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\fragment_messages.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_mine.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\fragment_mine.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\view_tips_loading.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\view_tips_loading.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_yonghu_modifypassword.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_yonghu_modifypassword.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\list_dir.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\list_dir.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_yonghu_zhuce.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_yonghu_zhuce.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_myprofile.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_myprofile.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\list_dir_item.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\list_dir_item.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\imbase_titlebar.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\imbase_titlebar.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\im_voice_rcd_dialog.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\im_voice_rcd_dialog.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\item_merchant.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\item_merchant.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\pull_to_refresh_header_horizontal.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\pull_to_refresh_header_horizontal.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\im_custom_imagebutton.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\im_custom_imagebutton.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_around.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\fragment_around.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\item_groupinfo_user.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\item_groupinfo_user.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\im_chatview.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\im_chatview.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\custom_radio_button.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\custom_radio_button.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\layout\\im_chatview_item_chatting.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\layout\\im_chatview_item_chatting.xml"
+    }
+]

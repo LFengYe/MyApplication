@@ -47,6 +47,7 @@
     <string name="server_setting">参数设置</string>
     <string name="land_button">登录</string>
     <string name="exit_button">退出</string>
+    <string name="username_password_empty">用户名或密码不能为空!</string>
 
     <!-- 密码修改界面 -->
     <string name="modity_password">修改登录密码</string>
@@ -103,5 +104,10 @@
     <string name="distribution_num">本次配送数量:</string>
     <string name="confirm_num">数     量:</string>
     <string name="is_confirm_info">是否确认此部品信息！</string>
+
+    <string name="response_empty">服务器返回数据为空!</string>
+    <string name="response_error">网络请求出错!</string>
+    <string name="response_unLogin">未登录!</string>
+    <string name="response_unformat">数据格式错误!</string>
 
 </resources>

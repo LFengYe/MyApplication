@@ -1,5 +1,6 @@
 package com.cn.wms_system.activity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.ComponentName;
@@ -7,11 +8,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -19,9 +22,11 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.cn.wms_system.R;
 import com.cn.wms_system.component.Constants;
 import com.cn.wms_system.component.GetNowTime;
@@ -31,34 +36,34 @@ import com.cn.wms_system.fragment.DetailFunFragment;
 import com.cn.wms_system.fragment.MainInterface;
 import com.cn.wms_system.service.BootBroadcastReceiver;
 
-import java.util.ArrayList;
-
 public class MainFragment extends FragmentActivity {
 
 	private BootBroadcastReceiver receiver;
 	private TitleViewHolder titleHolder;
-	private ArrayList<String> authorityIDList;
+	private JSONArray authorityIDList;
 	private String authorityID;
 	private String[] titles;
 	private Bundle bundle;
 
 	private int selectedFunIndex = 0;
+	private static final int REQUEST_CODE = 1;
 
 	private OnItemClickListener onItemClickListener = new OnItemClickListener() {
 
 		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position,
-				long id) {
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			authorityID = String.valueOf(8000 + 10 * selectedFunIndex + position + 1);
-			
+
 			if (null != authorityIDList && authorityIDList.contains(authorityID)) {//判断当前点击功能是否包含在用户权限列表中
 				bundle.putString("title", titles[position]);
 				bundle.putInt("selected_fun_index", selectedFunIndex);
+				//bundle.putString("selected_fun_index_name", );
+
 				bundle.putInt("selected_child_fun_item", position);
 				Intent intent = new Intent();
 				
 				if (selectedFunIndex <= 5 || selectedFunIndex == 7)//进入数据列表
-					intent.setClass(getApplicationContext(), InfomationListActivity.class);
+					intent.setClass(getApplicationContext(), ListActivity.class);
 				
 				if (selectedFunIndex == 6) {
 					if (position == 0) {//修改密码
@@ -73,12 +78,29 @@ public class MainFragment extends FragmentActivity {
 				intent.putExtras(bundle);
 				startActivity(intent);
 			} else {
-				Builder builder = new Builder(getBaseContext())
-						.setTitle(R.string.no_primission_title)
-						.setMessage(R.string.no_primission_message);
-				Dialog dialog = builder.create();
-				dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-				dialog.show();
+				//System.out.println("authorityID:" + authorityID);
+				if (Build.VERSION.SDK_INT >= 23) {
+					if(!Settings.canDrawOverlays(getApplicationContext())) {
+						Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+						intent.setData(Uri.parse("package:" + getPackageName()));
+						startActivityForResult(intent, REQUEST_CODE);
+						//return;
+					} else {
+						Builder builder = new Builder(getBaseContext())
+								.setTitle(R.string.no_primission_title)
+								.setMessage(R.string.no_primission_message);
+						Dialog dialog = builder.create();
+						dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+						dialog.show();
+					}
+				} else {
+					Builder builder = new Builder(getBaseContext())
+							.setTitle(R.string.no_primission_title)
+							.setMessage(R.string.no_primission_message);
+					Dialog dialog = builder.create();
+					dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+					dialog.show();
+				}
 			}
 		}
 	};
@@ -128,8 +150,17 @@ public class MainFragment extends FragmentActivity {
 			// transaction.addToBackStack(null);
 			transaction.commit();
 		}
+	}
 
-
+	@SuppressLint("NewApi")
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == REQUEST_CODE) {
+			if (Settings.canDrawOverlays(this)) {
+				Toast.makeText(this, "授权成功!", Toast.LENGTH_LONG).show();
+			}
+		}
 	}
 
 	public void initTitleComponents() {
@@ -138,6 +169,7 @@ public class MainFragment extends FragmentActivity {
 		titleHolder.curSystemTime = (TextView) findViewById(R.id.cur_sys_time);
 		titleHolder.titleTextView = (TextView) findViewById(R.id.title);
 		titleHolder.refreshButton = (LinearLayout) findViewById(R.id.refresh);
+		titleHolder.exitButton = (LinearLayout) findViewById(R.id.exit);
 	}
 
 	public void setTitleComponents() {
@@ -152,14 +184,8 @@ public class MainFragment extends FragmentActivity {
 		/**
 		 * 退出按钮参数设定
 		 */
-		LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,
-				LayoutParams.WRAP_CONTENT);
-		TextView exitTextView = new TextView(getApplicationContext());
-		exitTextView.setText(R.string.exit_button);
-		exitTextView.setTextSize(getResources().getDimension(R.dimen.the_title_text_size));
-		exitTextView.setTextColor(getResources().getColor(R.color.text_color));
-		exitTextView.setGravity(Gravity.CENTER_VERTICAL);
-		exitTextView.setOnClickListener(new OnClickListener() {
+		titleHolder.exitButton.setVisibility(View.VISIBLE);
+		titleHolder.exitButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				finish();
@@ -167,19 +193,18 @@ public class MainFragment extends FragmentActivity {
 		});
 
 		/**
-		 * 添加系统退出按钮
+		 * 隐藏刷新按钮
 		 */
-		titleHolder.refreshButton.setVisibility(View.VISIBLE);
-		titleHolder.refreshButton.removeAllViews();
-		titleHolder.refreshButton.addView(exitTextView, params);
+		titleHolder.refreshButton.setVisibility(View.GONE);
 	}
 
 	public void initParams() {
 		bundle = getIntent().getExtras();
-		authorityIDList = bundle.getStringArrayList("authority_id_list");//获取用户权限列表
-		
+//		authorityIDList = bundle.getStringArrayList("authority_id_list");//获取用户权限列表
+		authorityIDList = JSONObject.parseArray(bundle.getString("authority_id_list"));
 		//绑定Service
 		Intent intent = new Intent("com.cn.service.NOTIFICATION_UPDATE");
+		intent.setPackage("com.cn.wms_system");
 		bindService(intent, connection, Context.BIND_AUTO_CREATE);
 	}
 
@@ -226,6 +251,7 @@ public class MainFragment extends FragmentActivity {
 		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(1);
+			bundle.putString("selected_fun_index_name", getResources().getString(R.string.stocking_manager));
 			titles = getResources().getStringArray(R.array.stocking_plan_list);
 			int[] images = { R.drawable.ic_stocking1, R.drawable.ic_stocking2,
 					R.drawable.ic_stocking3 };
@@ -248,6 +274,7 @@ public class MainFragment extends FragmentActivity {
 		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(2);
+			bundle.putString("selected_fun_index_name", getResources().getString(R.string.picking_manager));
 			titles = getResources().getStringArray(R.array.picking_plan_list);
 			int[] images = { R.drawable.ic_picking1, R.drawable.ic_pinking2,
 					R.drawable.ic_picking3 };
@@ -269,6 +296,7 @@ public class MainFragment extends FragmentActivity {
 		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(3);
+			bundle.putString("selected_fun_index_name", getResources().getString(R.string.distribution_manager));
 			titles = getResources().getStringArray(
 					R.array.distribution_plan_list);
 			int[] images = { R.drawable.ic_distribution1,
@@ -291,6 +319,7 @@ public class MainFragment extends FragmentActivity {
 		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(4);
+			bundle.putString("selected_fun_index_name", getResources().getString(R.string.pick_return));
 			titles = getResources().getStringArray(R.array.pick_return_list);
 			int[] images = { R.drawable.ic_non_pro_pick,
 					R.drawable.ic_return_goods,
@@ -317,6 +346,7 @@ public class MainFragment extends FragmentActivity {
 		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(5);
+			bundle.putString("selected_fun_index_name", getResources().getString(R.string.stock_manager));
 			titles = getResources().getStringArray(R.array.stock_manager_list);
 			int[] images = { R.drawable.ic_inspection,
 					R.drawable.ic_stock_inquiry,
@@ -344,6 +374,7 @@ public class MainFragment extends FragmentActivity {
 		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(6);
+			bundle.putString("selected_fun_index_name", getResources().getString(R.string.system_setting));
 			titles = getResources().getStringArray(R.array.system_setting_list);
 			int[] images = { R.drawable.ic_user_manager,
 					R.drawable.ic_system_setting };
@@ -366,6 +397,7 @@ public class MainFragment extends FragmentActivity {
 		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(7);
+			bundle.putString("selected_fun_index_name", getResources().getString(R.string.delivery_receipt));
 			titles = getResources().getStringArray(R.array.delivery_receipt_list);
 			int[] images = {
 					R.drawable.ic_rework_in,

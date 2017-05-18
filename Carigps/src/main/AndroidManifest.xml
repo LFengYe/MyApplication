@@ -51,15 +51,15 @@
         android:theme="@style/AppTheme"
         android:launchMode="singleTask">
 
-        <meta-data
+        <meta-tableData
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <meta-data
+        <meta-tableData
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <meta-data
+        <meta-tableData
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="38o6bQG9MwUjQyGgBG9wVeIexaMgdXNE" />
 

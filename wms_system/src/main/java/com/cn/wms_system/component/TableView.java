@@ -1,5 +1,6 @@
 package com.cn.wms_system.component;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -52,6 +54,7 @@ public class TableView extends LinearLayout {
 
 	/** 列宽数据. */
 	private int[] itemWidth;
+	private int itemHeight;
 
 	/** 列表数据排序方式 */
 	private int sortRule = SORT_DESCENDING;
@@ -59,6 +62,7 @@ public class TableView extends LinearLayout {
 	private int selectedPosition = -1;
 	/** 自动列宽列. */
 	private int autoWidthIndex = -1;
+
 	/** 触摸事件模式 */
 //	private int mode = 0;
 	/** 上次两指距离 */
@@ -80,7 +84,17 @@ public class TableView extends LinearLayout {
 	private float titleTextSize = 0;
 	/** 内容字体大小. */
 	private float contentTextSize = 0;
-	
+
+	private ButtonClickInterFace btnClick;
+
+	public ButtonClickInterFace getBtnClick() {
+		return btnClick;
+	}
+
+	public void setBtnClick(ButtonClickInterFace btnClick) {
+		this.btnClick = btnClick;
+	}
+
 	public TableView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
@@ -141,7 +155,7 @@ public class TableView extends LinearLayout {
 		});
 		addView(listView, Constants.FILL_FILL_LAYOUTPARAMS);
 	}
-	
+
 	/**
 	 * 设置数据视图始终滚动
 	 */
@@ -410,7 +424,15 @@ public class TableView extends LinearLayout {
 			return lhs[lhs.length - 1].compareTo(rhs[rhs.length - 1]);
 		}
 	};
-	
+
+	public int getItemHeight() {
+		return itemHeight;
+	}
+
+	public void setItemHeight(int itemHeight) {
+		this.itemHeight = itemHeight;
+	}
+
 	/**
 	 * @return the sortRule
 	 */
@@ -540,11 +562,14 @@ public class TableView extends LinearLayout {
 			this.canSelected = canSelected;
 		}
 
+
 		/**
 		 * 生成表格的一行
 		 */
+
+		@SuppressLint("NewApi")
 		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
+		public View getView(final int position, View convertView, ViewGroup parent) {
 
 			// 初始化主layout
 			LinearLayout contextLayout = new LinearLayout(
@@ -562,54 +587,50 @@ public class TableView extends LinearLayout {
 			}
 
 			for (int i = 0; i < title.length; i++) {
-				//如果需要，添加CheckBox控件来标记完成
-				if (isCanSelected() && i == title.length - 1) {
-					CheckBox checkBox = new MyCheckBox(contextLayout.getContext());
-					checkBox.setGravity(Gravity.CENTER);
-					//消除item点击时间与checkBox点击时间的冲突
-					checkBox.setFocusable(false);
-					checkBox.setClickable(false);
-					checkBox.setFocusableInTouchMode(false);
-					
-					if (dataItem[title.length - 1].compareToIgnoreCase("完成") == 0)
-						checkBox.setChecked(true);
-					if (dataItem[title.length - 1].compareToIgnoreCase("未完成") == 0)
-						checkBox.setChecked(false);
-					
-					contextLayout.addView(checkBox, Constants.FILL_FILL_LAYOUTPARAMS);
+
+				if (title[i].compareTo("操作") == 0 && isCanSelected()) {
+					TextView button = new CTextView(contextLayout.getContext());
+					button.setGravity(Gravity.CENTER);
+					button.setLayoutParams(Constants.WRAP_WRAP_LAYOUTPARAMS);
+					button.setBackgroundResource(R.drawable.button_shape);
+					button.setFocusable(false);
+					button.setClickable(false);
+					button.setTextColor(Color.BLACK);
+					if (Integer.valueOf(dataItem[i]) == 1) {
+						button.setText("开始");
+					}
+					if (Integer.valueOf(dataItem[i]) == 2) {
+						button.setText("完成");
+					}
+					button.setOnClickListener(new OnClickListener() {
+						@Override
+						public void onClick(View v) {
+							btnClick.btnClick(position);
+						}
+					});
+					contextLayout.addView(button, Constants.FILL_FILL_LAYOUTPARAMS);
 					continue;
 				}
+				/*
 				/**
 				 * 文本控件初始化
 				 */
 				TextView tv = new CTextView(contextLayout.getContext());
+//				tv.setBackgroundResource(R.drawable.test_shape);
 				tv.setTextColor(contentTextColor);
-				
+				tv.setGravity(Gravity.CENTER);
+
+				/*
 				if (dataItem[0].compareTo("紧急计划") == 0)//紧急计划－－－特殊
 					tv.setTextColor(getResources().getColor(R.color.the_table_urgent_text_color));
-				
+
 				if (dataItem[dataItem.length - 1].compareTo("1") == 0)//已完成明细字体颜色
 					tv.setTextColor(getResources().getColor(R.color.the_detail_finished_text_color));
-				
-				tv.setGravity(Gravity.CENTER);
-				if (title[i].compareTo("备注") == 0)
+					if (title[i].compareTo("备注") == 0)
 					tv.setGravity(Gravity.LEFT);
-				/*
-				//添加序号文本控件
-				if (i == 0) {
-					DisplayMetrics metrics = getResources().getDisplayMetrics();
-					float value = metrics.scaledDensity;
-					float textSize = new TextView(getContext()).getTextSize() / value;
-					if (contentTextSize > 0)
-						textSize = contentTextSize;
-					tv.setWidth(getPixelByText(textSize, createSerialNumber(position)));
-					if (contentTextSize > 0) {
-						tv.setTextSize(contentTextSize);
-					}
-					tv.setText(createSerialNumber(position));
-					contextLayout.addView(tv);
-					continue;
-				}*/
+				*/
+
+
 				//设置文本控件宽度
 				if (i == autoWidthIndex)
 					tv.setLayoutParams(Constants.FILL_FILL_LAYOUTPARAMS);
@@ -634,6 +655,7 @@ public class TableView extends LinearLayout {
 
 			return contextLayout;
 		}
+
 
 		/**
 		 * 根据输入的整数，将该整数生成三位数的序号，不足三位的在前面添0
@@ -673,6 +695,27 @@ public class TableView extends LinearLayout {
 		}
 	}
 
+	class MyButton extends Button {
+		public MyButton(Context context) {
+			super(context);
+		}
+
+		@Override
+		protected void onDraw(Canvas canvas) {
+			super.onDraw(canvas);
+			// Top
+			canvas.drawLine(0, 0, this.getWidth() - 1, 0, WHITE_PAINT);
+			// Left
+			canvas.drawLine(0, 0, 0, this.getHeight() - 1, WHITE_PAINT);
+			// Right
+			canvas.drawLine(this.getWidth() - 1, 0, this.getWidth() - 1,
+					this.getHeight() - 1, BLACK_PAINT);
+			// Buttom
+			canvas.drawLine(0, this.getHeight() - 1, this.getWidth() - 1,
+					this.getHeight() - 1, BLACK_PAINT);
+		}
+	}
+
 	class MyCheckBox extends CheckBox {
 
 		public MyCheckBox(Context context) {
@@ -696,61 +739,7 @@ public class TableView extends LinearLayout {
 		}
 	}
 
-	/*
-	@Override
-	public boolean onTouch(View v, MotionEvent event) {
-		switch (event.getAction() & MotionEvent.ACTION_MASK) {
-		case MotionEvent.ACTION_DOWN:
-//			System.out.println("ACTION_DOWN");
-			mode = 1;
-			break;
-		case MotionEvent.ACTION_UP:
-//			System.out.println("ACTION_UP");
-			mode = 0;
-			break;
-		case MotionEvent.ACTION_POINTER_UP:
-//			System.out.println("ACTION_POINTER_UP");
-			mode -= 1;
-			break;
-		case MotionEvent.ACTION_POINTER_DOWN:
-//			System.out.println("ACTION_POINTER_DOWN");
-			oldDist = spacing(event);
-			mode += 1;
-			break;
-		case MotionEvent.ACTION_MOVE:
-//			System.out.println("ACTION_MOVE");
-			if (mode >= 2) {
-				float newDist = spacing(event);
-				System.out.println("newDist:" + newDist);
-				if (newDist > oldDist + 10) {
-					zoom(newDist / oldDist);
-					oldDist = newDist;
-				}
-				if (newDist < oldDist - 10) {
-					zoom(newDist / oldDist);
-					oldDist = newDist;
-				}
-			}
-			break;
-		}
-		return false;
+	public interface ButtonClickInterFace {
+		void btnClick(int position);
 	}
-
-	private void zoom(float f) {
-		System.out.println("f" + f);
-		float textSize = contentTextSize * f;
-		if ((textSize >= 16.0) && (textSize <= 36.0)) {
-			setTitleTextSize(textSize);
-			setContentTextSize(textSize);
-			definedSetChanged();
-		}
-	}
-
-	private float spacing(MotionEvent event) {
-		float x = event.getX(0) - event.getX(1);
-		float y = event.getY(0) - event.getY(1);
-		return (float) Math.sqrt(x * x + y * y);
-		// return FloatMath.sqrt(x * x + y * y);
-	}
-	*/
 }

@@ -71,7 +71,7 @@
     <string name="SelectOil_sumoil">Sum oil</string>
     <string name="SelectOil_selectstartdate">Please select a start date</string>
     <string name="SelectOil_selectenddate">Please select a end date</string>
-    <string name="SelectOil_error">Can only query within one month of data</string>
+    <string name="SelectOil_error">Can only query within one month of tableData</string>
 
     <!-- 登录界面 -->
     <string name="Login_init">Init</string>
@@ -178,7 +178,7 @@
     <string name="Location_hour"> hour and </string>
     <string name="Location_minute"> minute</string>
     <string name="Location_tips1">Please locate my position on the map</string>
-    <string name="Location_tips2">I am sorry,but the result was not found</string>
+    <string name="Location_tips2">I am sorry,but the status was not found</string>
     <string name="Location_tips3">Since the end or via point address is ambiguous</string>
     <string name="Location_acc_on">on</string>
     <string name="Location_acc_off">off</string>
@@ -254,7 +254,7 @@
     <string name="History_start_time">Start：</string>
     <string name="History_end_time">End：</string>
     <string name="History_query">Query</string>
-    <string name="History_nodata">No data to show</string>
+    <string name="History_nodata">No tableData to show</string>
     <string name="History_query_ing">Request server to query...</string>
     <string name="History_dateTip1">Start time must be smaller than the end of time!</string>
     <string name="History_dateTip2">The date is not greater than the current date!</string>

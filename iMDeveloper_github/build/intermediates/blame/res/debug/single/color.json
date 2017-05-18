@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\color\\im_titlebar_right_selector.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\color\\im_titlebar_right_selector.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\color\\im_btn_title_selector.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\color\\im_btn_title_selector.xml"
+    }
+]

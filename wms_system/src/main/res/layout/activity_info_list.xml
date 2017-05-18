@@ -55,7 +55,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/quick_search" />
 
-            <com.cn.component.ClearEditText
+            <com.cn.wms_system.component.ClearEditText
                 android:id="@+id/edittext3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 android:drawableLeft="@drawable/ic_search_bar_left"
                 android:singleLine="true"
                 android:textSize="15.0dip" >
-            </com.cn.component.ClearEditText>
+            </com.cn.wms_system.component.ClearEditText>
 
             <ZoomControls
                 android:id="@+id/zoom_controls"
@@ -113,7 +113,7 @@
             android:textSize="30.0dip"
             android:visibility="invisible" />
 
-        <com.cn.component.SideBar
+        <com.cn.wms_system.component.SideBar
             android:id="@+id/sidebar"
             android:layout_width="30.0dip"
             android:layout_height="fill_parent"

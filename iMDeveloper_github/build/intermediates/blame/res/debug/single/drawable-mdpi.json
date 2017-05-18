@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\main_footer_message.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\main_footer_message.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\main_footer_discovery.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\main_footer_discovery.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\page_indicator_focused.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\page_indicator_focused.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_launcher.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\im_dot_select.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\im_dot_select.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\main_footer_discovery_selected.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\main_footer_discovery_selected.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\news_bg.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\news_bg.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\default_ptr_rotate.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\default_ptr_rotate.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\main_footer_me.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\main_footer_me.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\main_footer_contanct_selected.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\main_footer_contanct_selected.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\default_ptr_flip.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\default_ptr_flip.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\indicator_arrow.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\indicator_arrow.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\main_footer_message_selected.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\main_footer_message_selected.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\icon.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\icon.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\messaging.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\messaging.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\im_dot_unselect.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\im_dot_unselect.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\main_footer_me_selected.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\main_footer_me_selected.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\main_footer_contanct.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-mdpi\\main_footer_contanct.png"
+    }
+]

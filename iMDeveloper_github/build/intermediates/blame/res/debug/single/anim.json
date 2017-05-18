@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\anim\\slide_in.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_to_bottom.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\anim\\slide_out_to_bottom.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\anim\\push_bottom_in.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\anim\\push_bottom_in.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_from_top.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\anim\\slide_in_from_top.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_from_bottom.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\anim\\slide_in_from_bottom.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\anim\\im_chatting_right_voice_play.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\anim\\im_chatting_right_voice_play.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\anim\\im_chatting_left_voice_play.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\anim\\im_chatting_left_voice_play.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\anim\\slide_out.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_to_top.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\anim\\slide_out_to_top.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\anim\\push_bottom_out.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\anim\\push_bottom_out.xml"
+    }
+]

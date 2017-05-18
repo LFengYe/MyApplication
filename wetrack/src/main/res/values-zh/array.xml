@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="change_map_array">
+        <item>谷歌地图</item>
+        <item>百度地图</item>
+    </string-array>
+
+    <string-array name="location_refresh_time_array">
+        <item>10秒</item>
+        <item>20秒</item>
+        <item>30秒</item>
+        <item>60秒</item>
+        <item>90秒</item>
+        <item>120秒</item>
+    </string-array>
+
+    <string-array name="alert_message_table_title">
+        <item>车牌</item>
+        <item>报警内容</item>
+        <item>时间</item>
+        <item>地址</item>
+    </string-array>
+
+    <string-array name="total_mileage_table_title">
+        <item>车牌</item>
+        <item>里程</item>
+        <item>平均油耗</item>
+        <item>总油耗</item>
+        <item>平均速度</item>
+    </string-array>
+
+    <string-array name="fuel_report_table_title">
+        <item>车牌</item>
+        <item>日期</item>
+        <item>加油量</item>
+        <item>加油次数</item>
+        <item>偷油量</item>
+        <item>地址</item>
+    </string-array>
+</resources>

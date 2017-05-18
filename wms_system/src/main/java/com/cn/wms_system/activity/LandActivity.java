@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,14 +21,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cn.wms_system.R;
+import com.cn.wms_system.bean.Employee;
 import com.cn.wms_system.component.Constants;
 import com.cn.wms_system.component.GetNowTime;
-import com.cn.wms_system.component.WebOperate;
 import com.cn.wms_system.service.BootBroadcastReceiver;
+import com.cn.wms_system.service.MyHandler;
+import com.cn.wms_system.service.MyThread;
 
+import org.codehaus.jackson.map.ObjectMapper;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+
+import static com.cn.wms_system.component.Constants.serverUrl;
 
 public class LandActivity extends Activity {
 
@@ -38,35 +47,37 @@ public class LandActivity extends Activity {
 	// private EditText dataAccountEdit;
 	private TextView dateText;
 
-	private WebOperate webOperate;
-	private ArrayList<String> authorityIDList;
 	private BootBroadcastReceiver receiver;
 
+	//region 按钮点击事件
 	private OnClickListener clickListener = new OnClickListener() {
 
 		@Override
 		public void onClick(View v) {
 			if (v.getId() == R.id.land_button) {
-				Map<String, String> params = new HashMap<String, String>();
-				if (Constants.debug_mode) {
-					params.put("s", "{33;"
-							+ userCodeEdit.getEditableText().toString() + ";"
-							+ Constants.debug_Mac_address + ";}");
+				String username = userCodeEdit.getText().toString();
+				String password = landPasswordEdit.getText().toString();
+				if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+					try {
+						JSONObject object = new JSONObject();
+						object.put("module", "userLogin");
+						object.put("operation", "employeeLogin");
+						object.put("type", "app");
+						object.put("username", username);
+						object.put("password", password);
+						new MyThread(serverUrl, myHandler, object).start();
+					} catch (JSONException e) {
+						Toast.makeText(LandActivity.this, R.string.response_unformat, Toast.LENGTH_LONG).show();
+					}
 				} else {
-					params.put("s", "{33;"
-							+ userCodeEdit.getEditableText().toString() + ";"
-							+ Constants.getMacAddress(LandActivity.this) + ";}");
+					Toast.makeText(LandActivity.this, R.string.username_password_empty, Toast.LENGTH_LONG).show();
 				}
-				webOperate.Request("send", params);
 			}
 
 			if (v.getId() == R.id.server_setting) {
 				Intent intent = new Intent();
 				Bundle bundle = new Bundle();
-				bundle.putString(
-						"title",
-						getResources().getStringArray(
-								R.array.system_setting_list)[1]);
+				bundle.putString("title", getResources().getStringArray(R.array.system_setting_list)[1]);
 				intent.putExtras(bundle);
 				intent.setClass(getApplicationContext(),
 						ParamsSettingActivity.class);
@@ -82,47 +93,41 @@ public class LandActivity extends Activity {
 			}
 		}
 	};
+	//endregion
 
-	private Handler myHandler = new Handler() {
+	//region 数据处理
+	private Handler myHandler = new MyHandler(LandActivity.this) {
 		public void handleMessage(android.os.Message msg) {
+			super.handleMessage(msg);
 			switch (msg.what) {
-			case Constants.GET_PLAN_LIST_MESSAGE:
-				String password = progressData(webOperate.getResult());
+				case MyThread.SUCCESS: {
+					try {
+						JSONObject object = (JSONObject) msg.obj;
+						if (object.getInt("status") == 0) {
 
-				if (password.compareTo(landPasswordEdit.getEditableText()
-						.toString()) == 0) {
-
-					Intent intent = new Intent();
-					Bundle bundle = new Bundle();
-					bundle.putStringArrayList("authority_id_list",
-							authorityIDList);
-					intent.putExtras(bundle);
-					intent.setClass(getApplicationContext(), MainFragment.class);
-					startActivity(intent);
-					// 保存用户名
-					saveHistory("username", userCodeEdit);
-					/*
-					 * SharedPreferences preferences =
-					 * getSharedPreferences("system_params", MODE_PRIVATE);
-					 * Editor editor = preferences.edit();
-					 * editor.putString("username",
-					 * userCodeEdit.getEditableText().toString());
-					 * editor.putString("password",
-					 * landPasswordEdit.getEditableText().toString());
-					 * editor.commit();
-					 */
-				} else {
-					Toast.makeText(getApplicationContext(), "用户名或密码错误",
-							Toast.LENGTH_SHORT).show();
+							Intent intent = new Intent();
+							Bundle bundle = new Bundle();
+							bundle.putString("authority_id_list", object.getJSONObject("data").getString("roleRightList"));
+							bundle.putString("employee", object.getJSONObject("data").getString("employee"));
+							intent.putExtras(bundle);
+							intent.setClass(getApplicationContext(), MainFragment.class);
+							startActivity(intent);
+							// 保存用户名
+							saveHistory("username", userCodeEdit);
+						} else {
+							Toast.makeText(LandActivity.this, object.getString("message"), Toast.LENGTH_LONG).show();
+						}
+					} catch (JSONException e) {
+						Toast.makeText(LandActivity.this, R.string.response_unformat, Toast.LENGTH_LONG).show();
+					}
+					break;
 				}
-				break;
-			case Constants.GET_MESSAGE_IS_EMPTY:
-				break;
-			default:
-				break;
+				default:
+					break;
 			}
-		};
+		}
 	};
+	//endregion
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -137,7 +142,6 @@ public class LandActivity extends Activity {
 		setContentView(view);
 
 		initComponents();
-		setParams();
 	}
 
 	private void initComponents() {
@@ -227,30 +231,6 @@ public class LandActivity extends Activity {
 			sb.insert(0, text + ",");
 			sp.edit().putString(field, sb.toString()).commit();
 		}
-	}
-
-	private void setParams() {
-		// SharedPreferences preferences = getSharedPreferences("system_params",
-		// MODE_PRIVATE);
-		// Constants.webServiceURL = preferences.getString("webserver_http",
-		// Constants.webServiceURL) + "Service.asmx";
-		webOperate = new WebOperate(myHandler);
-	}
-
-	/**
-	 * 从返回数据获取用户的权限列表和登录密码
-	 * @param data
-	 * @return 用户登录密码
-	 */
-	public String progressData(String data) {
-		String[] items = data.substring(1, data.length() - 1).split(";"); 
-		
-		authorityIDList = new ArrayList<String>();
-		String[] authorityList = items[1].split(",");
-		for (String temp : authorityList) {
-			authorityIDList.add(temp);
-		}
-		return items[0];
 	}
 
 	@Override

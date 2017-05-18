@@ -265,10 +265,10 @@ action#android.intent.action.PACKAGE_REMOVED
 ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:132:17-80
 	android:name
 		ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:132:25-77
-data
-ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:134:17-50
+tableData
+ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:134:17-55
 	android:scheme
-		ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:134:23-47
+		ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:134:28-52
 receiver#cn.jpush.android.service.AlarmReceiver
 ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:139:9-99
 	android:exported
@@ -305,15 +305,9 @@ action#cn.jpush.android.intent.CONNECTION
 ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:151:17-77
 	android:name
 		ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:151:25-74
-meta-data#JPUSH_CHANNEL
-ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:157:9-84
+meta-tableData
+ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:157:9-89
 	android:value
-		ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:157:49-82
+		ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:157:54-87
 	android:name
-		ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:157:20-48
-meta-data#JPUSH_APPKEY
-ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:158:9-91
-	android:value
-		ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:158:48-88
-	android:name
-		ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:158:20-47
+		ADDED from E:\AndroidDevelop\studioWorkspace\MyApplication\JPushExample(611575)\AndroidManifest.xml:157:25-53

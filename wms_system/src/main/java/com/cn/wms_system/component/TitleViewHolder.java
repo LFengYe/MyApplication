@@ -11,6 +11,7 @@ public class TitleViewHolder {
 	public TextView curSystemTime;
 	public TextView titleTextView;
 	public LinearLayout refreshButton;
+	public LinearLayout exitButton;
 	
 	/**
 	 * 设置返回按钮图片为传入的资源ID引用的图片
