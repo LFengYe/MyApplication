@@ -12,9 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.cn.wms_system.R;
 import com.cn.wms_system.component.Constants;
 import com.cn.wms_system.component.WebOperate;
+import com.cn.wms_system_new.R;
 
 import java.util.HashMap;
 import java.util.Map;

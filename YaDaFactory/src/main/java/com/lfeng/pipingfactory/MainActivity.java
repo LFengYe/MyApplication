@@ -131,10 +131,6 @@ public class MainActivity extends AppCompatActivity {
         ll_content = (LinearLayout) findViewById(R.id.ll_content);
         ll_total = (LinearLayout) findViewById(R.id.ll_total);
         tv_title = (TextView) findViewById(R.id.tv_title);
-//        guanShuYes = (RadioButton) findViewById(R.id.guan_shu_select_yes);
-//        guanShuNo = (RadioButton) findViewById(R.id.guan_shu_select_no);
-//        guanShuSelectLayout = (LinearLayout) findViewById(R.id.guan_shu_select_layout);
-//        guanShuSelectGroup = (RadioGroup) findViewById(R.id.guan_shu_select_group);
         et_search = (EditText) findViewById(R.id.et_search);
         bt_search = (Button) findViewById(R.id.bt_search);
         bt_finish = (Button) findViewById(R.id.btn_finish);

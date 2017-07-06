@@ -10,7 +10,7 @@
         android:layout_width="0px"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        class="com.cn.wms_system.fragment.ListFunFragment" />
+        class="com.cn.wms_system.fragment1.ListFunFragment" />
 
     <FrameLayout
         android:id="@+id/detail_fun"

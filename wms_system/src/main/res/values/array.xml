@@ -23,20 +23,21 @@
         <item >非生产领料</item>
         <item >部品退货</item>
         <item >送检出库</item>
-        <item >送检返还</item>
+        <item >送检返回</item>
         <item >返修出库</item>
         <item >返修入库</item>
-        <item >部品退库</item>
+        <item >终端退库</item>
+        <item >报检信息</item>
     </string-array>
     <!-- 库存管理子功能列表 -->
     <string-array name="stock_manager_list">
         <item >报检信息查询</item>
-        <item >部品库存查询</item>
-        <item >库存报警信息</item>
-        <item >出库计划完成情况</item>
-        <item >出库分录报表</item>
-        <item >入库分录报表</item>
-        <item >退货分录报表</item>
+        <item >部品收发存总表</item>
+        <item >部品报警明细表</item>
+        <item >部品计划完成情况</item>
+        <item >部品出库分录</item>
+        <item >部品入库分录</item>
+        <item >部品退货分录</item>
         <item >入库明细报表</item>
     </string-array>
     <!-- 交接单子功能列表 -->

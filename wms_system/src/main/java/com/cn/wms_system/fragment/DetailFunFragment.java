@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.cn.wms_system.component.Constants;
 import com.cn.wms_system.component.WebOperate;
-import com.cn.wms_system.R;
+import com.cn.wms_system_new.R;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -140,6 +140,7 @@ public class DetailFunFragment extends Fragment {
 		Bundle args = getArguments();
 		titles = args.getStringArray("titles");
 		images = args.getIntArray("images");
+		detailFunFragment.setOnItemClickListener(onItemClickListener);
 		
 		TextView textView = (TextView) getActivity().findViewById(R.id.back_to_main);
 		textView.setOnClickListener(onClickListener);
@@ -201,9 +202,6 @@ public class DetailFunFragment extends Fragment {
 					return;
 				case 7://系统设置无计划单数
 					return;
-//					params.put("s", "{39;}");
-//					selectedFunReadTimes = 0;
-//					break;
 				default:
 					break;
 				}

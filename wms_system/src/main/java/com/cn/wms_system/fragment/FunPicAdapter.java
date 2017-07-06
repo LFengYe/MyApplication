@@ -9,7 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.cn.wms_system.R;
+
+import com.cn.wms_system_new.R;
 
 import java.util.ArrayList;
 

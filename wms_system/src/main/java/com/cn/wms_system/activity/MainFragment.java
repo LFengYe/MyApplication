@@ -3,6 +3,8 @@ package com.cn.wms_system.activity;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -27,20 +29,23 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.cn.wms_system.R;
+import com.alibaba.fastjson.parser.Feature;
 import com.cn.wms_system.component.Constants;
 import com.cn.wms_system.component.GetNowTime;
 import com.cn.wms_system.component.TitleViewHolder;
 import com.cn.wms_system.dialog.ChangePassword;
-import com.cn.wms_system.fragment.DetailFunFragment;
+import com.cn.wms_system.fragment1.DetailFunFragment;
 import com.cn.wms_system.fragment.MainInterface;
+import com.cn.wms_system.fragment1.ListFunFragment;
 import com.cn.wms_system.service.BootBroadcastReceiver;
+import com.cn.wms_system_new.R;
 
 public class MainFragment extends FragmentActivity {
 
 	private BootBroadcastReceiver receiver;
 	private TitleViewHolder titleHolder;
 	private JSONArray authorityIDList;
+	private JSONObject menuJson;
 	private String authorityID;
 	private String[] titles;
 	private Bundle bundle;
@@ -57,8 +62,6 @@ public class MainFragment extends FragmentActivity {
 			if (null != authorityIDList && authorityIDList.contains(authorityID)) {//判断当前点击功能是否包含在用户权限列表中
 				bundle.putString("title", titles[position]);
 				bundle.putInt("selected_fun_index", selectedFunIndex);
-				//bundle.putString("selected_fun_index_name", );
-
 				bundle.putInt("selected_child_fun_item", position);
 				Intent intent = new Intent();
 				
@@ -78,7 +81,7 @@ public class MainFragment extends FragmentActivity {
 				intent.putExtras(bundle);
 				startActivity(intent);
 			} else {
-				//System.out.println("authorityID:" + authorityID);
+				//System.outHost.println("authorityID:" + authorityID);
 				if (Build.VERSION.SDK_INT >= 23) {
 					if(!Settings.canDrawOverlays(getApplicationContext())) {
 						Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
@@ -129,6 +132,18 @@ public class MainFragment extends FragmentActivity {
 		initTitleComponents();
 		setTitleComponents();
 		initParams();
+
+		FragmentManager manager = getFragmentManager();
+		Fragment fragment = manager.findFragmentById(R.id.list_fun);
+		ListFunFragment listFunFragment = (ListFunFragment) fragment;
+		listFunFragment.setMenuJson(menuJson);
+		listFunFragment.setCallback(new ListFunFragment.BtnClickCallback() {
+			@Override
+			public void btnClick(JSONObject object) {
+				if (findViewById(R.id.detail_fun) != null) {
+				}
+			}
+		});
 
 		/**
 		 * Check that the activity is using the layout version with the
@@ -202,9 +217,10 @@ public class MainFragment extends FragmentActivity {
 		bundle = getIntent().getExtras();
 //		authorityIDList = bundle.getStringArrayList("authority_id_list");//获取用户权限列表
 		authorityIDList = JSONObject.parseArray(bundle.getString("authority_id_list"));
+		menuJson = JSONObject.parseObject(bundle.getString("menuJson"), Feature.OrderedField);
 		//绑定Service
 		Intent intent = new Intent("com.cn.service.NOTIFICATION_UPDATE");
-		intent.setPackage("com.cn.wms_system");
+		intent.setPackage("com.cn.wms_system_new");
 		bindService(intent, connection, Context.BIND_AUTO_CREATE);
 	}
 
@@ -243,12 +259,9 @@ public class MainFragment extends FragmentActivity {
 		unbindService(connection);
 		super.onDestroy();
 	}
-	
+
+	/*
 	public void button1Click(View view) {
-		/**
-		 * Check that the activity is using the layout version with the
-		 * fragment_container FrameLayout
-		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(1);
 			bundle.putString("selected_fun_index_name", getResources().getString(R.string.stocking_manager));
@@ -268,10 +281,6 @@ public class MainFragment extends FragmentActivity {
 	}
 
 	public void button2Click(View view) {
-		/**
-		 * Check that the activity is using the layout version with the
-		 * fragment_container FrameLayout
-		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(2);
 			bundle.putString("selected_fun_index_name", getResources().getString(R.string.picking_manager));
@@ -290,10 +299,6 @@ public class MainFragment extends FragmentActivity {
 	}
 
 	public void button3Click(View view) {
-		/**
-		 * Check that the activity is using the layout version with the
-		 * fragment_container FrameLayout
-		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(3);
 			bundle.putString("selected_fun_index_name", getResources().getString(R.string.distribution_manager));
@@ -313,10 +318,6 @@ public class MainFragment extends FragmentActivity {
 	}
 
 	public void button4Click(View view) {
-		/**
-		 * Check that the activity is using the layout version with the
-		 * fragment_container FrameLayout
-		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(4);
 			bundle.putString("selected_fun_index_name", getResources().getString(R.string.pick_return));
@@ -327,7 +328,8 @@ public class MainFragment extends FragmentActivity {
 					R.drawable.ic_send_check_in,
 					R.drawable.ic_rework_out,
 					R.drawable.ic_rework_in,
-					R.drawable.ic_return_storehouse};
+					R.drawable.ic_return_storehouse,
+					R.drawable.ic_out_finished};
 			DetailFunFragment detailFunFragment = DetailFunFragment
 					.newInstance(titles, images, onItemClickListener);
 			detailFunFragment.setSelectedFun(4);
@@ -340,10 +342,6 @@ public class MainFragment extends FragmentActivity {
 	}
 
 	public void button5Click(View view) {
-		/**
-		 * Check that the activity is using the layout version with the
-		 * fragment_container FrameLayout
-		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(5);
 			bundle.putString("selected_fun_index_name", getResources().getString(R.string.stock_manager));
@@ -368,10 +366,6 @@ public class MainFragment extends FragmentActivity {
 	}
 
 	public void button6Click(View view) {
-		/**
-		 * Check that the activity is using the layout version with the
-		 * fragment_container FrameLayout
-		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(6);
 			bundle.putString("selected_fun_index_name", getResources().getString(R.string.system_setting));
@@ -389,12 +383,8 @@ public class MainFragment extends FragmentActivity {
 			transaction.commit();
 		}
 	}
-	
+
 	public void button7Click(View view) {
-		/**
-		 * Check that the activity is using the layout version with the
-		 * fragment_container FrameLayout
-		 */
 		if (findViewById(R.id.detail_fun) != null) {
 			setSelectedFunIndex(7);
 			bundle.putString("selected_fun_index_name", getResources().getString(R.string.delivery_receipt));
@@ -415,18 +405,12 @@ public class MainFragment extends FragmentActivity {
 		}
 	}
 
-	/**
-	 * @return the selectedFunIndex
-	 */
 	public int getSelectedFunIndex() {
 		return selectedFunIndex;
 	}
 
-	/**
-	 * @param selectedFunIndex
-	 *            the selectedFunIndex to set
-	 */
 	public void setSelectedFunIndex(int selectedFunIndex) {
 		this.selectedFunIndex = selectedFunIndex;
 	}
+	*/
 }

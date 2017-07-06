@@ -7,9 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.cn.wms_system.R;
+import com.alibaba.fastjson.JSONObject;
+import com.cn.wms_system_new.R;
+
 
 public class ListFunFragment extends Fragment {
+
+	private JSONObject menuJson;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -46,5 +50,13 @@ public class ListFunFragment extends Fragment {
 		
 		Button button7 = (Button) getActivity().findViewById(R.id.button7);
 		button7.setText(R.string.delivery_receipt);
+	}
+
+	public JSONObject getMenuJson() {
+		return menuJson;
+	}
+
+	public void setMenuJson(JSONObject menuJson) {
+		this.menuJson = menuJson;
 	}
 }

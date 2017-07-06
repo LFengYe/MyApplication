@@ -4,7 +4,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.cn.wms_system.R;
+import com.cn.wms_system_new.R;
+
 
 public class TitleViewHolder {
 	public LinearLayout backButton;

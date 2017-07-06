@@ -8,7 +8,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
-import com.cn.wms_system.R;
+import com.cn.wms_system_new.R;
+
 
 public class DateTimeSetDialog extends Dialog {
 

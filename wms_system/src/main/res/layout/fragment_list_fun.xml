@@ -15,7 +15,8 @@
         android:background="@drawable/custom_button"
         android:gravity="center"
         android:onClick="button1Click"
-        android:textSize="@dimen/fun_list_button_text_size" />
+        android:textSize="@dimen/fun_list_button_text_size"
+        />
 
     <Button
         android:id="@+id/button2"
@@ -27,7 +28,8 @@
         android:background="@drawable/custom_button"
         android:gravity="center"
         android:onClick="button2Click"
-        android:textSize="@dimen/fun_list_button_text_size" />
+        android:textSize="@dimen/fun_list_button_text_size"
+        />
 
     <Button
         android:id="@+id/button3"
@@ -39,7 +41,8 @@
         android:background="@drawable/custom_button"
         android:gravity="center"
         android:onClick="button3Click"
-        android:textSize="@dimen/fun_list_button_text_size" />
+        android:textSize="@dimen/fun_list_button_text_size"
+        />
 
     <Button
         android:id="@+id/button4"
@@ -51,7 +54,8 @@
         android:background="@drawable/custom_button"
         android:gravity="center"
         android:onClick="button4Click"
-        android:textSize="@dimen/fun_list_button_text_size" />
+        android:textSize="@dimen/fun_list_button_text_size"
+        />
 
     <Button
         android:id="@+id/button5"
@@ -63,7 +67,8 @@
         android:background="@drawable/custom_button"
         android:gravity="center"
         android:onClick="button5Click"
-        android:textSize="@dimen/fun_list_button_text_size" />
+        android:textSize="@dimen/fun_list_button_text_size"
+        />
 
     <Button
         android:id="@+id/button7"
@@ -75,7 +80,8 @@
         android:background="@drawable/custom_button"
         android:gravity="center"
         android:onClick="button7Click"
-        android:textSize="@dimen/fun_list_button_text_size" />
+        android:textSize="@dimen/fun_list_button_text_size"
+        android:visibility="gone"/>
     
     <Button
         android:id="@+id/button6"
@@ -87,5 +93,6 @@
         android:background="@drawable/custom_button"
         android:gravity="center"
         android:onClick="button6Click"
-        android:textSize="@dimen/fun_list_button_text_size" />
+        android:textSize="@dimen/fun_list_button_text_size"
+        />
 </LinearLayout>

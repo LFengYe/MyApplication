@@ -13,7 +13,8 @@ import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.EditText;
 
-import com.cn.wms_system.R;
+import com.cn.wms_system_new.R;
+
 
 public class ClearEditText extends EditText implements  
         OnFocusChangeListener, TextWatcher { 
@@ -45,8 +46,8 @@ public class ClearEditText extends EditText implements
     	//获取EditText的DrawableRight,假如没有设置我们就使用默认的图片
     	mClearDrawable = getCompoundDrawables()[2]; 
         if (mClearDrawable == null) { 
-//        	throw new NullPointerException("You can add drawableRight attribute in XML");
-        	mClearDrawable = getResources().getDrawable(R.drawable.ic_search_bar_right); 
+//        	throw new NullPointerException("You can add drawableRight attribute inHost XML");
+        	mClearDrawable = getResources().getDrawable(R.drawable.ic_search_bar_right);
         } 
         
         mClearDrawable.setBounds(0, 0, mClearDrawable.getIntrinsicWidth(), mClearDrawable.getIntrinsicHeight()); 

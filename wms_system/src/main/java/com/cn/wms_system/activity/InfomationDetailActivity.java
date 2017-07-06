@@ -21,7 +21,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ZoomControls;
 
-import com.cn.wms_system.R;
 import com.cn.wms_system.component.ClearEditText;
 import com.cn.wms_system.component.Constants;
 import com.cn.wms_system.component.ContentViewHolder;
@@ -32,8 +31,9 @@ import com.cn.wms_system.component.TableView;
 import com.cn.wms_system.component.TitleViewHolder;
 import com.cn.wms_system.component.WebOperate;
 import com.cn.wms_system.dialog.InfoConfirmDialog;
-import com.cn.wms_system.dialog.InfomationDialog;
+import com.cn.wms_system.dialog.InformationDialog;
 import com.cn.wms_system.service.BootBroadcastReceiver;
+import com.cn.wms_system_new.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -170,7 +170,7 @@ public class InfomationDetailActivity extends Activity {
 					
 					if (selectedFunIndex == 2 || selectedFunIndex == 3) {//判断本次领货、配送是否成功
 						if (lavedNum == 0 && Integer.valueOf(data.get(selectedItem)[8]) > lavedNum) {
-							createDialog(getResources().getString(R.string.the_operate_failed_title), 
+							createDialog(getResources().getString(R.string.the_operate_failed_title),
 									getResources().getString(R.string.the_operate_failed_message));
 						}
 					}
@@ -323,7 +323,7 @@ public class InfomationDetailActivity extends Activity {
 				 * 点击item弹出信息对话框或是确认对话框
 				 */
 				if (selectedFunIndex <= 3)
-					intent.setClass(InfomationDetailActivity.this,InfomationDialog.class);
+					intent.setClass(InfomationDetailActivity.this,InformationDialog.class);
 				if (selectedFunIndex == 4 || selectedFunIndex == 5)
 					intent.setClass(InfomationDetailActivity.this,InfoConfirmDialog.class);
 				

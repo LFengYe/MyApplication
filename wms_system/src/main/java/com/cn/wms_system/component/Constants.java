@@ -15,8 +15,6 @@ public class Constants {
 	public static final boolean debug_mode = true;
 	public static final String debug_Mac_address = "84:3A:4B:00:2A:9B";
 
-	public static String serverUrl = "http://192.168.137.1:8880/RuiBangWuLiu/app.do";
-
 	/**
 	 * 屏蔽home键时，修改的标志位
 	 */

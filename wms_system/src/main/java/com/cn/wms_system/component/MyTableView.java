@@ -19,7 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.cn.wms_system.R;
+
+import com.cn.wms_system_new.R;
 
 import java.util.Collections;
 import java.util.Comparator;

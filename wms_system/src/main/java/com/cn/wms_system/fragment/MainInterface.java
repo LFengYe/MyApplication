@@ -6,7 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.cn.wms_system.R;
+import com.cn.wms_system_new.R;
+
 
 public class MainInterface extends Fragment {
 

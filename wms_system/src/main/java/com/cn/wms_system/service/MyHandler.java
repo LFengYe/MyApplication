@@ -5,7 +5,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.widget.Toast;
 
-import com.cn.wms_system.R;
+import com.cn.wms_system.bean.SResponse;
+import com.cn.wms_system_new.R;
 
 /**
  * Created by LFeng on 2017/5/4.
@@ -22,38 +23,25 @@ public class MyHandler extends Handler {
     @Override
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
+        SResponse response = (SResponse) msg.obj;
         switch (msg.what) {
-            case MyThread.SUCCESS: {
+            case MyThread.RESPONSE_SUCCESS: {
                 break;
             }
-            case MyThread.ENCODINGEXE: {
-                Toast.makeText(context, R.string.response_error, Toast.LENGTH_LONG).show();
+            case MyThread.RESPONSE_FAILED: {
+                Toast.makeText(context, response.getMessage(), Toast.LENGTH_LONG).show();
                 break;
             }
-            case MyThread.ISNULL: {
-                Toast.makeText(context, R.string.response_empty, Toast.LENGTH_LONG).show();
-                break;
-            }
-            case MyThread.IOEXE: {
-                Toast.makeText(context, R.string.response_error, Toast.LENGTH_LONG).show();
-                break;
-            }
-            case MyThread.PROTOCOLEXE: {
-                Toast.makeText(context, R.string.response_error, Toast.LENGTH_LONG).show();
-                break;
-            }
-            case MyThread.UNAuthorization: {
+            case MyThread.RESPONSE_UNLOGIN: {
                 Toast.makeText(context, R.string.response_unLogin, Toast.LENGTH_LONG).show();
                 break;
             }
-            case MyThread.UNKNOWN: {
+            case MyThread.CONNECT_FAILED: {
                 Toast.makeText(context, R.string.response_error, Toast.LENGTH_LONG).show();
                 break;
             }
-            case MyThread.UNFORMAT: {
-                Toast.makeText(context, R.string.response_unformat, Toast.LENGTH_LONG).show();
-                break;
-            }
+            default:
+                Toast.makeText(context, response.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 }

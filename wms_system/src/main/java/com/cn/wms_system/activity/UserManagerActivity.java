@@ -3,7 +3,8 @@ package com.cn.wms_system.activity;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.cn.wms_system.R;
+import com.cn.wms_system_new.R;
+
 
 public class UserManagerActivity extends Activity {
 

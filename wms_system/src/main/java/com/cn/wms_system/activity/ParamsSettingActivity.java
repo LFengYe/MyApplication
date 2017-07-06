@@ -12,20 +12,19 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.cn.wms_system.R;
-import com.cn.wms_system.component.Constants;
 import com.cn.wms_system.component.GetNowTime;
 import com.cn.wms_system.component.TitleViewHolder;
 import com.cn.wms_system.service.BootBroadcastReceiver;
+import com.cn.wms_system.service.HttpRequestClient;
+import com.cn.wms_system_new.R;
 
 public class ParamsSettingActivity extends Activity {
 
 	private TitleViewHolder titleHolder;
 	private BootBroadcastReceiver receiver;
-	
-	//private CheckBox enableTimeUpdate;
-	//private EditText updateTimeEdit;
-	private EditText webserverHttpEdit;
+
+	private EditText ipAddressEdit;
+	private EditText portEdit;
 	
 	private SharedPreferences preferences;
 	private Bundle bundle;
@@ -117,23 +116,11 @@ public class ParamsSettingActivity extends Activity {
 	 * 内容组件的初始化与设置
 	 */
 	public void contentComponents() {
-		/*
-		enableTimeUpdate = (CheckBox) findViewById(R.id.enable_time);
-		enableTimeUpdate.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				updateTimeEdit.setFocusableInTouchMode(isChecked);
-				if (!isChecked)
-					updateTimeEdit.clearFocus();
-			}
-		});
-		
-		updateTimeEdit = (EditText) findViewById(R.id.update_time);
-		updateTimeEdit.setFocusableInTouchMode(false);
-		*/
-		webserverHttpEdit = (EditText) findViewById(R.id.webserver_http);
-		webserverHttpEdit.setText(preferences.getString("webserver_http", null));
+		ipAddressEdit = (EditText) findViewById(R.id.ipAddress_edit);
+		portEdit = (EditText) findViewById(R.id.port_edit);
+
+		ipAddressEdit.setText(preferences.getString("ipAddress", HttpRequestClient.ipAddress));
+		portEdit.setText(preferences.getString("port", HttpRequestClient.port));
 	}
 	
 	/**
@@ -142,10 +129,11 @@ public class ParamsSettingActivity extends Activity {
 	public void saveParams() {
 		Editor editor = preferences.edit();
 		
-		editor.putString("webserver_http", webserverHttpEdit.getEditableText().toString());
-		Constants.webServiceURL = webserverHttpEdit.getEditableText().toString() + "Service.asmx";
-//		WebOperate.setWebServiceURL(webserverHttpEdit.getEditableText().toString());
-		
+		editor.putString("ipAddress", ipAddressEdit.getEditableText().toString());
+		editor.putString("port", portEdit.getEditableText().toString());
+		HttpRequestClient.ipAddress = ipAddressEdit.getEditableText().toString();
+		HttpRequestClient.port = portEdit.getEditableText().toString();
+		HttpRequestClient.refreshHost();
 		editor.commit();
 	}
 	

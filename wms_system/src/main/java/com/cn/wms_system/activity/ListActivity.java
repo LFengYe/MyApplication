@@ -1,13 +1,15 @@
 package com.cn.wms_system.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
+import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -21,12 +23,14 @@ import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.ZoomControls;
 
-import com.cn.wms_system.R;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.parser.Feature;
 import com.cn.wms_system.bean.Employee;
+import com.cn.wms_system.bean.SResponse;
 import com.cn.wms_system.component.ClearEditText;
 import com.cn.wms_system.component.Constants;
 import com.cn.wms_system.component.ContentViewHolder;
@@ -34,24 +38,22 @@ import com.cn.wms_system.component.GetNowTime;
 import com.cn.wms_system.component.SideBar;
 import com.cn.wms_system.component.TableView;
 import com.cn.wms_system.component.TitleViewHolder;
-import com.cn.wms_system.dialog.DateTimeSetDialog;
-import com.cn.wms_system.dialog.DateTimeSetDialog.GetDialogData;
+import com.cn.wms_system.dialog.CustomerDialog;
 import com.cn.wms_system.service.BootBroadcastReceiver;
+import com.cn.wms_system.service.MyHandler;
 import com.cn.wms_system.service.MyThread;
+import com.cn.wms_system_new.R;
 
-import org.codehaus.jackson.map.ObjectMapper;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-
-import static com.cn.wms_system.component.Constants.serverUrl;
+import java.util.Map;
 
 public class ListActivity extends Activity {
+    public static final int REQUEST_REMARK = 1;
+    public static final int REQUEST_DIALOG = 2;
 
     private TitleViewHolder titleHolder;
     private ContentViewHolder contentHolder;
@@ -68,15 +70,22 @@ public class ListActivity extends Activity {
      * 表头
      */
     private String[] titleVale;
+    private String[] detailTitleValue;
+
+    private JSONObject titles;
+    private JSONObject detailTitles;
+    private String[] detailPrimary;
+
     /**
      * 表格数据
      */
     private List<String[]> tableData;
-    private JSONArray datas;
+    private JSONArray objects;
     /**
      * 过滤后的表格数据
      */
     private List<String[]> filterData;
+    private JSONArray filterObjects;
     /**
      * 数据过滤标志
      */
@@ -87,6 +96,7 @@ public class ListActivity extends Activity {
     private Employee employee;
 
     private boolean requiredDate = false;
+    private boolean isDetailList = false;
     private int textSize = Constants.TEXTSIZE_INIT;
 
     //region 各个点击事件
@@ -95,81 +105,76 @@ public class ListActivity extends Activity {
         private int years;
         private int month;
         private int day;
+        private int editTextIndex = 0;
 
         @Override
-        public void onClick(final View v) {
-            /**
-             * 如果点击的为标题栏返回按钮
-             */
-            if (v.getId() == titleHolder.backButton.getId()) {
-                finish();
-                return;
-            }
-            /**
-             * 如果设置的为标题栏刷新按钮
-             */
-            if (v.getId() == titleHolder.refreshButton.getId()) {
-                requiredDate = false;
-                downloadData();
-                return;
-            }
+        public void onClick(View v) {
 
-            /**
-             * 如果点击的为日期设置
-             */
-            DatePickerDialog dialog = new DatePickerDialog(v.getContext(),
-                    null, (years > 0) ? years : GetNowTime.getYear(),
-                    (month > 0) ? (month - 1) : GetNowTime.getMonth(),
-                    (day > 0) ? day : GetNowTime.getDay());
-            dialog.setOnDismissListener(new OnDismissListener() {
-                // 对话框消失事件
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                    DatePicker picker = ((DatePickerDialog) dialog)
-                            .getDatePicker();
-                    years = picker.getYear();
-                    month = picker.getMonth() + 1;
-                    day = picker.getDayOfMonth();
-
-                    // 开始时间判断，正确则下载数据
-                    if (v.getId() == contentHolder.editText1.getId()) {
-                        contentHolder.editText1.setText(composeDate(years,
-                                month, day));
-                        if (contentHolder.editText1
-                                .getEditableText()
-                                .toString()
-                                .compareTo(
-                                        contentHolder.editText2
-                                                .getEditableText().toString()) > 0)
-                            Toast.makeText(getApplicationContext(),
-                                    R.string.the_start_time_bigger_end_time,
-                                    Toast.LENGTH_SHORT).show();
-                        else {
-                            requiredDate = true;
-                            downloadData();
-                        }
+            editTextIndex = 2;
+            switch (v.getId()) {
+                case R.id.back: {
+                    /**
+                     * 如果点击的为标题栏返回按钮
+                     */
+                    if (isDetailList) {
+                        isDetailList = false;
+                        downloadData();
+                    } else {
+                        finish();
                     }
-                    // 截止时间判断，正确则下载数据
-                    if (v.getId() == contentHolder.editText2.getId()) {
-                        contentHolder.editText2.setText(composeDate(years,
-                                month, day));
-                        if (contentHolder.editText2
-                                .getEditableText()
-                                .toString()
-                                .compareTo(
-                                        contentHolder.editText1
-                                                .getEditableText().toString()) < 0)
-                            Toast.makeText(getApplicationContext(),
-                                    R.string.the_end_time_smaller_start_time,
-                                    Toast.LENGTH_SHORT).show();
-                        else {
-                            requiredDate = true;
-                            downloadData();
-                        }
-                    }
+                    break;
                 }
-            });
-            dialog.show();
+                case R.id.refresh: {
+                    /**
+                     * 如果设置的为标题栏刷新按钮
+                     */
+                    requiredDate = false;
+                    isDetailList = false;
+                    downloadData();
+                    break;
+                }
+                case R.id.edittext1:
+                    editTextIndex = 1;
+                case R.id.edittext2: {
+                    /**
+                     * 如果点击的为日期设置
+                     */
+                    DatePickerDialog dialog = new DatePickerDialog(v.getContext(),
+                            null, GetNowTime.getYear(),
+                            GetNowTime.getMonth(),
+                            GetNowTime.getDay());
+
+                    dialog.setOnDismissListener(new OnDismissListener() {
+                        // 对话框消失事件
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            DatePicker picker = ((DatePickerDialog) dialog)
+                                    .getDatePicker();
+                            years = picker.getYear();
+                            month = picker.getMonth() + 1;
+                            day = picker.getDayOfMonth();
+
+                            if (editTextIndex == 1)
+                                contentHolder.editText1.setText(composeDate(years, month, day));
+                            if (editTextIndex == 2)
+                                contentHolder.editText2.setText(composeDate(years, month, day));
+
+                            if (contentHolder.editText1.getEditableText().toString().compareTo(
+                                    contentHolder.editText2.getEditableText().toString()) > 0)
+                                Toast.makeText(getApplicationContext(),
+                                        R.string.the_start_time_bigger_end_time,
+                                        Toast.LENGTH_SHORT).show();
+                            else {
+                                requiredDate = true;
+                                isDetailList = false;
+                                downloadData();
+                            }
+                        }
+                    });
+                    dialog.show();
+                    break;
+                }
+            }
         }
     };
     //endregion
@@ -182,7 +187,45 @@ public class ListActivity extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
-            if (employee.getEmployeeType().compareTo("仓管员") == 0) {
+            selectedIndex = position;
+            if (bundle.getInt("selected_fun_index", 1) < 4) {
+                JSONObject title = isDetailList ? detailTitles : titles;
+                JSONObject data;
+                if (filterFlag) {
+                    data = filterObjects.getJSONObject(selectedIndex);
+                } else {
+                    data = objects.getJSONObject(selectedIndex);
+                }
+                Intent intent = new Intent(ListActivity.this, CustomerDialog.class);
+                intent.putExtra("title", title.toJSONString());
+                intent.putExtra("data", data.toJSONString());
+                intent.putExtra("selected_fun_index_name", bundle.getString("selected_fun_index_name", ""));
+                intent.putExtra("selected_fun_index", bundle.getInt("selected_fun_index", 1));
+                startActivityForResult(intent, REQUEST_DIALOG);
+            }
+            if (bundle.getInt("selected_fun_index", 1) == 4) {
+                if (bundle.getInt("selected_child_fun_item", 0) == 7) {
+                    //报检信息
+                    showInspectionDialog();
+                } else {
+                    JSONObject selectObj = objects.getJSONObject(position);
+                    JSONObject detailPrimaryObj = new JSONObject();
+                    for (String string : detailPrimary) {
+                        if (!TextUtils.isEmpty(selectObj.getString(string)))
+                            detailPrimaryObj.put(string, selectObj.getString(string));
+                    }
+                    JSONObject object = new JSONObject();
+                    if (isDetailList) {
+                        //明细审核
+                        object.put("datas", "[" + detailPrimaryObj.toJSONString() + "]");
+                        auditItem(object);
+                    } else {
+                        //获取明细
+                        object.put("rely", detailPrimaryObj);
+                        requestDetail(object);
+                    }
+                    isDetailList = true;
+                }
             }
         }
     };
@@ -190,91 +233,165 @@ public class ListActivity extends Activity {
     private TableView.ButtonClickInterFace btnClick = new TableView.ButtonClickInterFace() {
         @Override
         public void btnClick(int position) {
-            try {
-                selectedIndex = position;
-                JSONObject object = datas.getJSONObject(position);
+            selectedIndex = position;
+            if (employee.getEmployeeType().compareTo("仓管员") == 0) {
+                JSONObject object;
+                if (filterFlag) {
+                    object = filterObjects.getJSONObject(selectedIndex);
+                } else {
+                    object = objects.getJSONObject(selectedIndex);
+                }
                 confirmItem(object);
-            } catch (JSONException e) {
+            } else {
+                JSONObject object;
+                if (filterFlag) {
+                    object = filterObjects.getJSONObject(selectedIndex);
+                } else {
+                    object = objects.getJSONObject(selectedIndex);
+                }
+                confirmItem(object);
+            }
+        }
+
+        @Override
+        public void sortFinish(final String titleName) {
+            JSONObject title = isDetailList ? detailTitles : titles;
+            Iterator iterator = title.entrySet().iterator();
+            while (iterator.hasNext()) {
+                final Map.Entry<String, String> entry = (Map.Entry<String, String>) iterator.next();
+                if (entry.getValue().compareTo(titleName) == 0) {
+                    Comparator<JSONObject> comparator = new Comparator<JSONObject>() {
+
+                        @Override
+                        public int compare(JSONObject lhs, JSONObject rhs) {
+                            if (tableView.getSortRule() == TableView.SORT_ASCENDING)
+                                return lhs.getString(entry.getKey()).compareTo(rhs.getString(entry.getKey()));
+                            else
+                                return rhs.getString(entry.getKey()).compareTo(lhs.getString(entry.getKey()));
+                        }
+                    };
+
+                    List<JSONObject> list = new ArrayList<>();
+                    for (int i = 0; i < objects.size(); i++) {
+                        list.add(objects.getJSONObject(i));
+                    }
+
+                    Collections.sort(list, comparator);
+                    objects.clear();
+                    for (int i = 0; i < list.size(); i++) {
+                        objects.add(list.get(i));
+                    }
+                    break;
+                }
             }
         }
     };
 
 
-    //region 消息处理程序
-    private Handler myHandler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
+    private MyHandler operateHandler = new MyHandler(this) {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            SResponse response = (SResponse) msg.obj;
             switch (msg.what) {
-                case MyThread.SUCCESS:
-                    try {
-                        JSONObject response = (JSONObject) msg.obj;
-                        if (response.getInt("status") == 0) {
-                            if (!TextUtils.isEmpty(response.getString("data")) &&
-                                    !(response.getString("data").compareTo("null") == 0)) {
-                                //状态为0, 返回数据不为空
-                                JSONObject object = new JSONObject(response.getString("data"));
-                                JSONObject titles = object.getJSONObject("titles");
-                                /**
-                                 * 生成标题
-                                 */
-                                titleVale = new String[titles.length()];
-                                Iterator<String> iterator = titles.keys();
-                                int index = 0;
-                                while (iterator.hasNext()) {
-                                    String key = iterator.next();
-                                    titleVale[index] = titles.getString(key);
-                                    index++;
-                                }
-                                /**
-                                 * 生成数据
-                                 */
-                                datas = object.getJSONArray("datas");
-                                tableData = new ArrayList<>();
-                                for (int i = 0; i < datas.length(); i++) {
-                                    JSONObject obj = datas.getJSONObject(i);
-                                    String[] data = new String[titles.length()];
-                                    iterator = titles.keys();
-                                    int tmp = 0;
-                                    while (iterator.hasNext()) {
-                                        String key = iterator.next();
-                                        data[tmp] = (null == obj.getString(key)) ? ("") : (obj.getString(key));
-                                        tmp++;
-                                    }
-                                    tableData.add(data);
-                                }
-                                if (tableView == null) {
-                                    setTableViewCom(titleVale, tableData);
-                                } else {
-                                    tableView.refreshData(tableData);
-                                }
-                            } else {
-                                //状态为0, 返回数据为空
-                                if (employee.getEmployeeTypeCode() == 5) {
-                                    downloadData();
-                                } else {
-                                    tableData.remove(selectedIndex);
-                                    tableView.refreshData(tableData);
-                                }
-                                Toast.makeText(ListActivity.this, response.getString("message"), Toast.LENGTH_LONG).show();
-                            }
-                        } else {
-                            if (tableData != null && tableView != null) {
-                                tableData.clear();
-                                tableView.refreshData(tableData);
-                            }
-                            Toast.makeText(ListActivity.this, response.getString("message"), Toast.LENGTH_LONG).show();
-                        }
-                    } catch (JSONException e) {
-                        Toast.makeText(ListActivity.this, R.string.response_unformat, Toast.LENGTH_LONG).show();
-                    }
+                case MyThread.RESPONSE_SUCCESS:
+                    downloadData();
+                    Toast.makeText(ListActivity.this, response.getMessage(), Toast.LENGTH_SHORT).show();
                     break;
-                case Constants.GET_MESSAGE_IS_EMPTY:
-                    break;
-                default:
+                case MyThread.RESPONSE_UNFINISH:
+                    showInputDialog();
+                    Toast.makeText(ListActivity.this, response.getMessage(), Toast.LENGTH_SHORT).show();
                     break;
             }
         }
+    };
 
-        ;
+    //region 消息处理程序
+    private MyHandler dateHandler = new MyHandler(this) {
+        public void handleMessage(android.os.Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case MyThread.RESPONSE_SUCCESS:
+                    SResponse response = (SResponse) msg.obj;
+
+                    if (!TextUtils.isEmpty(response.getData()) &&
+                            !(response.getData().compareTo("null") == 0)) {
+                        //状态为0, 返回数据不为空
+                        JSONObject object = JSONObject.parseObject(response.getData(), Feature.OrderedField);
+                        if (JSONObject.parseObject(object.getString("titles"), Feature.OrderedField) != null)
+                            titles = JSONObject.parseObject(object.getString("titles"), Feature.OrderedField);
+                        if (JSONObject.parseObject(object.getString("detailTitles"), Feature.OrderedField) != null)
+                            detailTitles = JSONObject.parseObject(object.getString("detailTitles"), Feature.OrderedField);
+                        if (!TextUtils.isEmpty(object.getString("detailPrimary"))) {
+                            detailPrimary = object.getString("detailPrimary").split(",");
+                        }
+                        /**
+                         * 生成标题
+                         */
+                        if (titles != null && titles.size() > 0) {
+                            titleVale = new String[titles.size()];
+                            Iterator iterator = titles.entrySet().iterator();
+                            int index = 0;
+                            while (iterator.hasNext()) {
+                                Map.Entry<String, String> entry = (Map.Entry<String, String>) iterator.next();
+                                titleVale[index] = entry.getValue().split(",")[0];
+                                index++;
+                            }
+                        }
+
+                        if (detailTitles != null && detailTitles.size() > 0) {
+                            detailTitleValue = new String[detailTitles.size()];
+                            Iterator iterator = detailTitles.entrySet().iterator();
+                            int index = 0;
+                            while (iterator.hasNext()) {
+                                Map.Entry<String, String> entry = (Map.Entry<String, String>) iterator.next();
+                                detailTitleValue[index] = entry.getValue().split(",")[0];
+                                index++;
+                            }
+                        }
+                        /**
+                         * 生成数据
+                         */
+                        objects = object.getJSONArray("datas");
+                        tableData = new ArrayList<>();
+                        if (objects != null) {
+                            if (filterFlag) {
+                                contentHolder.editText3.setText("");
+                            }
+                            JSONObject title = isDetailList ? detailTitles : titles;
+                            for (int i = 0; i < objects.size(); i++) {
+                                JSONObject obj = objects.getJSONObject(i);
+                                Iterator iterator = title.entrySet().iterator();
+                                int tmp = 0;
+                                String[] data = new String[title.size()];
+                                while (iterator.hasNext()) {
+                                    Map.Entry<String, String> entry = (Map.Entry<String, String>) iterator.next();
+                                    data[tmp] = (null == obj.getString(entry.getKey())) ? ("") : (obj.getString(entry.getKey()));
+                                    tmp++;
+                                }
+                                tableData.add(data);
+                            }
+                        }
+
+                        if (isDetailList)
+                            setTableViewCom(detailTitleValue, tableData);
+                        else setTableViewCom(titleVale, tableData);
+
+                    } else {
+                        //状态为0, 返回数据为空
+                        if (employee.getEmployeeTypeCode() == 5) {
+                            downloadData();
+                        } else {
+                            objects.remove(selectedIndex);
+                            tableData.remove(selectedIndex);
+                            tableView.refreshData(tableData);
+                        }
+                        Toast.makeText(ListActivity.this, response.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    break;
+            }
+        }
     };
     //endregion
 
@@ -293,12 +410,15 @@ public class ListActivity extends Activity {
         @Override
         public void afterTextChanged(Editable s) {
             if (s != null && s.length() > 0) {
-                filterData = filterData(tableData, s.toString());
-                tableView.refreshData(filterData);
-                filterFlag = true;
-                return;
+                if (s.length() > 3 && employee.getEmployeeTypeCode() == 5) {
+                    filterData(tableData, s.toString());
+                    tableView.refreshData(filterData);
+                    filterFlag = true;
+                }
+            } else {
+                tableView.refreshData(tableData);
+                filterFlag = false;
             }
-            tableView.refreshData(tableData);
         }
     };
     //endregion
@@ -318,6 +438,17 @@ public class ListActivity extends Activity {
         initParams();
         setComponents();
         downloadData();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQUEST_DIALOG:
+                if (resultCode == RESULT_OK)
+                    downloadData();
+                break;
+        }
     }
 
     public void setTableViewCom(String[] titleVale, List<String[]> tableData) {
@@ -418,6 +549,7 @@ public class ListActivity extends Activity {
                 .getMinute()) : GetNowTime.getMinute()));
         titleHolder.titleTextView.setText(bundle.getString("title"));
 
+
         //除报表查询只有结束时间外, 其他都有开始时间和结束时间
         if (bundle.getInt("selected_fun_index", 1) != 5) {
             contentHolder.textView1.setText(R.string.plan_demand_date);
@@ -433,60 +565,6 @@ public class ListActivity extends Activity {
             contentHolder.editText2.setOnClickListener(onClickListener);
         }
 
-        //报表查询只有结束时间
-        if (bundle.getInt("selected_fun_index", 1) == 5) {
-            contentHolder.textView1.setText(R.string.report_end_time);
-            contentHolder.editText1.setVisibility(View.GONE);
-
-            contentHolder.textView2.setVisibility(View.GONE);
-            contentHolder.editText2.setText(composeDateTime(
-                    GetNowTime.getYear(), GetNowTime.getMonth() + 1,
-                    GetNowTime.getDay(), GetNowTime.getHour(),
-                    GetNowTime.getMinute()));
-            contentHolder.editText2.setFocusable(false);
-            contentHolder.editText2.setOnClickListener(new OnClickListener() {
-                int day = GetNowTime.getDay();
-                int hour = GetNowTime.getHour();
-                int minute = GetNowTime.getMinute();
-                int month = GetNowTime.getMonth();
-                int year = GetNowTime.getYear();
-
-                @Override
-                public void onClick(View paramView) {
-                    GetDialogData dialogData = new GetDialogData() {
-
-                        @Override
-                        public void getTime(TimePicker paramTimePicker) {
-                            hour = paramTimePicker.getCurrentHour().intValue();
-                            minute = paramTimePicker.getCurrentMinute()
-                                    .intValue();
-                        }
-
-                        @Override
-                        public void getDate(DatePicker paramDatePicker) {
-                            year = paramDatePicker.getYear();
-                            month = paramDatePicker.getMonth() + 1;
-                            day = paramDatePicker.getDayOfMonth();
-                        }
-                    };
-                    DateTimeSetDialog dialog = new DateTimeSetDialog(
-                            ListActivity.this, dialogData);
-                    dialog.setTitle(R.string.date_time_set);
-                    dialog.setOnDismissListener(new OnDismissListener() {
-
-                        @Override
-                        public void onDismiss(
-                                DialogInterface paramDialogInterface) {
-                            contentHolder.editText2.setText(composeDateTime(
-                                    year, month, day, hour, minute));
-                            downloadData();
-                        }
-                    });
-                    dialog.show();
-                }
-            });
-        }
-
         contentHolder.textView3.setText(R.string.quick_search);
         contentHolder.editText3.setHint(R.string.list_search_promte);
         contentHolder.editText3.addTextChangedListener(watcher);
@@ -496,12 +574,9 @@ public class ListActivity extends Activity {
      * 初始化参数
      */
     public void initParams() {
-        try {
-            bundle = getIntent().getExtras();
-            employee = new ObjectMapper().readValue(bundle.getString("employee"), Employee.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        bundle = getIntent().getExtras();
+        employee = JSONObject.parseObject(bundle.getString("employee"), Employee.class);
     }
 
     /**
@@ -540,71 +615,185 @@ public class ListActivity extends Activity {
      */
     public void downloadData() {
 
-        try {
+        /**
+         * 备货管理、领货管理、配送管理计划单消息请求
+         */
+        if (bundle.getInt("selected_fun_index", 1) <= 3) {
+            SharedPreferences preferences = getSharedPreferences(
+                    "system_params", MODE_PRIVATE);
             JSONObject object = new JSONObject();
-            /**
-             * 备货管理、领货管理、配送管理计划单消息请求
-             */
-            if (bundle.getInt("selected_fun_index", 1) <= 3) {
-                SharedPreferences preferences = getSharedPreferences(
-                        "system_params", MODE_PRIVATE);
-                object.put("module", bundle.getString("selected_fun_index_name", ""));
-                object.put("operation", "create");
-                object.put("username", preferences.getString("username", "").split(",")[0]);
-                object.put("startTime", contentHolder.editText1.getEditableText().toString() + " 00:00");
-                object.put("endTime", contentHolder.editText2.getEditableText().toString() + " 23:59");
-                if (requiredDate) {
-                    /** 获取所有计划单 */
-                    object.put("isFinished", 1);
-                    requiredDate = false;
-                } else {
-                    /** 获取未完成计划单 */
-                    object.put("isFinished", 0);
-                }
-                switch (bundle.getInt("selected_child_fun_item", 1)) {
-                    case 0:
-                        object.put("ZDCustomerID", "9997");
-                        break;
-                    case 1:
-                        object.put("ZDCustomerID", "9998");
-                        break;
-                    case 2:
-                        object.put("ZDCustomerID", "9999");
-                        break;
-                }
+            object.put("module", bundle.getString("selected_fun_index_name", ""));
+            object.put("operation", "create");
+            object.put("type", "app");
+            object.put("username", preferences.getString("username", "").split(",")[0]);
+            object.put("startTime", contentHolder.editText1.getEditableText().toString() + " 00:00");
+            object.put("endTime", contentHolder.editText2.getEditableText().toString() + " 23:59");
+            if (requiredDate) {
+                /** 获取所有计划单 */
+                object.put("isFinished", 1);
+                requiredDate = false;
+            } else {
+                /** 获取未完成计划单 */
+                object.put("isFinished", 0);
+            }
+            switch (bundle.getInt("selected_child_fun_item", 1)) {
+                case 0:
+                    object.put("ZDCustomerID", "9997");
+                    break;
+                case 1:
+                    object.put("ZDCustomerID", "9998");
+                    break;
+                case 2:
+                    object.put("ZDCustomerID", "9999");
+                    break;
             }
 
-            new MyThread(serverUrl, myHandler, object).start();
-        } catch (JSONException e) {
-            Toast.makeText(ListActivity.this, R.string.response_unformat, Toast.LENGTH_LONG).show();
+            new MyThread(dateHandler, object, "app.do").start();
+        }
+
+        if (bundle.getInt("selected_fun_index", 1) == 4) {
+            JSONObject object = new JSONObject();
+            object.put("module", bundle.getString("title", ""));
+            object.put("operation", "create");
+            object.put("type", "app");
+            if (requiredDate) {
+                JSONObject dateObj = new JSONObject();
+                dateObj.put("start", contentHolder.editText1.getEditableText().toString() + " 00:00");
+                dateObj.put("end", contentHolder.editText2.getEditableText().toString() + " 23:59");
+                requiredDate = false;
+                object.put("rely", dateObj.toJSONString());
+            } else {
+                object.put("rely", "{}");
+            }
+            switch (bundle.getInt("selected_child_fun_item", 1)) {
+                case 0:
+                case 1:
+                    new MyThread(dateHandler, object, "out.do").start();
+                    break;
+                case 2:
+                case 3:
+                case 6:
+                    new MyThread(dateHandler, object, "in.do").start();
+                    break;
+                case 4:
+                case 5:
+                case 7:
+                    new MyThread(dateHandler, object, "move.do").start();
+                    break;
+            }
+        }
+
+        if (bundle.getInt("selected_fun_index", 1) == 5) {
+            JSONObject object = new JSONObject();
+            object.put("module", bundle.getString("title", ""));
+            object.put("operation", "create");
+            object.put("type", "create");
+            if (requiredDate) {
+                if (bundle.getInt("selected_child_fun_item", 1) == 0) {
+                    JSONObject dateObj = new JSONObject();
+                    dateObj.put("start", contentHolder.editText1.getEditableText().toString() + " 00:00");
+                    dateObj.put("end", contentHolder.editText2.getEditableText().toString() + " 23:59");
+                    object.put("rely", dateObj.toJSONString());
+                } else {
+                    object.put("start", contentHolder.editText1.getEditableText().toString() + " 00:00");
+                    object.put("end", contentHolder.editText2.getEditableText().toString() + " 23:59");
+                }
+                requiredDate = false;
+            } else {
+            }
+            new MyThread(dateHandler, object, "report.do").start();
         }
     }
 
+    public void requestDetail(JSONObject object) {
+        if (bundle.getInt("selected_fun_index", 1) == 4) {
+            object.put("module", bundle.getString("title", ""));
+            object.put("operation", "request_detail");
+            object.put("type", "app");
+            object.put("pageSize", Integer.MAX_VALUE);
+            object.put("pageIndex", 1);
+            switch (bundle.getInt("selected_child_fun_item", 1)) {
+                case 0:
+                case 1:
+                    new MyThread(dateHandler, object, "out.do").start();
+                    break;
+                case 2:
+                case 3:
+                case 6:
+                    new MyThread(dateHandler, object, "in.do").start();
+                    break;
+                case 4:
+                case 5:
+                case 7:
+                    new MyThread(dateHandler, object, "move.do").start();
+                    break;
+            }
+        }
+    }
+
+    public void auditItem(JSONObject object) {
+        object.put("module", bundle.getString("title", ""));
+        object.put("operation", "auditItem");
+        object.put("type", "app");
+        switch (bundle.getInt("selected_child_fun_item", 1)) {
+            case 0:
+            case 1:
+                new MyThread(operateHandler, object, "out.do").start();
+                break;
+            case 2:
+            case 3:
+            case 6:
+                new MyThread(operateHandler, object, "in.do").start();
+                break;
+            case 4:
+            case 5:
+            case 7:
+                new MyThread(operateHandler, object, "move.do").start();
+                break;
+        }
+    }
+
+    public void inspection(JSONObject object) {
+        object.put("module", bundle.getString("title", ""));
+        object.put("operation", "inspection");
+        object.put("type", "app");
+        new MyThread(operateHandler, object, "move.do").start();
+    }
+
     public void confirmItem(JSONObject object) {
-        try {
-            SharedPreferences preferences = getSharedPreferences(
-                    "system_params", MODE_PRIVATE);
-            object.put("module", bundle.getString("selected_fun_index_name", ""));
-            object.put("operation", "confirm");
-            object.put("username", preferences.getString("username", "").split(",")[0]);
-            new MyThread(serverUrl, myHandler, object).start();
-        } catch (JSONException e) {
-            Toast.makeText(ListActivity.this, R.string.response_unformat, Toast.LENGTH_LONG).show();
+        SharedPreferences preferences = getSharedPreferences(
+                "system_params", MODE_PRIVATE);
+        object.put("module", bundle.getString("selected_fun_index_name", ""));
+        object.put("operation", "confirm");
+        object.put("username", preferences.getString("username", "").split(",")[0]);
+        if (bundle.getInt("selected_fun_index", 1) <= 3) {
+            new MyThread(operateHandler, object, "app.do").start();
         }
     }
 
     // 数据过滤
-    public List<String[]> filterData(List<String[]> data, String s) {
-        List<String[]> result = new ArrayList<String[]>();
-        for (String[] item : data) {
-            for (String temp : item) {
-                if (temp.contains(s)) {
-                    result.add(item);
+    public void filterData(List<String[]> data, String s) {
+        if (filterData != null) {
+            filterData.clear();
+        } else {
+            filterData = new ArrayList<>();
+        }
+        if (filterObjects != null) {
+            filterObjects.clear();
+        } else {
+            filterObjects = new JSONArray();
+        }
+
+        for (int i = 0; i < data.size(); i++) {
+            String[] item = data.get(i);
+            for (String str : item) {
+                if (str.contains(s)) {
+                    filterData.add(item);
+                    filterObjects.add(objects.get(i));
                     break;
                 }
             }
         }
-        return result;
     }
 
     @Override
@@ -643,6 +832,93 @@ public class ListActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    private void showInputDialog() {
+        final EditText editText = new EditText(ListActivity.this);
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(ListActivity.this);
+        builder.setTitle(R.string.input_remark_promote).setView(editText);
+        builder.setPositiveButton(R.string.setting_confirm, null);
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String remarkInfo = editText.getText().toString();
+                if (TextUtils.isEmpty(remarkInfo)) {
+                    Toast.makeText(ListActivity.this, R.string.remark_empty_promote, Toast.LENGTH_LONG).show();
+                    return;
+                } else {
+                    JSONObject object;
+                    if (filterFlag) {
+                        object = filterObjects.getJSONObject(selectedIndex);
+                    } else {
+                        object = objects.getJSONObject(selectedIndex);
+                    }
+                    object.put("remark", remarkInfo);
+                    confirmItem(object);
+                    dialog.dismiss();
+                }
+            }
+        });
+    }
+
+    private void showInspectionDialog() {
+        final EditText editText = new EditText(ListActivity.this);
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(ListActivity.this);
+        builder.setTitle(R.string.input_reject_promote).setView(editText);
+        builder.setPositiveButton(R.string.accept, null);
+        builder.setNegativeButton(R.string.reject, null);
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JSONObject object;
+                if (filterFlag) {
+                    object = filterObjects.getJSONObject(selectedIndex);
+                } else {
+                    object = objects.getJSONObject(selectedIndex);
+                }
+                object.put("inspectionResult", "合格");
+
+                JSONObject obj = new JSONObject();
+                obj.put("item", object);
+                inspection(obj);
+                dialog.dismiss();
+            }
+        });
+
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String remarkInfo = editText.getText().toString();
+                if (TextUtils.isEmpty(remarkInfo)) {
+                    Toast.makeText(ListActivity.this, R.string.reject_empty_promote, Toast.LENGTH_LONG).show();
+                    return;
+                } else {
+                    JSONObject object;
+                    if (filterFlag) {
+                        object = filterObjects.getJSONObject(selectedIndex);
+                    } else {
+                        object = objects.getJSONObject(selectedIndex);
+                    }
+                    object.put("inspectionResult", "不合格");
+                    object.put("inspectionReportListRemark", remarkInfo);
+
+                    JSONObject obj = new JSONObject();
+                    obj.put("item", object);
+                    inspection(obj);
+                    dialog.dismiss();
+                }
+            }
+        });
     }
 
     /**

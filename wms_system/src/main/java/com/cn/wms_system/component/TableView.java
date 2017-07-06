@@ -19,7 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.cn.wms_system.R;
+
+import com.cn.wms_system_new.R;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -390,7 +391,8 @@ public class TableView extends LinearLayout {
 	 * @param filedIndex
 	 * @return 排序结果
 	 */
-	public List<String[]> orderData(List<String[]> data, int filedIndex) {
+	public List<String[]> orderData(List<String[]> data, final int filedIndex) {
+		/*
 		String[] temp;
 		for (int i = 0; i < data.size(); i++) {
 			for (int j = i; j < data.size() - 1; j++) {
@@ -412,18 +414,21 @@ public class TableView extends LinearLayout {
 					data.set(j + 1, temp);
 				}
 			}
-		}
+		}*/
+		Comparator<String[]> comparator = new Comparator<String[]>() {
+
+			@Override
+			public int compare(String[] lhs, String[] rhs) {
+				if (sortRule == SORT_ASCENDING)
+					return lhs[filedIndex].compareTo(rhs[filedIndex]);
+				else
+					return rhs[filedIndex].compareTo(lhs[filedIndex]);
+			}
+		};
 		Collections.sort(data, comparator);
+		btnClick.sortFinish(title[filedIndex]);
 		return data;
 	}
-
-	Comparator<String[]> comparator = new Comparator<String[]>() {
-		
-		@Override
-		public int compare(String[] lhs, String[] rhs) {
-			return lhs[lhs.length - 1].compareTo(rhs[rhs.length - 1]);
-		}
-	};
 
 	public int getItemHeight() {
 		return itemHeight;
@@ -595,19 +600,21 @@ public class TableView extends LinearLayout {
 					button.setBackgroundResource(R.drawable.button_shape);
 					button.setFocusable(false);
 					button.setClickable(false);
-					button.setTextColor(Color.BLACK);
-					if (Integer.valueOf(dataItem[i]) == 1) {
-						button.setText("开始");
-					}
-					if (Integer.valueOf(dataItem[i]) == 2) {
-						button.setText("完成");
-					}
+					button.setTextColor(Color.WHITE);
 					button.setOnClickListener(new OnClickListener() {
 						@Override
 						public void onClick(View v) {
 							btnClick.btnClick(position);
 						}
 					});
+					if (Integer.valueOf(dataItem[i]) == 0 || Integer.valueOf(dataItem[i]) == -2) {
+						button.setText("开始");
+					} else if (Integer.valueOf(dataItem[i]) == -1) {
+						button.setText("完成");
+					} else {
+						button.setVisibility(View.GONE);
+						button.setOnClickListener(null);
+					}
 					contextLayout.addView(button, Constants.FILL_FILL_LAYOUTPARAMS);
 					continue;
 				}
@@ -741,5 +748,6 @@ public class TableView extends LinearLayout {
 
 	public interface ButtonClickInterFace {
 		void btnClick(int position);
+		void sortFinish(String titleName);
 	}
 }

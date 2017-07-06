@@ -11,10 +11,10 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.cn.wms_system.R;
 import com.cn.wms_system.component.Constants;
 import com.cn.wms_system.component.GetNowTime;
 import com.cn.wms_system.component.WebOperate;
+import com.cn.wms_system_new.R;
 
 import java.util.HashMap;
 import java.util.Map;
