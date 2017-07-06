@@ -1,0 +1,112 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'com.google.gms.google-services'
+
+repositories {
+    flatDir {
+        dir 'libs'
+    }
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "25.0.0"
+
+    signingConfigs {
+        config {
+            keyAlias 'vehicle'
+            keyPassword 'cxgps.com'
+            storeFile file('android_cxgps_appkey.keystore')
+            storePassword 'cxgps.com'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+
+        instrumentTest.setRoot('tests')
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+
+    defaultConfig {
+        applicationId "com.cxgps.vehicle"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 34
+        versionName "3.3.4"
+
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a','x86', 'x86_64', 'mips', 'mips64'
+            // 还可以添加
+        }
+
+    }
+    buildTypes {
+        lintOptions {
+            checkReleaseBuilds false
+
+            abortOnError false
+        }
+
+        release {
+
+            minifyEnabled false
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+
+    }
+
+    tasks.whenTaskAdded { task ->
+        if (task.name.contains("lint")
+//如果instant run不生效，把clean这行干掉
+                ||task.name.equals("clean")
+                //如果项目中有用到aidl则不可以舍弃这个任务
+                ||task.name.contains("Aidl")
+//用不到测试的时候就可以先关闭
+                ||task.name.contains("mockableAndroidJar")
+                ||task.name.contains("UnitTest")
+                ||task.name.contains("AndroidTest")
+//用不到NDK和JNI的也关闭掉
+                || task.name.contains("Ndk")
+                || task.name.contains("Jni")
+        ) {
+            task.enabled = false
+        }
+    }
+
+
+
+
+    useLibrary("org.apache.http.legacy")
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'org.kymjs.kjframe:kjframe:2.6'
+    compile 'com.alibaba:fastjson:1.2.12'
+
+    compile 'com.google.android.gms:play-services-maps:10.0.0'
+
+    compile 'com.kymjs.rxvolley:rxvolley:1.0.7'
+    compile 'com.kymjs.rxvolley:okhttp:1.0.7'
+    compile 'com.kymjs.rxvolley:bitmapcore:1.0.7'
+
+
+    compile 'net.qiujuer.genius:graphics:latest.integration'
+    compile 'net.qiujuer.genius:res:latest.integration'
+    compile 'net.qiujuer.genius:ui:latest.integration'
+
+
+    compile files('libs/BaiduLBS_Android.jar')
+    compile 'im.fir:fir-sdk:latest.integration@aar'
+}

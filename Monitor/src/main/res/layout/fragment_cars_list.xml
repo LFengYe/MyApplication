@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="?attr/layout_item_bg"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!-- 选择用户登录方式 -->
+
+    <RadioGroup
+        android:id="@+id/cars_state_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/main_rect_shape_bg"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/cars_all"
+            style="@style/myStyle.OrangeTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/layout_size0"
+            android:layout_weight="1.0"
+            android:background="@drawable/radiobtn_login_selector"
+            android:button="@null"
+            android:checked="true"
+            android:text="" />
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_10"
+
+            android:background="@color/lines_rect_color" />
+
+        <RadioButton
+            android:id="@+id/car_online"
+            style="@style/myStyle.OrangeTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/layout_size0"
+            android:layout_weight="1.0"
+            android:background="@drawable/radiobtn_login_selector"
+            android:button="@null"
+            android:checked="false"
+            android:text="" />
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_10"
+            android:background="@color/lines_rect_color" />
+
+        <RadioButton
+            android:id="@+id/car_outline"
+            style="@style/myStyle.OrangeTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/layout_size0"
+            android:layout_weight="1.0"
+            android:background="@drawable/radiobtn_login_selector"
+            android:button="@null"
+            android:checked="false"
+            android:text="" />
+
+    </RadioGroup>
+
+
+    <include  layout="@layout/fragment_base_list"/>
+
+</LinearLayout>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <!-- 顶部布局（选择语言，体验版） -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginBottom="@dimen/space_10"
+                android:layout_marginTop="@dimen/space_10"
+                android:gravity="center|right"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/select_language"
+                    style="@style/myStyle.BlackTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/layout_size2"
+                    android:layout_margin="@dimen/space_5"
+                    android:gravity="center|right"
+                    android:paddingLeft="@dimen/space_10"
+                    android:visibility="visible"
+                    android:paddingRight="@dimen/space_10"
+                    android:text="@string/select_language" />
+
+                <TextView
+                    android:id="@+id/try_to_use"
+                    style="@style/myStyle.BlackTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/layout_size2"
+                    android:layout_marginLeft="@dimen/space_20"
+                    android:layout_marginRight="@dimen/space_10"
+                    android:gravity="center|right"
+                    android:paddingLeft="@dimen/space_10"
+                    android:paddingRight="@dimen/space_10"
+                    android:text="@string/try_to_user" />
+            </LinearLayout>
+
+            <!-- 选择用户登录方式 -->
+
+            <RadioGroup
+                android:id="@+id/loginWays"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_20"
+                android:layout_marginTop="@dimen/space_5"
+                android:background="@drawable/main_rect_shape_bg"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/user_login_way"
+                    style="@style/myStyle.OrangeTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/layout_size0"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/radiobtn_login_selector"
+                    android:button="@null"
+                    android:checked="true"
+                    android:text="@string/user_login_way" />
+
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/space_10"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:background="@color/lines_rect_color" />
+
+                <RadioButton
+                    android:id="@+id/car_login_way"
+                    style="@style/myStyle.OrangeTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/layout_size0"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/radiobtn_login_selector"
+                    android:button="@null"
+                    android:checked="false"
+                    android:text="@string/car_login_way" />
+            </RadioGroup>
+
+            <!-- 输入框 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:background="@drawable/main_rect_shape_bg"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_45"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/myStyle.OrangeTextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/space_20"
+                        android:text="@string/user_login_name" />
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/space_5"
+                        android:background="@color/lines_rect_color"
+                        android:orientation="vertical" />
+
+                    <AutoCompleteTextView
+                        android:id="@+id/user_edit_name"
+                        style="@style/item_input_edittext"
+                        android:hint="@string/user_edit_name_hit"
+                        android:paddingLeft="@dimen/space_10" />
+
+                    <ImageView
+                        android:id="@+id/iv_clear_username"
+                        style="@style/item_input_clear"
+                        android:contentDescription="@null"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_1"
+                    android:layout_marginBottom="@dimen/space_10"
+                    android:layout_marginLeft="@dimen/space_10"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:background="@color/lines_rect_color"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_45"
+                    android:layout_marginBottom="@dimen/space_10"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/myStyle.OrangeTextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/space_20"
+                        android:text="@string/user_login_passwd" />
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/space_5"
+                        android:background="@color/lines_rect_color"
+                        android:orientation="vertical" />
+
+                    <EditText
+                        android:id="@+id/user_edit_passwd"
+                        style="@style/item_input_edittext"
+                        android:hint="@string/user_edit_passwd_hit"
+                        android:inputType="textPassword"
+                        android:paddingLeft="@dimen/space_10" />
+
+                    <ImageView
+                        android:id="@+id/iv_clear_password"
+                        style="@style/item_input_clear"
+                        android:contentDescription="@null"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 选择是否记住、自动登录 -->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_20"
+                android:layout_marginTop="@dimen/space_20" >
+
+                <CheckBox
+                    android:id="@+id/isAutoLogin"
+                    style="@style/myStyle.CheckBoxStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="@dimen/space_30"
+                    android:layout_weight="1.0"
+                    android:text="@string/user_auto_login" />
+
+                <CheckBox
+                    android:id="@+id/isRember"
+                    style="@style/myStyle.CheckBoxStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/space_30"
+                    android:layout_weight="1.0"
+                    android:checked="true"
+                    android:text="@string/user_remember_login" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/user_btn_login"
+                style="@style/myStyle.WhiteTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_20"
+                android:layout_marginRight="@dimen/space_20"
+                android:layout_marginTop="@dimen/space_20"
+                android:background="@drawable/login_in_but"
+                android:text="@string/user_btn_login" />
+
+            <TextView
+                android:id="@+id/change"
+                style="@style/myStyle.BlackTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_size0"
+                android:layout_marginTop="@dimen/space_20"
+                android:text="@string/user_change_server" />
+
+            <TextView
+                android:id="@+id/app_version"
+                style="@style/myStyle.BlackTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_size0"
+                android:layout_marginBottom="@dimen/space_20"
+                android:layout_marginTop="@dimen/space_10"
+                android:gravity="bottom|center"
+                android:text="@string/app_version" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

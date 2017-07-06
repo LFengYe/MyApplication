@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+
+        <FrameLayout
+            android:id="@+id/main_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+
+        <FrameLayout
+            android:id="@+id/top_layout"
+            android:layout_marginTop="@dimen/space_15"
+            android:layout_marginLeft="@dimen/space_15"
+            android:layout_marginRight="@dimen/space_15"
+            android:layout_marginBottom="@dimen/space_15"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            >
+
+
+            <LinearLayout
+
+                android:id="@+id/top_left_layout"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="right|center_horizontal"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tab_road_title"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableTop="@mipmap/monitor_ico_lukuang"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:onClick="menuRightTop"
+                    android:layout_marginTop="@dimen/space_5"
+
+                    android:text=""
+                    android:textColor="@color/primarybar_txt"
+                    android:textSize="12sp" />
+
+
+                <TextView
+
+                    android:id="@+id/tab_map_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawablePadding="@dimen/space_5"
+                    android:drawableTop="@mipmap/monitor_ico_earth"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:onClick="menuRightTop"
+                    android:text=""
+                    android:textColor="@color/primarybar_txt"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+
+
+
+</FrameLayout>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/layout_item_bg"
+    android:orientation="vertical"
+    android:scrollbars="none">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+
+        <View
+            style="@style/h_line"
+            android:layout_marginTop="10dip"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_clean_cache"
+            style="@style/option_item_rl" >
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:text="@string/clear_cache"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_16" />
+
+            <TextView
+                android:id="@+id/tv_cache_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                tools:text="13M"
+                android:drawableRight="@mipmap/home_arrow_r"
+                android:drawablePadding="@dimen/space_5"
+                android:textColor="?attr/infoTextColor"
+                android:textSize="@dimen/text_size_14" />
+        </RelativeLayout>
+
+
+
+        <View
+            style="@style/h_line" />
+
+
+
+        <RelativeLayout
+            android:id="@+id/rl_app_scope"
+            style="@style/option_item_rl" >
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:text="@string/app_scope_title"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_16" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:drawableRight="@mipmap/home_arrow_r"
+                android:textColor="?attr/infoTextColor"
+                android:textSize="@dimen/text_size_14" />
+        </RelativeLayout>
+
+        <View
+            style="@style/h_line" />
+
+
+        <RelativeLayout
+            android:id="@+id/rl_set_car_update"
+            style="@style/option_item_rl" >
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:text="@string/set_car_update"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_16" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:drawableRight="@mipmap/home_arrow_r"
+                android:textColor="?attr/infoTextColor"
+                android:textSize="@dimen/text_size_14" />
+        </RelativeLayout>
+
+        <View
+            style="@style/h_line" />
+
+
+        <View
+            style="@style/h_line"
+            android:layout_marginTop="10dip"/>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_autologin"
+            style="@style/option_item_rl" >
+
+
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:text="@string/user_auto_login"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16" />
+
+            <com.cxgps.vehicle.widget.togglebutton.ToggleButton
+                android:id="@+id/tb_autolgon"
+                android:layout_width="45dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+
+        <View
+            style="@style/h_line" />
+
+        <RelativeLayout
+            android:id="@+id/rl_monitor_reflush_time"
+            style="@style/option_item_rl" >
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:text="@string/monitor_reflush_time"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_16" />
+
+            <TextView
+                android:id="@+id/tv_moreflush_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                tools:text="15秒"
+                android:drawablePadding="@dimen/space_5"
+                android:drawableRight="@mipmap/home_arrow_r"
+                android:textColor="?attr/infoTextColor"
+                android:textSize="@dimen/text_size_14" />
+        </RelativeLayout>
+
+        <View
+            style="@style/h_line" />
+
+
+        <RelativeLayout
+            android:id="@+id/rl_zhuizong_reflush_time"
+            style="@style/option_item_rl" >
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:text="@string/zhuizong_reflush_time"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_16" />
+
+            <TextView
+                android:id="@+id/tv_zhuizong_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                tools:text="15秒"
+                android:drawablePadding="@dimen/space_5"
+                android:drawableRight="@mipmap/home_arrow_r"
+                android:textColor="?attr/infoTextColor"
+                android:textSize="@dimen/text_size_14" />
+        </RelativeLayout>
+
+        <View
+            style="@style/h_line" />
+
+
+
+        <View
+            style="@style/h_line"
+            android:layout_marginTop="20dip"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_user_language_title"
+            style="@style/option_item_rl" >
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:text="@string/user_language_title"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_16" />
+
+            <TextView
+                android:id="@+id/tv_user_language_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                tools:text="中文"
+                android:drawablePadding="@dimen/space_5"
+                android:drawableRight="@mipmap/home_arrow_r"
+                android:textColor="?attr/infoTextColor"
+                android:textSize="@dimen/text_size_14" />
+        </RelativeLayout>
+
+        <View
+            style="@style/h_line" />
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/rl_user_map_title"
+            style="@style/option_item_rl" >
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:text="@string/user_map_title"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_16" />
+
+            <TextView
+                android:id="@+id/tv_user_map_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                tools:text="百度"
+                android:drawablePadding="@dimen/space_5"
+                android:drawableRight="@mipmap/home_arrow_r"
+                android:textColor="?attr/infoTextColor"
+                android:textSize="@dimen/text_size_14" />
+        </RelativeLayout>
+
+
+
+        <View
+            style="@style/h_line" />
+
+        <RelativeLayout
+            android:id="@+id/rl_user_logout"
+            style="@style/option_item_rl" >
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:text="@string/main_slide_loginout"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_16" />
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:drawableRight="@mipmap/home_arrow_r"
+                android:textColor="?attr/infoTextColor"
+                android:textSize="@dimen/text_size_14" />
+        </RelativeLayout>
+
+        <View
+            style="@style/h_line" />
+    </LinearLayout>
+
+
+
+
+</ScrollView>

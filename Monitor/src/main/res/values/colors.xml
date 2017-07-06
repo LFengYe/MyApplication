@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 通用的颜色 -->
+    <color name="orange">#ffa849</color>
+    <color name="orange_light">#f8c48a</color>
+    <color name="red">#f65a05</color>
+    <color name="black">#252e31</color>
+    <color name="main_tab_color">#717070</color>
+    <color name="gray">#a8a4a4</color>
+    <color name="main_bg_color">#f5f5f5</color>
+    <color name="light_gray">#1a000000</color>
+    <color name="text_dark">#af000000</color>
+    <color name="lines_rect_color">@color/gray</color>
+    <color name="text_light">#3f000000</color>
+    <color name="colorPrimary">@color/orange</color>
+    <color name="colorPrimaryDark">@color/orange_light</color>
+    <color name="primary_light">#FFCDD2</color>
+    <color name="colorAccent">@color/red</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white40">#40FFFFFF</color>
+    <color name="main_green">#24cf5f</color>
+    <color name="list_divider_color">#DADADA</color>
+    <!-- 反馈 -->
+    <color name="text_color_account_info">#ff5e5546</color>
+    <color name="edittext_hint_color">#ffa9a9a9</color>
+
+    <!-- 下拉刷新时，颜色值 -->
+    <color name="swiperefresh_color1">#ff00ddff</color>
+    <color name="swiperefresh_color2">#ffffbb33</color>
+    <color name="swiperefresh_color3">#ffff4444</color>
+    <color name="swiperefresh_color4">#ffaa66cc</color>
+
+    <!-- day -->
+
+    <color name="day_textColor">@color/black</color>
+    <color name="day_infoTextColor">@color/gray</color>
+    <color name="day_layout_bg_normal">#f6f6f6</color>
+    <color name="day_layout_bg_pressed">#dfdfdf</color>
+    <color name="day_line_color">@color/lines_rect_color</color>
+    <color name="day_windows_bg">#fafafa</color>
+    <color name="day_edit_color">@color/black</color>
+    <color name="day_edit_hit_color">@color/gray</color>
+
+</resources>

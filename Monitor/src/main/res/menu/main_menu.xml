@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+    <item
+        android:id="@+id/main_action_notice"
+        android:orderInCategory="99"
+
+        android:icon="@mipmap/alert_type_jingbao"
+        android:title="@string/main_slide_notice"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/main_action_carslist"
+        android:orderInCategory="100"
+
+        android:icon="@mipmap/monitor_car_list"
+        android:title="@string/main_slide_cars"
+        app:showAsAction="always"/>
+</menu>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0">
+
+        <FrameLayout
+            android:id="@+id/main_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/space_15"
+            android:layout_marginLeft="@dimen/space_15"
+            android:layout_marginRight="@dimen/space_15"
+            android:layout_marginBottom="@dimen/space_15"
+            android:id="@+id/top_left_layout"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="right|center_horizontal"
+            android:layout_height="wrap_content">
+
+
+
+
+            <TextView
+                android:id="@+id/tab_road_title"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableTop="@mipmap/monitor_ico_lukuang"
+                android:gravity="center"
+                android:clickable="true"
+                android:onClick="menuRightTop"
+                android:layout_marginTop="@dimen/space_5"
+                android:text=""
+                android:textColor="@color/primarybar_txt"
+                android:textSize="12sp" />
+
+
+            <TextView
+
+                android:id="@+id/tab_map_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/space_5"
+                android:drawableTop="@mipmap/monitor_ico_earth"
+                android:gravity="center"
+                android:clickable="true"
+                android:layout_marginTop="@dimen/space_5"
+                android:onClick="menuRightTop"
+                android:text=""
+                android:textColor="@color/primarybar_txt"
+                android:textSize="12sp" />
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/space_15"
+            android:layout_marginLeft="@dimen/space_15"
+            android:layout_marginRight="@dimen/space_15"
+            android:layout_marginBottom="@dimen/space_15"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="right|center_horizontal|bottom"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="@dimen/space_20"
+                android:id="@+id/seekbar_quick_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/space_5"
+                android:gravity="center"
+                android:text="快"
+                android:background="@color/light_gray"
+                android:textColor="@color/primarybar_txt"
+                android:textSize="12sp" />
+            <com.cxgps.vehicle.widget.VerticalSeekBar
+                android:id="@+id/speedSeekbar"
+                android:layout_width="wrap_content"
+                android:layout_height="150dip"
+                android:layout_gravity="center"
+
+                />
+
+
+            <TextView
+
+                android:id="@+id/seekbar_slow_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/light_gray"
+                android:gravity="center"
+                android:padding="@dimen/space_5"
+                android:text="慢"
+                android:textColor="@color/primarybar_txt"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+
+
+
+
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:background="@mipmap/history_bo_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/playresult"
+
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:padding="@dimen/space_5"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:id="@+id/car_track_reduce"
+                android:background="@null"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:onClick="menuRightTop"
+                android:layout_marginLeft="@dimen/space_10"
+                android:layout_marginRight="@dimen/space_10"
+                android:src="@mipmap/reduce_speed"
+                android:layout_height="wrap_content" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:id="@+id/car_track_play"
+                android:background="@null"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="menuRightTop"
+                android:layout_marginLeft="@dimen/space_30"
+                android:layout_marginRight="@dimen/space_30"
+
+                android:layout_height="wrap_content" />
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:id="@+id/car_track_increase"
+                android:background="@null"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:onClick="menuRightTop"
+                android:layout_marginLeft="@dimen/space_10"
+                android:layout_marginRight="@dimen/space_10"
+                android:src="@mipmap/increase_speed"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/car_track_seekbar"
+            android:layout_width="fill_parent"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/space_5"
+            android:layout_marginLeft="@dimen/space_5"
+            android:layout_height="wrap_content"
+            style="@style/Widget.SeekBar.Normal"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

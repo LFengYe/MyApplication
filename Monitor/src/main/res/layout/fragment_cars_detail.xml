@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/space_10"
+        android:layout_height="match_parent">
+        <include
+
+            layout="@layout/list_cell_car"/>
+
+        <LinearLayout
+            android:background="@drawable/main_rect_shape_bg"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/item_cars_sim"
+                android:layout_width="match_parent"
+                android:padding="@dimen/space_10"
+                android:layout_marginLeft="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_5"
+                android:text="@string/app_name"
+
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/lines_rect_color"
+                android:layout_height="1dip"/>
+
+            <TextView
+                android:id="@+id/item_cars_time"
+                android:layout_width="match_parent"
+                android:padding="@dimen/space_10"
+                android:text="@string/app_name"
+                android:layout_marginLeft="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_5"
+
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/lines_rect_color"
+                android:layout_height="1dip"/>
+
+            <TextView
+                android:id="@+id/item_cars_state"
+                android:layout_width="match_parent"
+                android:padding="@dimen/space_10"
+                android:layout_marginLeft="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_5"
+                android:text="@string/app_name"
+
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/lines_rect_color"
+                android:layout_height="1dip"/>
+
+
+            <TextView
+                android:id="@+id/item_cars_sot"
+                android:layout_width="match_parent"
+                android:padding="@dimen/space_10"
+                android:text="@string/app_name"
+                android:layout_marginLeft="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_5"
+
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/lines_rect_color"
+                android:layout_height="1dip"/>
+
+
+            <TextView
+                android:id="@+id/item_cars_ele"
+                android:layout_width="match_parent"
+                android:padding="@dimen/space_10"
+                android:text="@string/app_name"
+                android:layout_marginLeft="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_5"
+
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/lines_rect_color"
+                android:layout_height="1dip"/>
+
+            <TextView
+                android:id="@+id/item_cars_mile"
+                android:layout_width="match_parent"
+                android:padding="@dimen/space_10"
+                android:text="@string/app_name"
+                android:layout_marginLeft="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_5"
+
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/lines_rect_color"
+                android:layout_height="1dip"/>
+
+
+            <TextView
+                android:id="@+id/item_cars_gps"
+                android:layout_width="match_parent"
+                android:padding="@dimen/space_10"
+                android:text="@string/app_name"
+                android:layout_marginLeft="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_5"
+
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/lines_rect_color"
+                android:layout_height="1dip"/>
+
+            <TextView
+                android:id="@+id/item_cars_address"
+                android:layout_width="match_parent"
+                android:padding="@dimen/space_10"
+                android:text="@string/app_name"
+                android:layout_marginLeft="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_5"
+
+                android:layout_height="wrap_content" />
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

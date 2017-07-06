@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="dialog_text_color">#000000</color>
+
+    <!-- Blue(标题栏背景颜色) -->
+    <color name="title_background">#00BBCC</color>
+    <!-- Gray(提示文本颜色) -->
+    <color name="promote_text">#808080</color>
+    <!-- White(标题文本颜色) -->
+    <color name="text_color">#FFFFFF</color>
+
+    <!-- 表格标题颜色 -->
+    <color name="the_table_title_bg_color">#378A2BE2</color>
+    <!-- 表格内容颜色 -->
+    <color name="the_table_content_bg_color1">#FFFFFFFF</color>
+    <color name="the_table_content_bg_color2">#C897CBFF</color>
+    <!-- 表格选中行颜色 -->
+    <color name="the_table_selected_bg_color">#FFFCE6C9</color>
+    <!-- 紧急计划字体颜色 -->
+    <color name="the_table_urgent_text_color">#FFFF0000</color>
+    <!-- 已完成计划明细字体颜色 -->
+    <color name="the_detail_finished_text_color">#FFFFBD9D</color>
+</resources>

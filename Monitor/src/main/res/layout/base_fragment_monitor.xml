@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <FrameLayout
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_horizontal"
+        android:layout_margin="@dimen/space_5" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tab_road_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_5"
+                android:layout_weight="1.0"
+                android:clickable="true"
+                android:drawableTop="@mipmap/monitor_ico_lukuang"
+                android:gravity="center"
+                android:text=""
+                android:onClick="menuRightTop"
+                android:textColor="@color/primarybar_txt"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tab_map_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+
+                android:layout_weight="1.0"
+                android:clickable="true"
+                android:drawablePadding="@dimen/space_5"
+                android:drawableTop="@mipmap/monitor_ico_earth"
+                android:gravity="center"
+                android:text=""
+                android:onClick="menuRightTop"
+                android:textColor="@color/primarybar_txt"
+                android:textSize="12sp" />
+
+            <TextView
+                android:visibility="visible"
+                android:id="@+id/tab_map_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+
+                android:layout_weight="1.0"
+                android:clickable="true"
+                android:onClick="menuRightTop"
+                android:drawablePadding="@dimen/space_5"
+                android:drawableTop="@mipmap/monitor_carposition"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/primarybar_txt"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent" >
+
+        <ImageView
+            android:id="@+id/leftClickBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="menuRightTop"
+            android:src="@mipmap/monitor_ico_left" />
+
+        <ImageView
+            android:id="@+id/rightClickBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:onClick="menuRightTop"
+            android:focusable="true"
+            android:src="@mipmap/monitor_ico_right" />
+
+
+
+        <FrameLayout
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/rightClickBtn"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/space_49"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/map_add_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:layout_weight="1.0"
+                    android:clickable="true"
+                    android:drawableTop="@mipmap/monitor_ico_expand"
+                    android:gravity="center"
+                    android:text=""
+                    android:onClick="menuRightTop"
+                    android:textColor="@color/primarybar_txt"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:onClick="menuRightTop"
+                    android:id="@+id/map_reduce_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:layout_weight="1.0"
+                    android:clickable="true"
+                    android:drawablePadding="@dimen/space_5"
+                    android:drawableTop="@mipmap/monitor_ico_narrow"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/primarybar_txt"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </FrameLayout>
+    </RelativeLayout>
+
+
+</FrameLayout>

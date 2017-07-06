@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.MainActivity">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/navigation_item_navi"
+            android:title="@string/main_slide_navi"
+            android:icon="@mipmap/monitor_dao"
+            />
+
+        <item
+            android:id="@+id/navigation_item_ubook"
+            android:title="@string/main_slide_ubook"
+            android:icon="@mipmap/monitor_cao"
+            />
+
+
+        <item
+            android:id="@+id/navigation_item_wzcq"
+            android:title="@string/main_slide_wzcq"
+            android:icon="@mipmap/monitor_wei"
+            />
+
+
+        <item
+            android:checkable="true"
+            android:id="@+id/navigation_item_adverise"
+            android:title="@string/main_slide_adverise"
+            android:icon="@mipmap/monitor_yi"
+            />
+
+
+        <item
+            android:checkable="true"
+            android:id="@+id/navigation_item_about"
+            android:title="@string/main_slide_about"
+            android:icon="@mipmap/monitor_us"
+            />
+
+        <item
+            android:checkable="true"
+            android:id="@+id/navigation_item_settings"
+            android:title="@string/main_slide_settings"
+            android:icon="@mipmap/monitor_setting"
+            />
+
+
+        <item
+            android:checkable="true"
+            android:id="@+id/navigation_item_loginout"
+            android:title="@string/main_slide_loginout"
+            android:icon="@mipmap/monitor_out"
+            />
+
+    </group>
+</menu>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/start_time"
+        android:layout_width="match_parent"
+        android:textColor="@color/black"
+        android:background="@drawable/main_rect_shape_bg"
+        android:layout_margin="@dimen/space_25"
+        android:padding="@dimen/space_10"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/end_time"
+        android:background="@drawable/main_rect_shape_bg"
+        android:layout_width="match_parent"
+        android:textColor="@color/black"
+        android:layout_margin="@dimen/space_25"
+        android:padding="@dimen/space_10"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/start_toplay"
+        android:layout_width="match_parent"
+        android:text="@string/dialog_ok"
+      android:padding="@dimen/space_10"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/space_30"
+        android:layout_marginRight="@dimen/space_30"
+
+        android:background="@drawable/login_in_but"
+        android:layout_height="wrap_content" />
+</LinearLayout>
