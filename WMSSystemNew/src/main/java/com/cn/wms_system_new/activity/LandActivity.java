@@ -98,7 +98,7 @@ public class LandActivity extends Activity {
                         bundle.putString("menuJson", object.getString("menuJson"));
                         bundle.putString("employee", object.getString("employee"));
                         intent.putExtras(bundle);
-                        //intent.setClass(getApplicationContext(), MainFragment.class);
+                        intent.setClass(LandActivity.this, MainFragmentActivity.class);
                         startActivity(intent);
                         // 保存用户名
                         saveHistory("username", userCodeEdit);

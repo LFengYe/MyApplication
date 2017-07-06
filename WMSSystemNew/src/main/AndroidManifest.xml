@@ -40,6 +40,13 @@
             android:theme="@style/XTheme"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" >
         </activity>
+
+        <activity
+            android:name=".activity.MainFragmentActivity"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/XTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
     </application>
 
 </manifest>
