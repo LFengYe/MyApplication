@@ -164,12 +164,12 @@
         "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-xhdpi\\shop_group.png"
     },
     {
-        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\im_chatting_setmode_voice_btn_normal.png",
-        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-xhdpi\\im_chatting_setmode_voice_btn_normal.png"
-    },
-    {
         "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\welcome.png",
         "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-xhdpi\\welcome.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\im_chatting_setmode_voice_btn_normal.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\src\\main\\res\\drawable-xhdpi\\im_chatting_setmode_voice_btn_normal.png"
     },
     {
         "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\iMDeveloper_github\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\im_chatto_bg_normal.9.png",

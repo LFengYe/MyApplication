@@ -24,4 +24,20 @@
     <color name="the_table_urgent_text_color">#FFFF0000</color>
     <!-- 已完成计划明细字体颜色 -->
     <color name="the_detail_finished_text_color">#FFFFBD9D</color>
+
+    <!-- PowderBlue(粉蓝色/火药青) -->
+    <color name="online_normal_color">#B0E0E6</color>
+    <!-- DeepSkyBlue(深天蓝色) -->
+    <color name="online_selected_color">#00BFFF</color>
+    <!-- WhiteSmoke(白烟) -->
+    <color name="offline_selected_color">#F5F5F5</color>
+    <!-- Blue(蓝色) -->
+    <color name="landBtn_text">#0000FF</color>
+    <!-- DeepSkeBlue(深天蓝) -->
+    <color name="online_text_color">#00BFFF</color>
+    <!-- DarkGray(深灰色) -->
+    <color name="offline_text_color">#A9A9A9</color>
+    <!-- Yellow(纯黄) -->
+    <color name="edit_bg_color">#FFFF00</color>
+
 </resources>

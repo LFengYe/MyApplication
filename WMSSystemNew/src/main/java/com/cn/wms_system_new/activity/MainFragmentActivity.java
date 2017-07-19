@@ -1,7 +1,5 @@
 package com.cn.wms_system_new.activity;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +7,9 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.Window;
@@ -18,10 +18,12 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.parser.Feature;
+import com.alibaba.fastjson.serializer.StringCodec;
 import com.cn.wms_system_new.R;
 import com.cn.wms_system_new.component.Constants;
 import com.cn.wms_system_new.component.GetNowTime;
 import com.cn.wms_system_new.component.TitleViewHolder;
+import com.cn.wms_system_new.fragment.DetailFunFragment;
 import com.cn.wms_system_new.fragment.ListFunFragment;
 import com.cn.wms_system_new.fragment.MainInterface;
 import com.cn.wms_system_new.service.BootBroadcastReceiver;
@@ -61,14 +63,18 @@ public class MainFragmentActivity extends FragmentActivity {
         setTitleComponents();
         initParams();
 
-        FragmentManager manager = getFragmentManager();
+        FragmentManager manager = getSupportFragmentManager();
         Fragment fragment = manager.findFragmentById(R.id.list_fun);
         ListFunFragment listFunFragment = (ListFunFragment) fragment;
         listFunFragment.setMenuJson(menuJson);
         listFunFragment.setCallback(new ListFunFragment.BtnClickCallback() {
             @Override
-            public void btnClick(JSONObject object) {
+            public void btnClick(String funName, JSONObject object) {
                 if (findViewById(R.id.detail_fun) != null) {
+                    DetailFunFragment detailFunFragment = DetailFunFragment.newInstance(funName, object);
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.detail_fun, detailFunFragment);
+                    transaction.commit();
                 }
             }
         });

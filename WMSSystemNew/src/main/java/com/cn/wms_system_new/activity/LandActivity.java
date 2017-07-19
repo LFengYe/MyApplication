@@ -5,9 +5,13 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.ArraySet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,6 +32,13 @@ import com.cn.wms_system_new.service.BootBroadcastReceiver;
 import com.cn.wms_system_new.service.HttpRequestClient;
 import com.cn.wms_system_new.service.MyHandler;
 import com.cn.wms_system_new.service.MyThread;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 
 public class LandActivity extends Activity {
 
@@ -83,6 +94,45 @@ public class LandActivity extends Activity {
     };
     //endregion
 
+    private static final int MSG_SET_ALIAS = 1001;
+    private Handler jpushHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case MSG_SET_ALIAS:
+                    Log.d("LAND", "Set alias in handler.");
+                    // 调用 JPush 接口来设置别名。
+                    JPushInterface.setAliasAndTags(getApplicationContext(),
+                            "test", null, mAliasCallback);
+                    break;
+            }
+        }
+    };
+
+    private final TagAliasCallback mAliasCallback = new TagAliasCallback() {
+        @Override
+        public void gotResult(int code, String alias, Set<String> tags) {
+            String logs ;
+            switch (code) {
+                case 0:
+                    logs = "Set tag and alias success";
+                    Log.i("LAND", logs);
+                    // 建议这里往 SharePreference 里写一个成功设置的状态。成功设置一次后，以后不必再次设置了。
+                    break;
+                case 6002:
+                    logs = "Failed to set alias and tags due to timeout. Try again after 60s.";
+                    Log.i("LAND", logs);
+                    // 延迟 60 秒来调用 Handler 设置别名
+                    jpushHandler.sendMessageDelayed(jpushHandler.obtainMessage(MSG_SET_ALIAS, alias), 1000 * 60);
+                    break;
+                default:
+                    logs = "Failed with errorCode = " + code;
+                    Log.e("LAND", logs);
+            }
+        }
+    };
+
     //region 数据处理
     private MyHandler myHandler = new MyHandler(LandActivity.this) {
         public void handleMessage(android.os.Message msg) {
@@ -98,10 +148,18 @@ public class LandActivity extends Activity {
                         bundle.putString("menuJson", object.getString("menuJson"));
                         bundle.putString("employee", object.getString("employee"));
                         intent.putExtras(bundle);
-                        intent.setClass(LandActivity.this, MainFragmentActivity.class);
-                        startActivity(intent);
+
                         // 保存用户名
                         saveHistory("username", userCodeEdit);
+//                        jpushHandler.sendMessage(jpushHandler.obtainMessage(MSG_SET_ALIAS,
+//                                object.getJSONObject("employee").getString("employeeName")));
+                        Set<String> tags = new HashSet<>();
+                        tags.add("testTags");
+                        JPushInterface.setAliasAndTags(getApplicationContext(),
+                                "test", tags, mAliasCallback);
+
+                        intent.setClass(LandActivity.this, MainFragmentActivity.class);
+                        startActivity(intent);
                     } else {
                         Toast.makeText(LandActivity.this, response.getMessage(), Toast.LENGTH_LONG).show();
                     }

@@ -1,7 +1,7 @@
 package com.cn.wms_system_new.fragment;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,7 +54,7 @@ public class ListFunFragment extends Fragment {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    callback.btnClick(entry.getValue());
+                    callback.btnClick(entry.getKey(), entry.getValue());
                 }
             });
 
@@ -77,6 +77,6 @@ public class ListFunFragment extends Fragment {
     }
 
     public interface BtnClickCallback {
-        void btnClick(JSONObject object);
+        void btnClick(String funName, JSONObject object);
     }
 }
