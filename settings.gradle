@@ -1,2 +1,1 @@
-include ':tableview', ':wetrack', ':YaDaFactory', ':Carigps', ':wms_system', ':JPushExample(611575)', ':Monitor', ':WMSSystemNew'
-include ':iMDeveloper_github'
+include ':Carigps', ':wetrack', ':tableview'

@@ -10,7 +10,6 @@ import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.ArraySet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,19 +25,19 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSONObject;
 import com.cn.wms_system_new.R;
 import com.cn.wms_system_new.bean.SResponse;
-import com.cn.wms_system_new.component.Constants;
+import com.cn.wms_system_new.component.CustomProgress;
 import com.cn.wms_system_new.component.GetNowTime;
 import com.cn.wms_system_new.service.BootBroadcastReceiver;
 import com.cn.wms_system_new.service.HttpRequestClient;
 import com.cn.wms_system_new.service.MyHandler;
 import com.cn.wms_system_new.service.MyThread;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.TagAliasCallback;
+
+import java.util.Set;
+
+import static com.cn.wms_system_new.component.Constants.JPUSH_ALIAS_SEQUENCE;
 
 public class LandActivity extends Activity {
 
@@ -50,6 +49,7 @@ public class LandActivity extends Activity {
     private TextView dateText;
 
     private BootBroadcastReceiver receiver;
+    private CustomProgress customProgress;
 
     //region 按钮点击事件
     private OnClickListener clickListener = new OnClickListener() {
@@ -67,6 +67,8 @@ public class LandActivity extends Activity {
                     object.put("username", username);
                     object.put("password", password);
 
+                    customProgress = CustomProgress.show(LandActivity.this,
+                            getResources().getString(R.string.loading), false, null);
                     new MyThread(myHandler, object, "action.do").start();
                 } else {
                     Toast.makeText(LandActivity.this, R.string.username_password_empty, Toast.LENGTH_LONG).show();
@@ -103,8 +105,9 @@ public class LandActivity extends Activity {
                 case MSG_SET_ALIAS:
                     Log.d("LAND", "Set alias in handler.");
                     // 调用 JPush 接口来设置别名。
-                    JPushInterface.setAliasAndTags(getApplicationContext(),
-                            "test", null, mAliasCallback);
+                    JPushInterface.setAlias(getApplicationContext(), String.valueOf(msg.obj), mAliasCallback);
+                    /*JPushInterface.setAliasAndTags(getApplicationContext(),
+                            String.valueOf(msg.obj), null, mAliasCallback);*/
                     break;
             }
         }
@@ -137,6 +140,8 @@ public class LandActivity extends Activity {
     private MyHandler myHandler = new MyHandler(LandActivity.this) {
         public void handleMessage(android.os.Message msg) {
             super.handleMessage(msg);
+            if (customProgress != null && customProgress.isShowing())
+                customProgress.dismiss();
             switch (msg.what) {
                 case MyThread.RESPONSE_SUCCESS: {
                     SResponse response = (SResponse) msg.obj;
@@ -151,12 +156,13 @@ public class LandActivity extends Activity {
 
                         // 保存用户名
                         saveHistory("username", userCodeEdit);
-//                        jpushHandler.sendMessage(jpushHandler.obtainMessage(MSG_SET_ALIAS,
-//                                object.getJSONObject("employee").getString("employeeName")));
-                        Set<String> tags = new HashSet<>();
-                        tags.add("testTags");
-                        JPushInterface.setAliasAndTags(getApplicationContext(),
-                                "test", tags, mAliasCallback);
+                        JPushInterface.setAlias(getApplicationContext()
+                                , JPUSH_ALIAS_SEQUENCE
+                                , object.getJSONObject("employee").getString("employeeName"));
+                        /*
+                        jpushHandler.sendMessage(jpushHandler.obtainMessage(MSG_SET_ALIAS,
+                                object.getJSONObject("employee").getString("employeeName")));
+                                */
 
                         intent.setClass(LandActivity.this, MainFragmentActivity.class);
                         startActivity(intent);
@@ -175,8 +181,9 @@ public class LandActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(Constants.FLAG_HOMEKEY_DISPATCHED,
+        /*getWindow().setFlags(Constants.FLAG_HOMEKEY_DISPATCHED,
                 Constants.FLAG_HOMEKEY_DISPATCHED);
+        */
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         getLayoutInflater();

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+              android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/arrow_white_left"
+                android:id="@+id/iv_left"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iv_left"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black_80"
+                android:text="Feedback Comments"/>
+        </RelativeLayout>
+    </Toolbar>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x10">
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feedback Type"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x15"
+            android:textSize="@dimen/x13"/>
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x5"
+            android:layout_toRightOf="@id/tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="@dimen/x13"
+            android:textColor="@color/black"
+            android:text="None"/>
+
+        <ImageView
+            android:layout_width="@dimen/x10"
+            android:layout_height="@dimen/x10"
+            android:src="@mipmap/arrow_darkcyan_right"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/x10"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+
+
+
+    <View
+        android:layout_marginTop="@dimen/x10"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x5"
+        android:background="@color/gray_80"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:background="@null"
+        android:lines="9"
+        android:hint="Problem / Suggest \nDescribe something ..."/>
+    <View
+        android:layout_marginTop="@dimen/x10"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x5"
+        android:background="@color/gray_80"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/x5"
+        android:paddingTop="@dimen/x5">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="Contact No"
+            android:layout_marginLeft="@dimen/x15"
+            android:textSize="@dimen/x13"
+            />
+        <EditText
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x10"
+            android:background="@null"
+            android:textStyle="italic"
+            android:hint="Enter Phone number/ Email"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"
+        android:background="@color/gray_80"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/x5"
+        android:paddingTop="@dimen/x5">
+        <TextView
+            android:layout_weight="5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_marginLeft="@dimen/x15"
+            android:textSize="@dimen/x13"
+            />
+        <EditText
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x10"
+            android:background="@null"
+            android:textStyle="italic"
+            android:hint="Enter Phone number/ Email"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"
+        android:background="@color/gray_80"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x140"
+            android:background="@color/gray_80"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bt_shape"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginRight="@dimen/x20"
+            android:layout_marginTop="@dimen/x20"
+            android:paddingBottom="@dimen/x10"
+            android:paddingTop="@dimen/x10"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/white"
+            android:layout_marginBottom="@dimen/x20"
+            android:text="Submit"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

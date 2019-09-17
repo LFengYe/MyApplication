@@ -1,0 +1,50 @@
+[
+    {
+        "outputFile": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 68,
+                    "endOffset": 119
+                },
+                "from": {
+                    "file": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\values-zh\\dcloud_gallery_strings.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 68,
+                        "endOffset": 81
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 68,
+                    "endOffset": 119
+                },
+                "from": {
+                    "file": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\values-zh\\dcloud_gallery_strings.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 68,
+                        "endOffset": 81
+                    }
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/control_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/search_time" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date|text" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/date_arrive" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date|text" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/quick_search" />
+
+            <com.cn.wms_system_new.component.ClearEditText
+                android:id="@+id/editText3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:background="@drawable/search_bar_edit_selector"
+                android:drawableLeft="@mipmap/ic_search_bar_left"
+                android:maxLines="1"
+                android:textSize="15.0dip"></com.cn.wms_system_new.component.ClearEditText>
+
+            <Button
+                android:id="@+id/search_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/info_search"
+                android:background="@drawable/button_shape"/>
+
+            <ZoomControls
+                android:id="@+id/zoom_controls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/data_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/control_layout"
+        android:layout_above="@+id/page_layout">
+
+        <HorizontalScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></HorizontalScrollView>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/page_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/previout_page"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/main_button"
+            android:gravity="center"
+            android:text="@string/previous_page" />
+
+        <Button
+            android:id="@+id/next_page"
+            android:layout_width="wrap_content"
+            android:layout_height="33sp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/main_button"
+            android:gravity="center"
+            android:text="@string/next_page" />
+    </LinearLayout>
+</RelativeLayout>

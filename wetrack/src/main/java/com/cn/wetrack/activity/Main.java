@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.cn.wetrack.R;
 import com.cn.wetrack.activity.baidu.AllLocationBaidu;
 import com.cn.wetrack.entity.Location;
@@ -45,9 +48,11 @@ public class Main extends Activity {
     private CustomProgressDialog progressDialog = null;// 进度
     //    private Runnable keepAliveRunnable = null;// 心跳线程
     private Boolean IsLoaded = false;
-//    private Thread getVehicleDateThread = new getVehicleData();
+    //    private Thread getVehicleDateThread = new getVehicleData();
     private Boolean IsListGet = false;
+    private MainMenuAdapter adapter;
 
+    //region 获取车辆数据的处理
     private Handler getVehicleDataHandler = new Handler() {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -78,6 +83,49 @@ public class Main extends Activity {
             }
         }
     };
+    //endregion
+
+    //region 登出数据处理
+    private Handler logoutHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 0:
+                    glob.sp.edit().putBoolean("autoLogin", false).commit();
+                    Intent intent = new Intent();
+                    intent.setClass(Main.this, Login.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    android.os.Process.killProcess(android.os.Process.myPid());  //结束进程之前可以把你程序的注销或者退出代码放在这段代码之前
+                    break;
+                case 1:
+                    Toast.makeText(Main.this, (String) msg.obj, Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
+    };
+    //endregion
+
+    //region 获取未读消息数数据处理
+    private Handler unReadHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 0: {
+                    JSONObject object = JSON.parseObject((String) msg.obj);
+                    adapter.setAlarmNum(object.getIntValue("alarmcount"));
+                    adapter.setNoticeNum(object.getIntValue("noticecount"));
+                    adapter.notifyDataSetChanged();
+                    break;
+                }
+                case 1: {
+                    break;
+                }
+            }
+        }
+    };
+    //endregion
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,11 +149,7 @@ public class Main extends Activity {
                         .setPositiveButton(R.string.btn_title_ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent();
-                                intent.setClass(Main.this, Login.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(intent);
-                                android.os.Process.killProcess(android.os.Process.myPid());  //结束进程之前可以把你程序的注销或者退出代码放在这段代码之前
+                                new Logout().start();
                             }
                         })
                         .show();
@@ -134,6 +178,7 @@ public class Main extends Activity {
 		/* 功能表格布局 */
         initGrid();
 
+        /*
         new Thread() {
             @Override
             public void run() {
@@ -142,6 +187,7 @@ public class Main extends Activity {
                 HttpRequestClient.noticePushTest();
             }
         }.start();
+        */
     }
 
     /**
@@ -236,10 +282,13 @@ public class Main extends Activity {
             menuLists.add(map);
         }
 
+        /*
         SimpleAdapter adpter = new SimpleAdapter(this, menuLists,
                 R.layout.menuitem, new String[]{"itemImage", "itemText"},
                 new int[]{R.id.imageView_ItemImage, R.id.textView_ItemText});
-        gridView.setAdapter(adpter);
+        */
+        adapter = new MainMenuAdapter(menuStr, menuIcon, this);
+        gridView.setAdapter(adapter);
 
         gridView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
@@ -378,7 +427,7 @@ public class Main extends Activity {
                 }
                 break;
             }
-		/* 设置 */
+        /* 设置 */
             case 8: {
                 intent.setClass(Main.this, Setting.class);
                 Main.this.startActivity(intent);
@@ -391,6 +440,7 @@ public class Main extends Activity {
     protected void onResume() {
 //		getVehicleDataHandler.post(new getVehicleData());
         super.onResume();
+        new GetUnReadRecordCount().start();
 		/* 判断是否切换帐号 */
         if (glob.switchAccount) {
             glob.switchAccount = false;
@@ -457,7 +507,7 @@ public class Main extends Activity {
     /**
      * 获取车辆列表
      **/
-    public class getVehicleData extends Thread {
+    class getVehicleData extends Thread {
         @Override
         public void run() {
 			/*获取结构数据*/
@@ -491,6 +541,43 @@ public class Main extends Activity {
                 getVehicleDataHandler.sendMessage(msg);
             }
             super.run();
+        }
+    }
+
+    class Logout extends Thread {
+        @Override
+        public void run() {
+            super.run();
+            SResponse response = HttpRequestClient.logout(glob.sp.getString("user", "")
+                    , glob.sp.getString("RegistrationID", ""));
+            if (response.getCode() == SProtocol.SUCCESS) {
+                Message msg = new Message();
+                msg.what = 0;
+                logoutHandler.sendMessage(msg);
+            } else {
+                Message msg = new Message();
+                msg.what = 1;
+                msg.obj = response.getMessage();
+                logoutHandler.sendMessage(msg);
+            }
+        }
+    }
+
+    class GetUnReadRecordCount extends Thread {
+        @Override
+        public void run() {
+            super.run();
+            SResponse response = HttpRequestClient.GetUnReadRecordCount(glob.sp.getString("user", ""));
+            Message msg = new Message();
+            if (response.getCode() == SProtocol.SUCCESS) {
+                msg.what = 0;
+                msg.obj = response.getResult();
+                Log.i("获取未读消息数", String.valueOf(response.getResult()));
+            } else {
+                msg.what = 1;
+                msg.obj = response.getMessage();
+            }
+            unReadHandler.sendMessage(msg);
         }
     }
 }

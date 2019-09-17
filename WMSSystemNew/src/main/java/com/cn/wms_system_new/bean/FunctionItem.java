@@ -3,18 +3,20 @@ package com.cn.wms_system_new.bean;
 public class FunctionItem {
 
 	private String title;
+	private String viewType;
 	private String imageName;
 	private String operateName;
 	private int unFinishedNum;
 	
 	public FunctionItem() {
 	}
-	
-	public FunctionItem(String title, String imageName, String operateName, int unFinishedNum) {
-		this.title = title;
-		this.imageName = imageName;
-		this.operateName = operateName;
-		this.unFinishedNum = unFinishedNum;
+
+	public String getViewType() {
+		return viewType;
+	}
+
+	public void setViewType(String viewType) {
+		this.viewType = viewType;
 	}
 
 	public String getTitle() {

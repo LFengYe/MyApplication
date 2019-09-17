@@ -52,6 +52,9 @@ public class OilDetailInfo extends FragmentActivity {
     private String type;
     private Location location;
 
+    private ImageButton layerButton;
+    private int mapType = 0;
+
     private View mWindow;
     private Marker CarMarker = null;
     private TextView infoWindow_vehNof;
@@ -131,6 +134,26 @@ public class OilDetailInfo extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        layerButton = (ImageButton) findViewById(R.id.monitor_layerButton);
+        layerButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mapType == 0) {
+                    mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                    layerButton.setImageResource(R.drawable.nav_more_map_press);
+                    mapType = 1;
+                    return;
+                }
+
+                if (mapType == 1) {
+                    mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                    layerButton.setImageResource(R.drawable.nav_more_map_normal);
+                    mapType = 0;
+                    return;
+                }
             }
         });
 

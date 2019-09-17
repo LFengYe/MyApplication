@@ -64,7 +64,7 @@ public class Login extends Activity implements OnClickListener {
     private CheckBox savePsw;//保存密码
     private CheckBox autoLogin;//自动登录
     private Button loginButton;
-//    private TextView changeServer;
+    //    private TextView changeServer;
     private EditText serverAddress;
     private EditText serverPort;
     private LinearLayout hostSwitch;// 服务器切换
@@ -203,9 +203,9 @@ public class Login extends Activity implements OnClickListener {
                 glob.sp.edit().putString("hostEnName", hosts.get(ColorPosition).getEnname()).commit();
                 String portStr = (hosts.get(ColorPosition).getPort() == null) ? ("") : (":" + hosts.get(ColorPosition).getPort());
                 glob.sp.edit().putString("host", hosts.get(ColorPosition).getIp() + portStr + "/").commit();
-				/*改变显示*/
+                /*改变显示*/
                 //hostText.setText(hosts.get(position).getName());
-				/*切换地址*/
+                /*切换地址*/
                 HttpRequestClient.host = glob.sp.getString("host", HttpRequestClient.defaultHost);
                 host_popwindow.dismiss();
             }
@@ -312,10 +312,11 @@ public class Login extends Activity implements OnClickListener {
                             JPushInterface.setAliasAndTags(getApplicationContext(), userName.getText().toString(), null, new TagAliasCallback() {
                                 @Override
                                 public void gotResult(int status, String alias, Set<String> tags) {
-                                    System.out.println("alias:" + alias);
-                                    System.out.println("status:" + status);
+//                                    System.out.println("alias:" + alias);
+//                                    System.out.println("status:" + status);
                                 }
                             });
+                            JPushInterface.requestPermission(getApplicationContext());
 
                             Intent intent = new Intent(Login.this, Main.class);
                             startActivity(intent);
@@ -582,8 +583,9 @@ public class Login extends Activity implements OnClickListener {
 
 			/*消息 */
             String msg = null;
-
-            SResponse response = HttpRequestClient.login(userName.getText().toString(), password.getText().toString());
+            SResponse response = HttpRequestClient.login(userName.getText().toString()
+                    , password.getText().toString()
+                    , glob.sp.getString("RegistrationID", ""));
             if (response.getCode() != SProtocol.SUCCESS) {
                 msg = SProtocol.getFailMessage(response.getCode(), response.getMessage());
             } else {

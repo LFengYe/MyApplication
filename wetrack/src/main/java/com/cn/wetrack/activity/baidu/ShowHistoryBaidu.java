@@ -180,10 +180,12 @@ public class ShowHistoryBaidu extends Activity {
 			@Override
 			public void onClick(View v) {
 				if(mapmode){
+					layerbutton.setImageResource(R.drawable.nav_more_map_press);
 					mBaiDuMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
 					mapmode=false;
 				}
 				else{
+					layerbutton.setImageResource(R.drawable.nav_more_map_normal);
 					mBaiDuMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
 					mapmode=true;
 				}

@@ -1,0 +1,710 @@
+-- Merging decision tree log ---
+manifest
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:1:1-567:12
+	package
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:3:5-37
+		INJECTED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml
+		INJECTED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml
+		INJECTED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:1:11-69
+	android:versionCode
+		INJECTED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml
+		INJECTED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml
+supports-screens
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:5:5-10:39
+	android:largeScreens
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:7:9-36
+	android:smallScreens
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:10:9-36
+	android:normalScreens
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:8:9-37
+	android:resizeable
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:9:9-34
+	android:anyDensity
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:6:9-34
+uses-permission#android.permission.INTERNET
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:15:5-67
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:15:22-64
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:17:5-81
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:17:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:18:5-79
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:18:22-76
+uses-permission#android.permission.GET_TASKS
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:19:5-68
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:19:22-65
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:25:5-71
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:25:22-68
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:27:5-80
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:27:22-77
+uses-permission#android.permission.CAMERA
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:33:5-65
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:33:22-62
+uses-feature#android.hardware.camera
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:35:5-60
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:35:19-57
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:41:5-71
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:41:22-68
+uses-permission#android.permission.WRITE_CONTACTS
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:42:5-73
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:42:22-70
+uses-permission#android.permission.READ_CONTACTS
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:43:5-72
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:43:22-69
+uses-permission#android.permission.WAKE_LOCK
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:49:5-68
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:49:22-65
+uses-permission#android.permission.VIBRATE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:51:5-66
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:51:22-63
+uses-permission#android.permission.CALL_PHONE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:53:5-69
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:53:22-66
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:55:5-76
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:55:22-73
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:58:5-75
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:58:22-72
+uses-permission#android.permission.SEND_SMS
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:67:5-67
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:67:22-64
+uses-permission#android.permission.WRITE_SMS
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:68:5-68
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:68:22-65
+uses-permission#android.permission.READ_SMS
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:69:5-67
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:69:22-64
+uses-permission#com.android.launcher.permission.INSTALL_SHORTCUT
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:77:5-88
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:77:22-85
+uses-permission#com.android.launcher.permission.UNINSTALL_SHORTCUT
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:78:5-90
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:78:22-87
+uses-feature#android.hardware.camera.autofocus
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:87:5-70
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:87:19-67
+uses-permission#android.permission.FLASHLIGHT
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:90:5-69
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:90:22-66
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:98:5-81
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:98:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:99:5-79
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:99:22-76
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:100:5-73
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:100:22-70
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:102:5-76
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:102:22-73
+uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:104:5-84
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:104:22-81
+uses-permission#android.permission.READ_LOGS
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:105:5-68
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:105:22-65
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:141:5-81
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:141:22-78
+uses-permission#getui.permission.GetuiService.com.HBuilder.integrate
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:146:5-92
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:146:22-89
+permission#getui.permission.GetuiService.com.HBuilder.integrate
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:148:5-150:44
+	android:protectionLevel
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:150:9-41
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:149:9-76
+uses-permission#android.permission.ACCESS_MOCK_LOCATION
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:165:5-79
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:165:22-76
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:178:5-79
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:178:22-76
+uses-permission#android.permission.RECEIVE_USER_PRESENT
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:187:5-79
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:187:22-76
+uses-permission#com.xiaomi.permission.AUTH_SERVICE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:191:5-74
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:191:22-71
+application
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:194:5-565:19
+	android:label
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:199:9-41
+	android:supportsRtl
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:201:9-35
+	android:allowClearUserData
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:197:9-42
+	android:allowBackup
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:196:9-35
+	android:icon
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:198:9-38
+	android:largeHeap
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:200:9-33
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:195:9-63
+activity#com.HBuilder.integrate.ActivityEntry
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:202:9-214:20
+	android:screenOrientation
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:207:13-45
+	android:label
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:205:13-45
+	android:launchMode
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:206:13-44
+	android:windowSoftInputMode
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:208:13-55
+	android:configChanges
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:204:13-63
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:203:13-64
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:209:13-213:29
+action#android.intent.action.MAIN
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:210:17-69
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:210:25-66
+category#android.intent.category.LAUNCHER
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:212:17-77
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:212:27-74
+activity#com.HBuilder.integrate.SDK_WebApp
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:216:9-220:73
+	android:screenOrientation
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:219:13-45
+	android:configChanges
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:218:13-112
+	android:theme
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:220:13-61
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:217:13-61
+activity#com.HBuilder.integrate.SDK_WebView
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:221:9-224:59
+	android:screenOrientation
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:224:13-47
+	android:configChanges
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:223:13-112
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:222:13-62
+activity#io.dcloud.PandoraEntryActivity
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:225:9-233:67
+	android:screenOrientation
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:231:13-45
+	android:label
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:229:13-36
+	android:hardwareAccelerated
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:228:13-47
+	android:launchMode
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:230:13-44
+	android:windowSoftInputMode
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:233:13-55
+	android:configChanges
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:227:13-112
+	android:theme
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:232:13-47
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:226:13-58
+service#io.dcloud.common.adapter.io.MiniServerService
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:235:9-237:39
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:237:13-36
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:236:13-73
+activity#io.dcloud.imagepick.CustomGalleryActivity
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:239:9-246:20
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:239:19-75
+intent-filter#android.intent.category.DEFAULT+io.dcloud.ACTION_MULTIPLE_PICK+io.dcloud.ACTION_PICK
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:240:13-245:29
+action#io.dcloud.ACTION_PICK
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:241:17-64
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:241:25-61
+action#io.dcloud.ACTION_MULTIPLE_PICK
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:242:17-73
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:242:25-70
+category#android.intent.category.DEFAULT
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:244:17-76
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:244:27-73
+meta-data#UMENG_APPKEY
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:252:9-254:46
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:254:13-43
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:253:13-40
+meta-data#UMENG_CHANNEL
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:255:9-257:42
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:257:13-39
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:256:13-41
+meta-data#com.baidu.lbsapi.API_KEY
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:263:9-265:66
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:265:13-53
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:264:13-52
+service#com.baidu.location.f
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:267:9-270:49
+	android:enabled
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:269:13-35
+	android:process
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:270:13-38
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:268:13-48
+meta-data#QQ_APPID
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:277:9-279:39
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:279:13-36
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:278:13-36
+activity#com.tencent.tauth.AuthActivity
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:281:9-293:20
+	android:launchMode
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:283:13-44
+	android:noHistory
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:284:13-37
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:282:13-58
+intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:285:13-292:29
+action#android.intent.action.VIEW
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:286:17-69
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:286:25-66
+category#android.intent.category.BROWSABLE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:289:17-78
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:289:27-75
+data
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:291:17-50
+	android:scheme
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:291:23-47
+activity#com.tencent.connect.common.AssistActivity
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:294:9-297:75
+	android:screenOrientation
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:296:13-49
+	android:theme
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:297:13-72
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:295:13-69
+meta-data#IFLY_APPKEY
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:311:9-313:40
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:313:13-37
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:312:13-39
+meta-data#PUSH_APPID
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:323:9-325:54
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:325:13-51
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:324:13-38
+meta-data#PUSH_APPKEY
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:326:9-328:54
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:328:13-51
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:327:13-39
+meta-data#PUSH_APPSECRET
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:329:9-331:54
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:331:13-51
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:330:13-42
+service#com.igexin.sdk.PushService
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:333:9-341:19
+	android:process
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:337:13-43
+	android:label
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:336:13-47
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:335:13-36
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:334:13-54
+intent-filter#com.igexin.sdk.action.service.message
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:338:13-340:29
+action#com.igexin.sdk.action.service.message
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:339:17-80
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:339:25-77
+receiver#com.igexin.sdk.PushReceiver
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:342:9-352:20
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:342:19-61
+intent-filter#android.intent.action.ACTION_POWER_CONNECTED+android.intent.action.ACTION_POWER_DISCONNECTED+android.intent.action.BOOT_COMPLETED+android.intent.action.MEDIA_MOUNTED+android.intent.action.USER_PRESENT+android.net.conn.CONNECTIVITY_CHANGE+com.igexin.sdk.action.refreshls
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:343:13-351:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:344:17-79
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:344:25-76
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:345:17-79
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:345:25-76
+action#android.intent.action.USER_PRESENT
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:346:17-77
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:346:25-74
+action#com.igexin.sdk.action.refreshls
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:347:17-74
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:347:25-71
+action#android.intent.action.MEDIA_MOUNTED
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:348:17-78
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:348:25-75
+action#android.intent.action.ACTION_POWER_CONNECTED
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:349:17-87
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:349:25-84
+action#android.intent.action.ACTION_POWER_DISCONNECTED
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:350:17-90
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:350:25-87
+activity#com.igexin.sdk.PushActivity
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:354:9-360:75
+	android:process
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:358:13-43
+	android:excludeFromRecents
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:356:13-46
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:357:13-37
+	android:theme
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:360:13-72
+	android:taskAffinity
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:359:13-67
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:355:13-55
+activity#com.igexin.sdk.GActivity
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:361:9-367:75
+	android:process
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:365:13-43
+	android:excludeFromRecents
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:363:13-46
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:364:13-36
+	android:theme
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:367:13-72
+	android:taskAffinity
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:366:13-67
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:362:13-52
+receiver#io.dcloud.feature.apsGt.GTNotificationReceiver
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:370:9-378:20
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:370:19-80
+intent-filter#android.intent.action.BOOT_COMPLETED+com.HBuilder.integrate.__CLEAR_NOTIFICATION+com.HBuilder.integrate.__CLILK_NOTIFICATION+com.HBuilder.integrate.__CREATE_NOTIFICATION+com.HBuilder.integrate.__REMOVE_NOTIFICATION
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:371:13-377:29
+action#com.HBuilder.integrate.__CREATE_NOTIFICATION
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:373:17-87
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:373:25-84
+action#com.HBuilder.integrate.__REMOVE_NOTIFICATION
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:374:17-87
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:374:25-84
+action#com.HBuilder.integrate.__CLEAR_NOTIFICATION
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:375:17-86
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:375:25-83
+action#com.HBuilder.integrate.__CLILK_NOTIFICATION
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:376:17-86
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:376:25-83
+service#io.dcloud.feature.apsGt.GTNormalIntentService
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:380:9-81
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:380:18-78
+service#io.dcloud.feature.apsGt.GTNormalPushService
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:381:9-385:54
+	android:process
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:385:13-43
+	android:label
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:384:13-40
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:383:13-36
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:382:13-71
+meta-data#SINA_REDIRECT_URI
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:394:9-396:53
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:396:13-50
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:395:13-45
+meta-data#SINA_SECRET
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:397:9-399:53
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:399:13-50
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:398:13-39
+meta-data#SINA_APPKEY
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:400:9-402:65
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:402:13-62
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:401:13-39
+activity#com.sina.weibo.sdk.web.WeiboSdkWebActivity
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:404:9-408:67
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:407:13-37
+	android:windowSoftInputMode
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:408:13-55
+	android:configChanges
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:406:13-63
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:405:13-70
+activity#com.sina.weibo.sdk.share.WbShareTransActivity
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:410:9-419:20
+	android:launchMode
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:412:13-44
+	android:theme
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:413:13-83
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:411:13-73
+intent-filter#android.intent.category.DEFAULT+com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:414:13-418:29
+action#com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:415:17-92
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:415:25-89
+meta-data#TENCENT_REDIRECT_URI
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:424:9-426:53
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:426:13-50
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:425:13-48
+meta-data#TENCENT_SECRET
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:427:9-429:53
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:429:13-50
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:428:13-42
+meta-data#TENCENT_APPKEY
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:430:9-432:65
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:432:13-62
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:431:13-42
+activity#io.dcloud.share.tencent.WebAuthorize
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:434:9-436:72
+	android:theme
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:436:13-60
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:435:13-64
+meta-data#WX_SECRET
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:438:9-440:64
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:440:13-61
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:439:13-37
+meta-data#WX_APPID
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:441:9-443:50
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:443:13-47
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:442:13-36
+activity#com.HBuilder.Integrate.wxapi.WXEntryActivity
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:445:9-457:20
+	android:label
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:448:13-45
+	android:launchMode
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:449:13-43
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:447:13-36
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:446:13-72
+intent-filter#android.intent.action.VIEW+android.intent.category.DEFAULT
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:450:13-456:29
+activity#com.alipay.sdk.app.H5PayActivity
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:462:9-467:79
+	android:screenOrientation
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:466:13-47
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:465:13-37
+	android:windowSoftInputMode
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:467:13-67
+	android:configChanges
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:464:13-74
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:463:13-60
+activity#com.alipay.sdk.auth.AuthActivity
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:468:9-472:59
+	android:screenOrientation
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:472:13-47
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:471:13-37
+	android:configChanges
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:470:13-74
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:469:13-60
+activity#io.dcloud.HBuilder.wxapi.WXPayEntryActivity
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:477:9-480:46
+	android:launchMode
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:480:13-43
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:479:13-36
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:478:13-71
+meta-data#MIUI_APPID
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:488:9-490:45
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:490:13-42
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:489:13-38
+meta-data#MIUI_APPSECRET
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:491:9-493:48
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:493:13-45
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:492:13-42
+meta-data#MIUI_REDIRECT_URI
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:494:9-496:43
+	android:value
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:496:13-40
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:495:13-45
+activity#com.xiaomi.account.openauth.AuthorizeActivity
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:498:9-82
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:498:19-79
+service#com.xiaomi.push.service.XMPushService
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:505:9-508:46
+	android:enabled
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:507:13-35
+	android:process
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:508:13-43
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:506:13-65
+service#com.xiaomi.push.service.XMJobService
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:509:9-514:46
+	android:enabled
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:511:13-35
+	android:process
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:514:13-43
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:512:13-37
+	android:permission
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:513:13-69
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:510:13-64
+service#com.xiaomi.mipush.sdk.PushMessageHandler
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:515:9-518:39
+	android:enabled
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:517:13-35
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:518:13-36
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:516:13-68
+service#com.xiaomi.mipush.sdk.MessageHandleService
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:519:9-521:38
+	android:enabled
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:521:13-35
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:520:13-70
+receiver#com.xiaomi.push.service.receivers.NetworkStatusReceiver
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:523:9-530:20
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:525:13-36
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:524:13-83
+intent-filter#android.intent.category.DEFAULT+android.net.conn.CONNECTIVITY_CHANGE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:526:13-529:29
+receiver#com.xiaomi.push.service.receivers.PingReceiver
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:531:9-538:20
+	android:process
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:534:13-43
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:533:13-37
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:532:13-74
+intent-filter#com.xiaomi.push.PING_TIMER
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:535:13-537:29
+action#com.xiaomi.push.PING_TIMER
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:536:17-69
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:536:25-66
+receiver#io.dcloud.feature.apsXm.XMMessageReceiver
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:539:9-551:20
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:541:13-36
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:540:13-69
+intent-filter#com.xiaomi.mipush.RECEIVE_MESSAGE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:542:13-544:29
+action#com.xiaomi.mipush.RECEIVE_MESSAGE
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:543:17-76
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:543:25-73
+intent-filter#com.xiaomi.mipush.MESSAGE_ARRIVED
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:545:13-547:29
+action#com.xiaomi.mipush.MESSAGE_ARRIVED
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:546:17-76
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:546:25-73
+intent-filter#com.xiaomi.mipush.ERROR
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:548:13-550:29
+action#com.xiaomi.mipush.ERROR
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:549:17-66
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:549:25-63
+receiver#io.dcloud.feature.apsXm.XMNotificationReceiver
+ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:552:9-562:20
+	android:exported
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:554:13-36
+	android:name
+		ADDED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml:553:13-74
+uses-sdk
+INJECTED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:multidex:1.0.1] C:\Users\LFeng\.android\build-cache\653e806623dfa83cd90f84f7a7e376fb95293816\output\AndroidManifest.xml:18:5-42
+	android:targetSdkVersion
+		INJECTED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml
+		INJECTED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml
+		INJECTED from G:\AndroidDevelop\studioWorkspace\MyApplication\HBuilder-Integrate\src\main\AndroidManifest.xml

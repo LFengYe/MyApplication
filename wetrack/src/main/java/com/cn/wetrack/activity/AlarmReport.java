@@ -64,6 +64,8 @@ public class AlarmReport extends Activity {
                 intent.setClass(AlarmReport.this, OilDetailInfoBaidu.class);
             }
             startActivity(intent);
+
+            updateRecordStatus(2, alarm.getId());
         }
     };
 
@@ -79,7 +81,7 @@ public class AlarmReport extends Activity {
 
                 for (Alarm report : tmpList) {
                     String[] item = new String[4];
-                    item[0] = report.getVehNoF();
+                    item[0] = report.getVehNoF() + "#" + report.getIsOpen();
                     item[1] = report.getAlarmType();
                     item[2] = report.getTime();
                     item[3] = report.getLatitude() + "\n" + report.getLongitude();
@@ -88,7 +90,7 @@ public class AlarmReport extends Activity {
 
                 dataAdapter.notifyDataSetChanged();
                 endTime = resData.get(resData.size() - 1).getTime();
-                System.out.println("endTime:" + endTime);
+                //System.out.println("endTime:" + endTime);
             } else {
                 Toast.makeText(AlarmReport.this, response.getMessage(), Toast.LENGTH_SHORT).show();
             }
@@ -105,12 +107,35 @@ public class AlarmReport extends Activity {
         initView();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        resData = new ArrayList<>();
+        data = new ArrayList<>();
+        dataAdapter = new SimpleTableDataAdapter(AlarmReport.this, data);
+        dataAdapter.setTextSize(12);
+        tableView.setDataAdapter(dataAdapter);
+
+        Date date = calendar.getTime();
+        endTime = dateFormat.format(date);
+        progressDialog = new CustomProgressDialog(AlarmReport.this);
+        progressDialog.setMessage(getString(R.string.refreshing));
+        progressDialog.show();
+        getData(glob.sp.getString("user", ""), glob.sp.getString("psw", ""), endTime);
+    }
+
     private void initView() {
         backBtn = (ImageButton) findViewById(R.id.backButton);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        findViewById(R.id.ignore_all).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateAllRecordStatus(2, glob.sp.getString("user", ""));
             }
         });
 
@@ -140,21 +165,7 @@ public class AlarmReport extends Activity {
         SimpleTableHeaderAdapter headerAdapter = new SimpleTableHeaderAdapter(this, getResources().getStringArray(R.array.alert_message_table_title));
         headerAdapter.setTextSize(14);
         tableView.setHeaderAdapter(headerAdapter);
-
-        resData = new ArrayList<>();
-        data = new ArrayList<>();
-        dataAdapter = new SimpleTableDataAdapter(AlarmReport.this, data);
-        dataAdapter.setTextSize(12);
-        tableView.setDataAdapter(dataAdapter);
-
         tableView.addDataClickListener(tableDataClickListener);
-
-        Date date = calendar.getTime();
-        endTime = dateFormat.format(date);
-        progressDialog = new CustomProgressDialog(AlarmReport.this);
-        progressDialog.setMessage(getString(R.string.refreshing));
-        progressDialog.show();
-        getData(glob.sp.getString("user", ""), glob.sp.getString("psw", ""), endTime);
     }
 
     private void getData(final String username, final String password, final String endTime) {
@@ -170,6 +181,26 @@ public class AlarmReport extends Activity {
                     msg.what = 1;
                 }
                 myHandler.sendMessage(msg);
+            }
+        }.start();
+    }
+
+    private void updateRecordStatus(final int type, final int unReadRecordId) {
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                HttpRequestClient.updateUnReadRecordStatus(type, unReadRecordId);
+            }
+        }.start();
+    }
+
+    private void updateAllRecordStatus(final int type, final String userName) {
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                HttpRequestClient.UpdateAllUnReadRecordStatus(type, userName);
             }
         }.start();
     }

@@ -2,7 +2,9 @@ package com.cn.wms_system_new.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +18,20 @@ import com.cn.wms_system_new.R;
 import com.cn.wms_system_new.activity.ListDataActivity;
 import com.cn.wms_system_new.activity.ParamsSettingActivity;
 import com.cn.wms_system_new.activity.ReportDataActivity;
+import com.cn.wms_system_new.bean.FieldDescription;
 import com.cn.wms_system_new.bean.FunctionItem;
+import com.cn.wms_system_new.bean.SResponse;
+import com.cn.wms_system_new.bean.UnFinishAmount;
 import com.cn.wms_system_new.dialog.ChangePassword;
+import com.cn.wms_system_new.service.MyHandler;
+import com.cn.wms_system_new.service.MyThread;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
+
+import static com.cn.wms_system_new.service.MyThread.RESPONSE_SUCCESS;
 
 /**
  * Created by LFeng on 2017/7/6.
@@ -32,9 +42,44 @@ public class DetailFunFragment extends Fragment {
     private static DetailFunFragment detailFunFragment;
 
     private GridView gridView;
+    private FunPicAdapter adapter;
+    private ArrayList<FunctionItem> itemList;
     private AdapterView.OnItemClickListener onItemClickListener;
 
     private String funName;
+    private MyHandler myHandler = new MyHandler(getActivity()) {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case RESPONSE_SUCCESS:
+                    try {
+                        SResponse response = (SResponse) msg.obj;
+                        UnFinishAmount unFinishAmount = JSONObject.parseObject(response.getData(), UnFinishAmount.class);
+                        Class objClass = Class.forName("com.cn.wms_system_new.bean.UnFinishAmount");
+                        Field[] fields = objClass.getDeclaredFields();
+                        for (FunctionItem item : itemList) {
+                            for (Field field : fields) {
+                                if (field.isAnnotationPresent(FieldDescription.class)) {
+                                    FieldDescription description = field.getAnnotation(FieldDescription.class);
+                                    if (description.description().compareTo(item.getTitle()) == 0) {
+                                        field.setAccessible(true);
+                                        item.setUnFinishedNum(field.getInt(unFinishAmount));
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        adapter.notifyDataSetChanged();
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+            }
+        }
+    };
 
     //返回主界面
     private View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -82,7 +127,7 @@ public class DetailFunFragment extends Fragment {
         gridView = (GridView) getActivity().findViewById(R.id.gridview);
         gridView.setNumColumns(3);
 
-        final ArrayList<FunctionItem> itemList = new ArrayList<>();
+        itemList = new ArrayList<>();
         JSONObject menuJson = JSONObject.parseObject(args.getString("menuJson"), Feature.OrderedField);
         Iterator iterator = menuJson.entrySet().iterator();
         while (iterator.hasNext()) {
@@ -91,11 +136,12 @@ public class DetailFunFragment extends Fragment {
 
             FunctionItem item = new FunctionItem();
             item.setTitle(entry.getKey());
-            item.setImageName(values[0]);
+            item.setViewType(values[0]);
             item.setOperateName(values[1]);
+            item.setImageName(values[3]);
             itemList.add(item);
         }
-        FunPicAdapter adapter = new FunPicAdapter(getActivity(), itemList);
+        adapter = new FunPicAdapter(getActivity(), itemList);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -119,12 +165,21 @@ public class DetailFunFragment extends Fragment {
                     }
                 } else if (funName.compareTo("报表查询") == 0) {
                     intent.setClass(getActivity(), ReportDataActivity.class);
-                }else {
+                } else {
                     intent.setClass(getActivity(), ListDataActivity.class);
                 }
                 startActivity(intent);
             }
         });
+        if (funName.compareTo("系统设置") != 0 && funName.compareTo("报表查询") != 0)
+            getUnFinishAmount();
+    }
+
+
+    public void getUnFinishAmount() {
+        JSONObject object = new JSONObject();
+        object.put("module", "unFinishAmount");
+        new MyThread(myHandler, object, "app.do").start();
     }
 
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {

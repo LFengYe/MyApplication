@@ -1,0 +1,3 @@
+# view AndroidManifest.xml #generated:201
+-keep class io.dcloud.application.DCloudApplication { <init>(...); }
+

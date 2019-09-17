@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+    android:background="@color/white">
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="Post FREE Classified Listing"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+        </RelativeLayout>
+    </Toolbar>
+
+    <com.qixiaoyi.cariyou.widget.MyScrollview
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/x5">
+            <include layout="@layout/profile_fenge"/>
+
+            <!--
+
+
+       <LinearLayout
+           style="@style/Profilelinearlayout"
+           >
+           <TextView
+               style="@style/Profiletextview"
+               android:text="*Business\nName"
+               />
+           <EditText
+               android:hint="Enter your Business Name"
+               style="@style/Profileedittext"
+               android:layout_gravity="top"
+               />
+       </LinearLayout>
+       <include layout="@layout/profile_fenge"/>
+
+       <LinearLayout
+           style="@style/Profilelinearlayout"
+           >
+           <TextView
+               style="@style/Profiletextview"
+               android:text="中文"
+               />
+           <EditText
+               android:hint="输了中文商务名称"
+               style="@style/Profileedittext"
+               />
+       </LinearLayout>
+       <include layout="@layout/profile_fenge"/>
+
+       <LinearLayout
+           style="@style/Profilelinearlayout"
+           >
+           <TextView
+               style="@style/Profiletextview"
+               android:layout_gravity="center_vertical"
+               android:text="*Category"/>
+           <RelativeLayout
+               style="@style/inputrl">
+
+               <ImageView
+                   android:id="@+id/iv_right01"
+                   style="@style/right"/>
+
+               <EditText
+                   style="@style/inputet2"
+                   android:layout_marginLeft="@dimen/x4"
+                   android:layout_toLeftOf="@id/iv_right01"
+                   android:hint="Select your Business Category"
+                   />
+           </RelativeLayout>
+       </LinearLayout>
+       <include layout="@layout/profile_fenge"/>
+
+       <LinearLayout
+           style="@style/Profilelinearlayout"
+           >
+           <TextView
+               style="@style/Profiletextview"
+               android:layout_gravity="center_vertical"
+               android:text="*Service\nFeatures"/>
+           <RelativeLayout
+               style="@style/inputrl">
+
+               <ImageView
+                   android:id="@+id/iv_right02"
+                   style="@style/right"/>
+
+               <EditText
+                   style="@style/inputet2"
+                   android:layout_marginLeft="@dimen/x4"
+                   android:layout_toLeftOf="@id/iv_right02"
+                   android:hint="Select your Service Features\n(Can have more than one)"
+                   />
+           </RelativeLayout>
+       </LinearLayout>
+       <include layout="@layout/profile_fenge"/>
+
+       <LinearLayout
+           style="@style/Profilelinearlayout"
+           >
+           <TextView
+               style="@style/Profiletextview"
+               android:layout_gravity="center_vertical"
+               android:text="*Provide\nServices"/>
+           <RelativeLayout
+               style="@style/inputrl">
+
+               <ImageView
+                   android:id="@+id/iv_right05"
+                   style="@style/right"
+                   android:src="@mipmap/arrow_darkcyan_right"/>
+
+               <EditText
+                   style="@style/inputet2"
+                   android:layout_marginLeft="@dimen/x4"
+                   android:layout_toLeftOf="@id/iv_right05"
+                   android:hint="Select your Provide Services\n(Can have more than one)"
+                   />
+           </RelativeLayout>
+       </LinearLayout>
+       <include layout="@layout/profile_fenge"/>
+
+
+       <LinearLayout
+           style="@style/Profilelinearlayout"
+           >
+           <TextView
+               style="@style/Profiletextview"
+               android:layout_gravity="center_vertical"
+               android:text="Hours"/>
+           <RelativeLayout
+               style="@style/inputrl">
+
+               <ImageView
+                   android:id="@+id/iv_right03"
+                   style="@style/right"
+                   android:src="@mipmap/arrow_darkcyan_right"/>
+
+               <EditText
+                   style="@style/inputet2"
+                   android:layout_marginLeft="@dimen/x4"
+                   android:layout_toLeftOf="@id/iv_right03"
+                   android:hint="Enter your Business Description"
+                   />
+           </RelativeLayout>
+       </LinearLayout>
+       <include layout="@layout/profile_fenge"/>
+
+       <LinearLayout
+           style="@style/Profilelinearlayout"
+           >
+           <TextView
+               style="@style/Profiletextview"
+               android:text="Business\nDescription"
+               />
+           <EditText
+               android:hint="Enter your Business Description"
+               style="@style/Profileedittext"
+               android:layout_gravity="top"
+               />
+       </LinearLayout>
+       <include layout="@layout/profile_fenge"/>
+
+       <FrameLayout
+           android:id="@+id/fl_map"
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/x130">
+       </FrameLayout>
+
+            <LinearLayout
+                style="@style/Profilelinearlayout"
+                >
+                <TextView
+                    style="@style/Profiletextview"
+                    android:text="Business\nAddress"
+                    />
+                <EditText
+                    android:hint="Enter your Business Address"
+                    android:layout_gravity="top"
+                    style="@style/Profileedittext"
+                    />
+            </LinearLayout>
+            <include layout="@layout/profile_fenge"/>
+
+            <LinearLayout
+                style="@style/Profilelinearlayout"
+                >
+                <TextView
+                    style="@style/Profiletextview"
+                    android:layout_gravity="center_vertical"
+                    android:text="*Districts"/>
+                <RelativeLayout
+                    style="@style/inputrl">
+
+                    <ImageView
+                        android:id="@+id/iv_right04"
+                        style="@style/right"/>
+
+                    <EditText
+                        style="@style/inputet2"
+                        android:layout_marginLeft="@dimen/x4"
+                        android:layout_toLeftOf="@id/iv_right04"
+                        android:hint="Select Country,State,Districts"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+            <include layout="@layout/profile_fenge"/>
+
+            <LinearLayout
+                style="@style/Profilelinearlayout"
+                >
+                <TextView
+                    style="@style/Profiletextview"
+                    android:text="*Areas"
+                    />
+                <EditText
+                    android:hint="Enter Town/Kampung"
+                    style="@style/Profileedittext"
+                    />
+            </LinearLayout>
+            <include layout="@layout/profile_fenge"/>
+
+            <LinearLayout
+                style="@style/Profilelinearlayout"
+                >
+                <TextView
+                    style="@style/Profiletextview"
+                    android:text="*Locality"
+                    />
+                <EditText
+                    android:hint="Enter Taman/Condo Name/Business Centre Name"
+                    style="@style/Profileedittext"
+                    />
+            </LinearLayout>
+            <include layout="@layout/profile_fenge"/>
+
+            <LinearLayout
+                android:padding="0dp"
+                style="@style/Profilelinearlayout"
+                android:paddingBottom="0dp"
+                android:layout_marginTop="0dp"
+                >
+                <TextView
+                    android:layout_marginTop="0dp"
+                    style="@style/Profiletextview"
+                    android:layout_marginBottom="0dp"
+                    android:text="PIC"
+                    android:padding="0dp"
+
+                    />
+                <EditText
+                    android:hint=""
+                    android:padding="0dp"
+                    style="@style/Profileedittext"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:padding="0dp"
+                style="@style/Profilelinearlayout"
+                android:paddingBottom="0dp"
+                android:layout_marginTop="0dp"
+                >
+                <TextView
+                    android:layout_marginTop="0dp"
+                    style="@style/Profiletextview"
+                    android:layout_marginBottom="0dp"
+                    android:text="Phone"
+                    android:padding="0dp"
+
+                    />
+                <EditText
+                    android:hint="Enter PIC (Person in Charge), Office Phone, "
+                    android:padding="0dp"
+                    style="@style/Profileedittext"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:padding="0dp"
+                style="@style/Profilelinearlayout"
+                android:paddingBottom="0dp"
+                android:layout_marginTop="0dp"
+                >
+                <TextView
+                    android:layout_marginTop="0dp"
+                    style="@style/Profiletextview"
+                    android:layout_marginBottom="0dp"
+                    android:text="Fax"
+                    android:padding="0dp"
+
+                    />
+                <EditText
+                    android:hint="Fax, Email &amp; Mobile Number"
+                    android:padding="0dp"
+                    style="@style/Profileedittext"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:padding="0dp"
+                style="@style/Profilelinearlayout"
+                android:paddingBottom="0dp"
+                android:layout_marginTop="0dp"
+                >
+                <TextView
+                    android:layout_marginTop="0dp"
+                    style="@style/Profiletextview"
+                    android:layout_marginBottom="0dp"
+                    android:text="H/P"
+                    android:padding="0dp"
+
+                    />
+                <EditText
+                    android:hint="(Chargeable RM 4 per year)"
+                    android:padding="0dp"
+                    style="@style/Profileedittext"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:padding="0dp"
+                style="@style/Profilelinearlayout"
+                android:paddingBottom="0dp"
+                android:layout_marginTop="0dp"
+                >
+                <TextView
+                    android:layout_marginTop="0dp"
+                    style="@style/Profiletextview"
+                    android:layout_marginBottom="0dp"
+                    android:text="Email"
+                    android:padding="0dp"
+
+                    />
+                <EditText
+                    android:hint=""
+                    android:padding="0dp"
+                    style="@style/Profileedittext"
+                    />
+            </LinearLayout>
+            <include layout="@layout/profile_fenge"/>
+
+-->
+
+            <LinearLayout
+                style="@style/Profilelinearlayout"
+                >
+                <TextView
+                    style="@style/Profiletextview"
+                    android:text="URL"
+                    />
+                <EditText
+                    android:hint="Enter your URL(Chargeable RM 50 per year)"
+                    style="@style/Profileedittext"
+                    />
+            </LinearLayout>
+            <include layout="@layout/profile_fenge"/>
+            <LinearLayout
+                style="@style/Profilelinearlayout"
+                >
+                <ImageView
+                    style="@style/Profileimageview"
+                    android:src="@drawable/facebook"
+                    />
+                <EditText
+                    android:hint="Capture Photo\n(First 4 images charge RM8 per year,\nadditional image charge Rm3 per year)"
+                    style="@style/Profileedittext"
+                    />
+            </LinearLayout>
+            <include layout="@layout/profile_fenge"/>
+            <LinearLayout
+                style="@style/Profilelinearlayout"
+                >
+                <ImageView
+                    style="@style/Profileimageview"
+                    android:src="@drawable/facebook"
+                    />
+                <EditText
+                    android:hint="Upload Movie (Size limited to 50MB)\n(Chargeable Rm50 per year)\n"
+                    style="@style/Profileedittext"
+                    />
+            </LinearLayout>
+            <include layout="@layout/profile_fenge"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x5">
+                <ImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="@dimen/x30"
+                    android:layout_height="@dimen/x30"
+                    android:src="@drawable/profile_darkcyan"
+                    android:layout_marginLeft="@dimen/x25"
+                    />
+                <ImageView
+                    android:id="@+id/iv_right"
+                    android:layout_width="@dimen/x13"
+                    android:layout_height="@dimen/x13"
+                    android:src="@mipmap/arrow_darkcyan_right"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x10"/>
+                <LinearLayout
+                    android:id="@+id/ll_xinxi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_toRightOf="@id/iv_profile"
+                    android:layout_toLeftOf="@id/iv_right"
+                    android:layout_marginLeft="@dimen/x10"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Company"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="@dimen/x2"
+                            android:textColor="@color/black"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=", Company"/>
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Point available 10,000 pts"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+    </com.qixiaoyi.cariyou.widget.MyScrollview>
+</LinearLayout>

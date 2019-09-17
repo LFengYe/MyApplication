@@ -7,6 +7,7 @@ import android.os.Parcelable;
  * 告警
  */
 public class Alarm implements Parcelable {
+	private int Id;
 	/* 系统编号 */
 	private String SystemNo;
 	/* 时间 */
@@ -23,6 +24,23 @@ public class Alarm implements Parcelable {
 	private String Velocity;
 	/*ACC状态>0为开，等于0为关*/
 	private String DtStatus;
+	private String IsOpen;
+
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
+	}
+
+	public String getIsOpen() {
+		return IsOpen;
+	}
+
+	public void setIsOpen(String isOpen) {
+		IsOpen = isOpen;
+	}
 
 	public String getDtStatus() {
 		return DtStatus;
@@ -108,6 +126,7 @@ public class Alarm implements Parcelable {
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeInt(this.Id);
 		dest.writeString(this.SystemNo);
 		dest.writeString(this.Time);
 		dest.writeValue(this.Longitude);
@@ -116,9 +135,11 @@ public class Alarm implements Parcelable {
 		dest.writeString(this.VehNoF);
 		dest.writeString(this.Velocity);
 		dest.writeString(this.DtStatus);
+		dest.writeString(this.IsOpen);
 	}
 
 	protected Alarm(Parcel in) {
+		this.Id = in.readInt();
 		this.SystemNo = in.readString();
 		this.Time = in.readString();
 		this.Longitude = (Double) in.readValue(Double.class.getClassLoader());
@@ -127,6 +148,7 @@ public class Alarm implements Parcelable {
 		this.VehNoF = in.readString();
 		this.Velocity = in.readString();
 		this.DtStatus = in.readString();
+		this.IsOpen = in.readString();
 	}
 
 	public static final Parcelable.Creator<Alarm> CREATOR = new Parcelable.Creator<Alarm>() {

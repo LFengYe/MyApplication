@@ -198,9 +198,11 @@ public class ShowHistory extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 if (mapmode) {
+                    layerbutton.setImageResource(R.drawable.nav_more_map_press);
                     mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
                     mapmode = false;
                 } else {
+                    layerbutton.setImageResource(R.drawable.nav_more_map_normal);
                     mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                     mapmode = true;
                 }

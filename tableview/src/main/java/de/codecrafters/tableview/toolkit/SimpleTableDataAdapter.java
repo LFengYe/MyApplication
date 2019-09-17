@@ -3,6 +3,7 @@ package de.codecrafters.tableview.toolkit;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
@@ -25,6 +26,8 @@ public class SimpleTableDataAdapter extends TableDataAdapter<String[]> {
 
     private static final String LOG_TAG = SimpleTableDataAdapter.class.getName();
 
+    private Context context;
+
     private int paddingLeft = 20;
     private int paddingTop = 15;
     private int paddingRight = 20;
@@ -36,15 +39,17 @@ public class SimpleTableDataAdapter extends TableDataAdapter<String[]> {
 
     public SimpleTableDataAdapter(final Context context, final String[][] data) {
         super(context, data);
+        this.context = context;
     }
 
     public SimpleTableDataAdapter(final Context context, final List<String[]> data) {
         super(context, data);
+        this.context = context;
     }
 
     @Override
     public View getCellView(final int rowIndex, final int columnIndex, final ViewGroup parentView) {
-        final TextView textView = new TextView(getContext());
+        TextView textView = new TextView(getContext());
         textView.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         textView.setTypeface(textView.getTypeface(), typeface);
         textView.setTextSize(textSize);
@@ -54,10 +59,19 @@ public class SimpleTableDataAdapter extends TableDataAdapter<String[]> {
         textView.setEllipsize(TextUtils.TruncateAt.END);
 
         try {
-            final String textToShow = (null == getItem(rowIndex)[columnIndex]) ? ("") : (getItem(rowIndex)[columnIndex]);
+            String textToShow = (null == getItem(rowIndex)[columnIndex]) ? ("") : (getItem(rowIndex)[columnIndex]);
             String[] splitData = textToShow.split("#");
+
             if (splitData.length > 1) {
-                if (Integer.valueOf(splitData[1]) == 1) {
+                if (splitData[1].compareTo("False") == 0) {
+                    Drawable drawable = context.getResources().getDrawable(R.drawable.shape_circle);
+                    drawable.setBounds(0, -10, 10, 0);
+                    textView.setCompoundDrawables(drawable, null, null, null);
+                    textView.setText(splitData[0]);
+                } else if (splitData[1].compareTo("True") == 0) {
+                    textView.setCompoundDrawables(null, null, null, null);
+                    textView.setText(splitData[0]);
+                } else if (Integer.valueOf(splitData[1]) == 1) {
                     textView.setText(splitData[0]);
                 } else {
                     textView.setText("");

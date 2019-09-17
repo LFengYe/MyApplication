@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\push.png",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\drawable-xxhdpi\\push.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\push.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\drawable-xxhdpi\\push.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\splash.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\drawable-xxhdpi\\splash.png"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\splash.png",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\drawable-xxhdpi\\splash.png"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\icon.png",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\drawable-xxhdpi\\icon.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\icon.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\drawable-xxhdpi\\icon.png"
+    }
+]

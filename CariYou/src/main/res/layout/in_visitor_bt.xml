@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="wrap_content"
+android:layout_height="45dp"
+android:layout_marginLeft="10dp"
+android:layout_marginRight="10dp"
+android:id="@+id/rl_singup"
+android:layout_gravity="center_horizontal"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+android:onClick="visitor"
+    >
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:src="@drawable/visitor_white"
+    android:id="@+id/iv_singup"
+    android:padding="10dp"
+    android:background="@drawable/upshapeleft"
+    />
+<Button
+    android:layout_width="250dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/upshaperight"
+    android:text="@string/visitor"
+    android:textColor="@color/white"
+    android:id="@+id/bt_visitor"
+    android:layout_toEndOf="@id/iv_singup"
+    />
+</RelativeLayout>

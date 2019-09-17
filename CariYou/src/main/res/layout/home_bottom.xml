@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+                  android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark"
+        android:paddingTop="10dp">
+        <TextView
+            android:id="@+id/tv_select1"
+            android:text=""
+            android:drawableTop="@drawable/arrow_darkcyan_left"
+            style="@style/mainbottom"
+            />
+        <TextView
+            android:id="@+id/tv_select2"
+            android:text="Publish "
+            android:drawableTop="@drawable/publish_darkcyan"
+            style="@style/mainbottom"
+            />
+        <TextView
+            android:id="@+id/tv_select3"
+            android:text="ddd"
+            android:drawableTop="@drawable/complaint_darkcyan"
+            style="@style/mainbottom"
+            />
+        <TextView
+            android:id="@+id/tv_select4"
+            android:text="ddd"
+            android:drawableTop="@drawable/profile_white"
+            style="@style/mainbottom"/>
+        <TextView
+            android:id="@+id/tv_select5"
+            android:text=""
+            android:drawableTop="@drawable/arrow_darkcyan_right"
+            style="@style/mainbottom"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray_80"
+        android:layout_alignTop="@id/ll_bottom"/>
+
+</LinearLayout>

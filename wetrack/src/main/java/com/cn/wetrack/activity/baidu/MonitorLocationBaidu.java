@@ -88,6 +88,9 @@ public class MonitorLocationBaidu extends Activity {
     private BitmapDescriptor directionIcon;
     private boolean isFirst = true;
 
+    private ImageButton layerButton;
+    private int mapType = 0;
+
     //region  位置更新
     private Handler monitorUpdateHandler = new Handler() {
         @Override
@@ -266,6 +269,27 @@ public class MonitorLocationBaidu extends Activity {
                 finish();
             }
         });
+
+        layerButton = (ImageButton) findViewById(R.id.monitor_layerButton);
+        layerButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mapType == 0) {
+                    mBaiDuMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
+                    layerButton.setImageResource(R.drawable.nav_more_map_press);
+                    mapType = 1;
+                    return;
+                }
+
+                if (mapType == 1) {
+                    mBaiDuMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+                    layerButton.setImageResource(R.drawable.nav_more_map_normal);
+                    mapType = 0;
+                    return;
+                }
+            }
+        });
+
         /* 监控 */
         monitor = (Button) this.findViewById(R.id.monitor_monitorButton);
         monitor.setOnClickListener(new OnClickListener() {

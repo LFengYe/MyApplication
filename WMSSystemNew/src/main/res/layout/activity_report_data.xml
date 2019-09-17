@@ -7,7 +7,10 @@
         android:id="@+id/control_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/textView1"
@@ -21,11 +24,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="date|text" />
-
-        <Button
-            android:id="@+id/refresh_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -50,6 +48,14 @@
                 android:drawableLeft="@mipmap/ic_search_bar_left"
                 android:maxLines="1"
                 android:textSize="15.0dip"></com.cn.wms_system_new.component.ClearEditText>
+
+            <Button
+                android:id="@+id/search_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/info_search"
+                android:background="@drawable/button_shape"/>
 
             <ZoomControls
                 android:id="@+id/zoom_controls"
@@ -80,7 +86,7 @@
         <Button
             android:id="@+id/previout_page"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="33sp"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@drawable/main_button"
@@ -90,7 +96,7 @@
         <Button
             android:id="@+id/next_page"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="33sp"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@drawable/main_button"

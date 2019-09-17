@@ -30,6 +30,17 @@
             android:text="@string/main_btn_title_alarm_infomation"
             android:textColor="#ff000000"
             android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/ignore_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:text="@string/ignore_all"
+            android:textSize="18sp"
+            android:textColor="#ff3fa9fd" />
     </RelativeLayout>
 
     <ImageView

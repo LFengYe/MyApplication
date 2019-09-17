@@ -329,4 +329,5 @@
     <string name="car_number_n">车牌号</string>
     <string name="list_no">序号</string>
     <string name="service_expired">提醒：服务到期提醒</string>
+    <string name="ignore_all">忽略所有</string>
 </resources>

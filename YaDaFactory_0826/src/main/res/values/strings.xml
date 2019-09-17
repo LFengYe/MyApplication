@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">工厂App</string>
+
+
+    <string name="login_input">qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890</string>
+
+    <string name="login_null">帐号或密码为空，请输入账号或密码</string>
+    <string name="login_error">用户名或密码输入错误</string>
+    <string name="login_hint_account">请输入用户名</string>
+    <string name="login_hint_password">请输入密码</string>
+    <string name="login_success">登录成功</string>
+    <string name="login">登   录</string>
+    <string name="setting">配  置</string>
+    <string name="setting_server">配置服务器地址:</string>
+    <string name="setting_server_input">请输入服务器地址，示例：http://192.168.1.180:8080/</string>
+    <string name="setting_server_error">服务器地址不能为空</string>
+    <string name="select_success">查询成功</string>
+    <string name="upload_success">提交成功</string>
+    <string name="Net_error">当前网络发生异常，请检查你的网络</string>
+    <string name="servlet_error">当前服务器繁忙，请稍后</string>
+    <string name="select_id">请输入周转卡号</string>
+    <string name="head">订单信息:</string>
+    <string name="content">工位信息:</string>
+    <string name="select">查  询</string>
+    <string name="history_order">历史订单</string>
+    <string name="auto_xiaLiao">自动下料</string>
+    <string name="auto_xiaLiao_order_select">自动下料选择</string>
+    <string name="guan_shu">管  束</string>
+    <string name="is_guan_shu">是否为管束:</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="exit">退  出</string>
+    <string name="confirm">确  认</string>
+    <string name="finished">完  成</string>
+    <string name="cancel">取  消</string>
+    <string name="content_null">表单内有空值,请检查</string>
+    <string name="press_select">当前表内无信息，请按查询按钮</string>
+    <string name="xia_liao">下料</string>
+
+</resources>

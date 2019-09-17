@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Cariyou</string>
+    <string name="singupnow">Sign up Now</string>
+    <string name="visitor">I am a visitor</string>
+    <string name="welcome_text1">By using Cariyou, you agree to the Terms, Cookie Policy, and Privacy Polic</string>
+    <string name="wecome_text2">Login using social media account:</string>
+    <string name="rigister_text1">A verification code was sent to you by Email</string>
+    <string name="logintitle">ALREADY A CARIYOUER?</string>
+    <string name="login_text">Sign in to your account and then enter your phone number to restore your points, favorites &amp; history.</string>
+    <string name="title_activity_home">Map</string>
+</resources>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+              android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/arrow_white_left"
+                android:id="@+id/iv_left"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iv_left"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black_80"
+                android:text="Evaluation"/>
+        </RelativeLayout>
+    </Toolbar>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="like"
+        android:textSize="@dimen/x15"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/x15"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginRight="@dimen/x20"
+        android:layout_marginTop="@dimen/x10"
+        android:textStyle="italic"
+        android:text="Thank you for your support, take the time to give us encouragement"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_shape"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginRight="@dimen/x20"
+        android:layout_marginTop="@dimen/x20"
+        android:paddingBottom="@dimen/x10"
+        android:paddingTop="@dimen/x10"
+        android:textColor="@color/white"
+        android:text="Go to the App Store\n written Comments"/>
+
+    <View
+        android:layout_marginTop="@dimen/x25"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x5"
+        android:background="@color/gray_80"
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/x15"
+        android:gravity="center"
+        android:text="Comments"
+        android:layout_marginTop="@dimen/x15"/>
+
+    <TextView
+        android:layout_marginTop="@dimen/x10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginRight="@dimen/x20"
+        android:textStyle="italic"
+        android:text="Leave your comments, we will make the greatestefforts continued to improve"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_shape"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginRight="@dimen/x20"
+        android:layout_marginTop="@dimen/x20"
+        android:paddingBottom="@dimen/x10"
+        android:paddingTop="@dimen/x10"
+        android:textColor="@color/white"
+        android:text="Feedback Comments"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x160"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_80"
+            />
+    </RelativeLayout>
+</LinearLayout>

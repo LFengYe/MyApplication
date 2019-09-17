@@ -54,6 +54,7 @@ import com.cn.wetrack.util.SProtocol;
 import com.cn.wetrack.widgets.CustomProgressDialog;
 import com.cn.wetrack.widgets.Popup;
 import com.cn.wetrack.widgets.PopupUtils;
+import com.google.android.gms.maps.GoogleMap;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -122,6 +123,9 @@ public class AllLocationBaidu extends Activity {
     private BitmapDescriptor mapPointIcon;
     private List<MapPoint> mapPointList;
     private boolean isFirst = true;
+
+    private ImageButton layerButton;
+    private int mapType = 0;
 
     private LatLngBounds.Builder bounds;
 
@@ -597,6 +601,26 @@ public class AllLocationBaidu extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        layerButton = (ImageButton) findViewById(R.id.layerButton);
+        layerButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mapType == 0) {
+                    mBaiDuMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
+                    layerButton.setImageResource(R.drawable.nav_more_map_press);
+                    mapType = 1;
+                    return;
+                }
+
+                if (mapType == 1) {
+                    mBaiDuMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+                    layerButton.setImageResource(R.drawable.nav_more_map_normal);
+                    mapType = 0;
+                    return;
+                }
             }
         });
 

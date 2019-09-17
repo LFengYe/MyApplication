@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\anim\\dcloud_slide_out_to_top.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\anim\\dcloud_slide_out_to_top.xml"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\anim\\dcloud_slide_in_from_top.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\anim\\dcloud_slide_in_from_top.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\anim\\dcloud_slide_in_from_top.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\anim\\dcloud_slide_in_from_top.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\anim\\dcloud_slide_out_to_top.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\anim\\dcloud_slide_out_to_top.xml"
+    }
+]

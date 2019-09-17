@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.baidu.mapapi.map.BaiduMap;
 import com.cn.wetrack.R;
 import com.cn.wetrack.entity.Location;
 import com.cn.wetrack.entity.SResponse;
@@ -47,6 +48,9 @@ public class MonitorLocation extends FragmentActivity {
     private GoogleMap mMap;
     private View mWindow;
     private Marker CarMarker = null;
+
+    private ImageButton layerButton;
+    private int mapType = 0;
 
     private TextView infoWindow_vehNof;
     private TextView infoWindow_time;
@@ -252,6 +256,26 @@ public class MonitorLocation extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        layerButton = (ImageButton) findViewById(R.id.monitor_layerButton);
+        layerButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mapType == 0) {
+                    mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                    layerButton.setImageResource(R.drawable.nav_more_map_press);
+                    mapType = 1;
+                    return;
+                }
+
+                if (mapType == 1) {
+                    mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                    layerButton.setImageResource(R.drawable.nav_more_map_normal);
+                    mapType = 0;
+                    return;
+                }
             }
         });
 

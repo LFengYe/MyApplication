@@ -12,9 +12,11 @@ import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
@@ -31,6 +33,7 @@ import com.cn.wms_system_new.bean.SResponse;
 import com.cn.wms_system_new.component.ClearEditText;
 import com.cn.wms_system_new.component.Constants;
 import com.cn.wms_system_new.component.ContentViewHolder;
+import com.cn.wms_system_new.component.CustomProgress;
 import com.cn.wms_system_new.component.GetNowTime;
 import com.cn.wms_system_new.component.TableView;
 import com.cn.wms_system_new.component.TitleViewHolder;
@@ -53,6 +56,7 @@ public class ReportDataActivity extends Activity {
     private HorizontalScrollView horizontalScrollView;
     //    private SideBar sideBar;
     private ZoomControls zoomControls;
+    private Button searchBtn;
 
     private BootBroadcastReceiver receiver;
     /**
@@ -99,6 +103,7 @@ public class ReportDataActivity extends Activity {
     private boolean isDetailList = false;
     private boolean requestDetail = false;
     private int textSize = Constants.TEXTSIZE_INIT;
+    private CustomProgress customProgress;
 
     //region 各个点击事件
     private OnClickListener onClickListener = new OnClickListener() {
@@ -202,7 +207,6 @@ public class ReportDataActivity extends Activity {
             }
         }
     };
-
 
     private MyHandler operateHandler = new MyHandler(this) {
         @Override
@@ -312,6 +316,8 @@ public class ReportDataActivity extends Activity {
 
                     break;
             }
+            if (customProgress != null && customProgress.isShowing())
+                customProgress.dismiss();
         }
     };
     //endregion
@@ -412,6 +418,8 @@ public class ReportDataActivity extends Activity {
         contentHolder.textView3 = (TextView) findViewById(R.id.textView3);
         contentHolder.editText3 = (ClearEditText) findViewById(R.id.editText3);
         //contentHolder.textView4 = (TextView) findViewById(R.id.textview4);
+
+
     }
 
     /**
@@ -438,7 +446,34 @@ public class ReportDataActivity extends Activity {
 
         contentHolder.textView3.setText(R.string.quick_search);
         contentHolder.editText3.setHint(R.string.list_search_promte);
-        contentHolder.editText3.addTextChangedListener(watcher);
+        //contentHolder.editText3.addTextChangedListener(watcher);
+
+        searchBtn = (Button) findViewById(R.id.search_button);
+        searchBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pageIndex = 1;
+                downloadData();
+                /*
+                String s = contentHolder.editText3.getText().toString();
+                if (s != null && s.length() > 0) {
+                    pageIndex = 1;
+                    downloadData();
+                    //filterData(reportData, s.toString());
+                    pageIndex = 1;
+                    filterFlag = true;
+                    //tableView.refreshData(filterData);
+                } else {
+                    pageIndex = 1;
+                    filterFlag = false;
+                    if (filterData != null)
+                        filterData.clear();
+                    //tableView.refreshData(tableData);
+                }
+                refreshData();
+                */
+            }
+        });
 
         zoomControls = (ZoomControls) findViewById(R.id.zoom_controls);
         // 　setOnZoomInClickListener()　-　响应单击放大按钮的事件
@@ -544,12 +579,18 @@ public class ReportDataActivity extends Activity {
      */
     public void downloadData() {
         requestDetail = false;
+        if (reportData != null)
+            reportData.clear();
 
         if (bundle.getString("funName").compareTo("报表查询") == 0) {
             JSONObject object = new JSONObject();
             object.put("module", bundle.getString("module", ""));
             object.put("operation", "create");
             object.put("type", "create");
+            object.put("clientType", "app");
+            object.put("pageIndex", (pageIndex / 5) + 1);
+            object.put("pageSize", pageSize * 5);
+            object.put("datas", contentHolder.editText3.getText().toString());
             if (bundle.getString("module", "").compareTo("报检信息查询") == 0) {
                 JSONObject dateObj = new JSONObject();
                 //dateObj.put("start", contentHolder.editText1.getEditableText().toString() + " 00:00");
@@ -559,6 +600,9 @@ public class ReportDataActivity extends Activity {
                 //object.put("start", contentHolder.editText1.getEditableText().toString() + " 00:00");
                 object.put("end", contentHolder.editText2.getEditableText().toString() + " 23:59");
             }
+
+            customProgress = CustomProgress.show(ReportDataActivity.this,
+                    getResources().getString(R.string.loading), false, null);
             new MyThread(dateHandler, object, bundle.getString("action")).start();
         }
     }
@@ -583,22 +627,11 @@ public class ReportDataActivity extends Activity {
         } else {
             filterData = new ArrayList<>();
         }
-        /*
-        if (filterObjects != null) {
-            filterObjects.clear();
-        } else {
-            filterObjects = new JSONArray();
-        }
-        */
 
         for (int i = 0; i < data.size(); i++) {
-            String[] item = data.get(i);
-            for (String str : item) {
-                if (str.contains(s)) {
-                    filterData.add(item);
-                    //filterObjects.add(objects.get(i));
-                    break;
-                }
+            String str = JSONObject.toJSONString(data.get(i)).toLowerCase();
+            if (str.contains(s.toLowerCase())) {
+                filterData.add(data.get(i));
             }
         }
     }
@@ -736,6 +769,11 @@ public class ReportDataActivity extends Activity {
      * 根据data数据刷新数据
      */
     public void refreshData() {
+
+        if (reportData == null) {
+            Toast.makeText(ReportDataActivity.this, R.string.data_empty, Toast.LENGTH_LONG).show();
+            return;
+        }
 
         if (pageIndex < 1) {
             pageIndex = 1;

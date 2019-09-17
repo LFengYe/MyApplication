@@ -1,0 +1,232 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="BaseAppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/window_background</item>
+    </style>
+    <!--
+     android:layout_width="match_parent"
+            android:layout_height="36dip"
+            android:background="@drawable/et_selector"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:textColorHint="#AAAAAA"
+            android:textSize="15dip"-->
+    <style name="Inputet">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">46dip</item>
+        <item name="android:background">@drawable/et_selector</item>
+        <item name="android:paddingBottom">8dip</item>
+        <item name="android:paddingTop">8dip</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:layout_marginLeft">50dp</item>
+        <item name="android:layout_marginRight">50dp</item>
+        <item name="android:textColorHint">#AAAAAA</item>
+        <item name="android:textSize">15dip</item>
+        <item name="android:layout_marginBottom">10dip</item>
+    </style>
+
+    <!-- android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue_30"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+             android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"-->
+    <style name="Profiletextview">
+        <item name="android:layout_weight">6</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/blue_30</item>
+        <item name="android:textSize">13.5sp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+
+    <style name="Profileimageview">
+        <item name="android:layout_weight">6</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+
+    <!-- android:layout_weight="9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginLeft="5dp"
+            android:background="@null"
+            android:textStyle="italic"-->
+    <style name="Profileedittext" parent="Profiletextview">
+        <item name="android:layout_weight">3</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <!--android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"-->
+    <style name="Profilelinearlayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingBottom">2dp</item>
+    </style>
+
+    <!--    android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:drawablePadding="3dp"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+             android:layout_marginTop="@dimen/x2""
+              android:layout_gravity="center_horizontal"-->
+    <style name="mainbottom">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_marginTop">@dimen/x2</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+
+    <style name="mainbottom2">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">@dimen/x20</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <!-- android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:paddingLeft="16dp"
+               android:paddingRight="16dp"
+               android:paddingTop="5dp"
+               android:paddingBottom="5dp"
+               android:textSize="15sp"-->
+    <style name="style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textSize">13.5sp</item>
+    </style>
+
+
+    <style name="MyRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/star_rating_orange</item>
+        <item name="android:minWidth">@dimen/x20</item>
+        <item name="android:minHeight">@dimen/x20</item>
+    </style>
+
+    <!--           android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:textSize="13.5sp"-->
+    <style name="inputet2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:textSize">13.5sp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+    <!--   android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_marginRight="30dp"
+                android:src="@drawable/arrow_darkcyan_right"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                -->
+    <style name="right">
+        <item name="android:layout_width">13dp</item>
+        <item name="android:layout_height">13dp</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:src">@drawable/arrow_darkcyan_right</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_marginEnd">20dp</item>
+    </style>
+
+    <!--android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_weight="3"
+            -->
+    <style name="inputrl">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">3dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:layout_weight">3</item>
+    </style>
+
+    <!--android:layout_weight="1"
+        android:layout_width="@dimen/x40"
+        android:layout_height="@dimen/x40"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@drawable/tv_shape"
+        android:layout_marginRight="@dimen/x5"
+        -->
+    <style name="tvsty">
+        <item name="android:layout_width">@dimen/x40</item>
+        <item name="android:layout_height">@dimen/x40</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginRight">@dimen/x5</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/tv_shape</item>
+    </style>
+
+
+</resources>

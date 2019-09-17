@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.multidex.MultiDexApplication;
+import android.util.Log;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.cn.wetrack.entity.Account;
@@ -105,7 +106,10 @@ public class SWApplication extends MultiDexApplication {
 //		crashHandler.init(getApplicationContext());
 		JPushInterface.setDebugMode(false);
 		JPushInterface.init(this);
-		JPushInterface.requestPermission(getApplicationContext());
+
+		sp = getSharedPreferences("UserInfo", MODE_PRIVATE);
+		sp.edit().putString("RegistrationID", JPushInterface.getRegistrationID(this)).apply();
+		//Log.i("Application", JPushInterface.getRegistrationID(this));
 	}
 
 	public void restartApp(){

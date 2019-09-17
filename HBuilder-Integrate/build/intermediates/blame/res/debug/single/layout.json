@@ -1,0 +1,98 @@
+[
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_custom_notification.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_custom_notification.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_snow_white_progress.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_snow_white_progress.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_activity_main_market.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_activity_main_market.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\getui_notification.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\getui_notification.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_dialog.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_dialog.xml"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_image_pick_gallery_item.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_image_pick_gallery_item.xml"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\getui_notification.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\getui_notification.xml"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_image_pick_gallery.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_image_pick_gallery.xml"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_loadingview.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_loadingview.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_image_pick_gallery.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_image_pick_gallery.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_snow_black_progress.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_snow_black_progress.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_market_fragment_base.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_market_fragment_base.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_loadingview.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_loadingview.xml"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_main_activity.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_main_activity.xml"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_dialog.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_dialog.xml"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_snow_white_progress.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_snow_white_progress.xml"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_activity_main_market.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_activity_main_market.xml"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_snow_black_progress.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_snow_black_progress.xml"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_main_test_activity.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_main_test_activity.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_image_pick_gallery_item.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_image_pick_gallery_item.xml"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_market_fragment_base.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_market_fragment_base.xml"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_custom_notification.xml",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_custom_notification.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_main_activity.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_main_activity.xml"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\layout\\dcloud_main_test_activity.xml",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\layout\\dcloud_main_test_activity.xml"
+    }
+]

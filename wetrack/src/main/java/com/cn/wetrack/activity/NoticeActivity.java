@@ -25,6 +25,8 @@ import java.util.List;
  */
 public class NoticeActivity extends Activity {
 
+    SWApplication glob;// 全局控制类
+
     private ListView listView;
     private CustomProgressDialog progressDialog = null;// 进度
     private SResponse response;
@@ -53,11 +55,29 @@ public class NoticeActivity extends Activity {
         initView();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        progressDialog = new CustomProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.refreshing));
+        progressDialog.show();
+        getData();
+    }
+
     private void initView() {
+        glob = (SWApplication) getApplicationContext();
+        glob.sp = getSharedPreferences("UserInfo", MODE_PRIVATE);
+
         findViewById(R.id.backButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        findViewById(R.id.ignore_all).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateAllRecordStatus(1, glob.sp.getString("user", ""));
             }
         });
         listView = (ListView) findViewById(R.id.notice_list);
@@ -73,13 +93,10 @@ public class NoticeActivity extends Activity {
                 intent.putExtra("noticeContent", notice.getNoticeContent());
                 intent.setClass(NoticeActivity.this, NoticeDetail.class);
                 startActivity(intent);
+
+                updateRecordStatus(1, notice.getId());
             }
         });
-
-        progressDialog = new CustomProgressDialog(this);
-        progressDialog.setMessage(getString(R.string.refreshing));
-        progressDialog.show();
-        getData();
     }
 
     private void getData() {
@@ -87,7 +104,7 @@ public class NoticeActivity extends Activity {
             @Override
             public void run() {
                 super.run();
-                response = HttpRequestClient.offcialNews();
+                response = HttpRequestClient.offcialNews(glob.sp.getString("user", ""), glob.sp.getString("psw", ""));
                 Message msg = new Message();
                 if (response.getCode() == SProtocol.SUCCESS) {
                     msg.what = 0;
@@ -95,6 +112,26 @@ public class NoticeActivity extends Activity {
                     msg.what = 1;
                 }
                 handler.sendMessage(msg);
+            }
+        }.start();
+    }
+
+    private void updateRecordStatus(final int type, final int unReadRecordId) {
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                HttpRequestClient.updateUnReadRecordStatus(type, unReadRecordId);
+            }
+        }.start();
+    }
+
+    private void updateAllRecordStatus(final int type, final String userName) {
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                HttpRequestClient.UpdateAllUnReadRecordStatus(type, userName);
             }
         }.start();
     }

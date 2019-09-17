@@ -84,8 +84,7 @@
         android:layout_marginTop="5.0dip"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
-        android:src="@drawable/alllocation_switchmode"
-        android:visibility="gone" />
+        android:src="@drawable/nav_more_map_normal" />
 
     <!--路径规划-->
     <ImageButton
@@ -100,8 +99,8 @@
         android:scaleType="fitXY"
         android:src="@drawable/alllocation_lujgh"
         android:visibility="gone" />
-    <!-- 左箭头 -->
 
+    <!-- 左箭头 -->
     <ImageButton
         android:id="@+id/alllocation_nextcarleft"
         android:layout_width="wrap_content"
@@ -110,8 +109,8 @@
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
         android:src="@drawable/map_btnleft" />
-    <!-- 右箭头 -->
 
+    <!-- 右箭头 -->
     <ImageButton
         android:id="@+id/alllocation_nextcarright"
         android:layout_width="wrap_content"

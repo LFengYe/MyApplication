@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape4"
+    android:gravity="center">
+
+    <com.lfeng.pipingfactory.view.MyAutoCompleteTextView
+        android:id="@+id/auto_text"
+        style="@style/mySpinnerStyle"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:completionThreshold="1"
+        android:gravity="center"
+        android:textColor="#434343"
+        android:textSize="19sp" />
+
+</LinearLayout>

@@ -481,8 +481,8 @@ public class ListDataActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-        getWindow().setFlags(Constants.FLAG_HOMEKEY_DISPATCHED,
-                Constants.FLAG_HOMEKEY_DISPATCHED);
+        /*getWindow().setFlags(Constants.FLAG_HOMEKEY_DISPATCHED,
+                Constants.FLAG_HOMEKEY_DISPATCHED);*/
         setContentView(R.layout.activity_list_data);
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
                 R.layout.layout_title_bar);

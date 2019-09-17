@@ -85,6 +85,9 @@ public class OilDetailInfoBaidu extends Activity {
     private TextView inforwindow_carlocation;
     private ImageView infordowclose;
 
+    private ImageButton layerButton;
+    private int mapType = 0;
+
     private CustomProgressDialog progressDialog = null;// 提示消息
     private int MaxQueryTime = 0;//解析位置的最大次数
     private BitmapDescriptor startIcon;
@@ -156,6 +159,27 @@ public class OilDetailInfoBaidu extends Activity {
                 finish();
             }
         });
+
+        layerButton = (ImageButton) findViewById(R.id.monitor_layerButton);
+        layerButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mapType == 0) {
+                    mBaiDuMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
+                    layerButton.setImageResource(R.drawable.nav_more_map_press);
+                    mapType = 1;
+                    return;
+                }
+
+                if (mapType == 1) {
+                    mBaiDuMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+                    layerButton.setImageResource(R.drawable.nav_more_map_normal);
+                    mapType = 0;
+                    return;
+                }
+            }
+        });
+
         /* 监控 */
         monitor = (Button) this.findViewById(R.id.monitor_monitorButton);
         monitor.setVisibility(View.GONE);

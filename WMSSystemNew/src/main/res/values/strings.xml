@@ -8,6 +8,7 @@
     <string name="refresh_button">刷新</string>
     <string name="back_to_main">返回主界面</string>
     <string name="cur_time_promote">当前时间:</string>
+    <string name="loading">加载中...</string>
 
     <string name="input_remark_promote">请输入备注信息</string>
     <string name="remark_empty_promote">备注信息不能为空</string>
@@ -36,6 +37,7 @@
     <string name="plan_demand_date">计划需求日期:</string>
     <string name="report_end_time">报表结束时间:</string>
     <string name="date_arrive">至</string>
+    <string name="info_search">查找</string>
     <string name="info_refresh">刷新</string>
     <string name="quick_search">快速查询:</string>
     <string name="list_search_promte">搜索字段计划单号、终端客户、计划员</string>
@@ -46,6 +48,7 @@
     <string name="previous_page">前一页</string>
     <string name="last_page_promote">当前页为最后一页</string>
     <string name="first_page_promote">当前页为第一页</string>
+    <string name="data_empty">数据为空</string>
 
     
     <!-- 系统参数设置界面 -->

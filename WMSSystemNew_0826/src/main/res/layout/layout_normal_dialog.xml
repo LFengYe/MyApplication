@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dip"
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:background="#FE8F02"
+        android:gravity="center"
+        android:textColor="#F4F4F4"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="left|center"
+        android:minHeight="80dip"
+        android:paddingLeft="10dip"
+        android:text="Are you sure?"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#ffd0d0d0" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dip"
+        android:layout_gravity="bottom"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="6dip"
+        android:paddingRight="6dip" >
+
+        <Button
+            android:id="@+id/negativeButton"
+            android:layout_width="0dip"
+            android:layout_height="40dip"
+         
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn"
+            android:gravity="center"
+            android:textColor="#F4F4F4" />
+
+        <Button
+            android:id="@+id/positiveButton"
+            android:layout_width="0dip"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+               android:layout_marginLeft="20dip"
+            android:background="@drawable/dialog_btn"
+            android:gravity="center"
+            android:textColor="#F4F4F4" />
+    </LinearLayout>
+
+</LinearLayout>

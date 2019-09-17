@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+    android:background="@color/white">
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iv_left"
+                android:layout_centerInParent="true"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black_80"
+                android:text="Submit a Form"/>
+        </RelativeLayout>
+    </Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x5"
+        android:layout_marginRight="@dimen/x5"
+        android:layout_marginTop="@dimen/x5"
+        android:text="Welcome, please use the following form to file a commendation for an officer,a complaint against the department or officer, orto make a suggestionto the department. "/>
+<TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/x9"
+        android:layout_marginLeft="@dimen/x5"
+        android:layout_marginRight="@dimen/x5"
+        android:text="You cannot report a crime or provide a crime tip on this page. "/>
+
+    <View
+        android:layout_marginTop="@dimen/x5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x5"
+        android:background="@color/gray_80"
+        />
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="@dimen/x5">
+       <ImageView
+           android:id="@+id/iv_profile"
+           android:layout_width="@dimen/x25"
+           android:layout_height="@dimen/x25"
+           android:src="@drawable/profile_darkcyan"
+           android:layout_marginLeft="@dimen/x25"
+           />
+       <ImageView
+           android:id="@+id/iv_right"
+           android:layout_width="@dimen/x13"
+           android:layout_height="@dimen/x13"
+           android:src="@mipmap/arrow_darkcyan_right"
+           android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="@dimen/x10"/>
+       <LinearLayout
+           android:id="@+id/ll_xinxi"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:layout_toRightOf="@id/iv_profile"
+           android:layout_toLeftOf="@id/iv_right"
+           android:layout_marginLeft="@dimen/x10"
+           >
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Company"
+                   android:textStyle="bold"
+                   android:layout_marginBottom="@dimen/x2"
+                   android:textColor="@color/black"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text=", Company"/>
+           </LinearLayout>
+
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textColor="@color/black"
+               android:text="Point available 10,000 pts"/>
+       </LinearLayout>
+   </RelativeLayout>
+
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+    <include layout="@layout/profile_fenge"/>
+    <LinearLayout
+        style="@style/Profilelinearlayout"
+        >
+        <TextView
+            style="@style/Profiletextview"
+            android:text="Contact No"
+            />
+        <EditText
+            android:hint="Enter contact number here"
+            style="@style/Profileedittext"
+            />
+    </LinearLayout>
+    <include layout="@layout/profile_fenge"/>
+
+    <LinearLayout
+        style="@style/Profilelinearlayout"
+        >
+        <TextView
+            style="@style/Profiletextview"
+            android:text="UseStorename"
+            />
+        <EditText
+            android:hint="Enter Storename"
+            style="@style/Profileedittext"
+            />
+    </LinearLayout>
+    <include layout="@layout/profile_fenge"/>
+
+    <LinearLayout
+        style="@style/Profilelinearlayout"
+        >
+        <TextView
+            style="@style/Profiletextview"
+            android:text="UseStorename"
+            />
+        <EditText
+            android:hint="Enter Storename"
+            style="@style/Profileedittext"
+            />
+    </LinearLayout>
+    <include layout="@layout/profile_fenge"/>
+
+    <LinearLayout
+        style="@style/Profilelinearlayout"
+        >
+        <TextView
+            style="@style/Profiletextview"
+            android:layout_gravity="center_vertical"
+            android:text="Gender"/>
+        <RelativeLayout
+            style="@style/inputrl">
+
+            <ImageView
+                android:id="@+id/iv_right01"
+                style="@style/right"/>
+
+            <EditText
+                style="@style/inputet2"
+                android:layout_marginLeft="@dimen/x4"
+                android:layout_toLeftOf="@id/iv_right01"
+                android:hint="Select Gender"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+    <include layout="@layout/profile_fenge"/>
+
+    <LinearLayout
+        style="@style/Profilelinearlayout"
+        >
+        <TextView
+            style="@style/Profiletextview"
+            android:layout_gravity="center_vertical"
+            android:text="Gender"/>
+        <RelativeLayout
+            style="@style/inputrl">
+
+            <ImageView
+                android:id="@+id/iv_right02"
+                style="@style/right"/>
+
+            <EditText
+                style="@style/inputet2"
+                android:layout_marginLeft="@dimen/x4"
+                android:layout_toLeftOf="@id/iv_right02"
+                android:hint="Select Gender"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+    <include layout="@layout/profile_fenge"/>
+
+    <LinearLayout
+        style="@style/Profilelinearlayout"
+        >
+        <TextView
+            style="@style/Profiletextview"
+            android:layout_gravity="center_vertical"
+            android:text="Gender"/>
+        <RelativeLayout
+            style="@style/inputrl">
+
+            <ImageView
+                android:id="@+id/iv_right03"
+                style="@style/right"/>
+
+            <EditText
+                style="@style/inputet2"
+                android:layout_marginLeft="@dimen/x4"
+                android:layout_toLeftOf="@id/iv_right03"
+                android:hint="Select Gender"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+    <include layout="@layout/profile_fenge"/>
+
+    <LinearLayout
+        style="@style/Profilelinearlayout"
+        >
+        <TextView
+            style="@style/Profiletextview"
+            android:text="UseStorename"
+            />
+        <EditText
+            android:hint="Enter Storename"
+            style="@style/Profileedittext"
+            />
+    </LinearLayout>
+    <include layout="@layout/profile_fenge"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue_30"
+        android:layout_marginTop="@dimen/x5"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:text="Commendation, Suggestion or Complaint"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:hint="Describe a comments here"
+        android:textSize="@dimen/x11"
+        android:layout_marginTop="@dimen/x5"
+        android:background="@null"/>
+    <include layout="@layout/profile_fenge"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/x10">
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_width="@dimen/x30"
+            android:layout_height="@dimen/x30"
+            android:layout_marginLeft="@dimen/x15"
+            android:src="@drawable/bathroom_cyan"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iv_photo"
+            android:text="Capture Photo (At least 3)"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:layout_centerInParent="true"
+            />
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_80"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -28,6 +28,7 @@
     <string name="refreshing_failed">Loading Failed</string>
     <string name="btn_title_orbit_replay">Playback</string>
     <string name="btn_title_track">Tracking</string>
+    <string name="ignore_all">Ignore</string>
 
     <string name="service_expired">Notice: Service Expired Notice</string>
 

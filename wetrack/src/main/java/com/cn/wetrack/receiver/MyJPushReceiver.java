@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
+import com.cn.wetrack.activity.AlarmReport;
+import com.cn.wetrack.activity.NoticeActivity;
+import com.cn.wetrack.activity.SWApplication;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,6 +22,7 @@ import cn.jpush.android.api.JPushInterface;
 public class MyJPushReceiver extends BroadcastReceiver {
     private static final String TAG = "MyJPushReceiver";
     private Handler carOrderHandler;
+    private SWApplication glob;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -25,13 +30,16 @@ public class MyJPushReceiver extends BroadcastReceiver {
         Log.d(TAG, "onReceive - " + intent.getAction());
 
         if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
-
             /**
              * SDK 向 JPush Server 注册所得到的注册 ID可以在这里获取到。一般来说，可不处理此广播信息。
              * 要深入地集成极光推送，开发者想要自己保存App用户与JPush 用户关系时，则接受此广播，取得 Registration ID 并保存与App uid 的关系到开发者自己的应用服务器上。
              */
-        
-        }else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {
+            glob = (SWApplication) context.getApplicationContext();
+            glob.sp.edit().putString("RegistrationID", JPushInterface.getRegistrationID(context)).commit();
+            Log.i(TAG, JPushInterface.getRegistrationID(context));
+            Log.i(TAG, bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID));
+
+        } else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {
             /**
              * 收到自定义消息。自定义消息不会展示在通知栏，完全要开发者写代码去处理
              */
@@ -64,16 +72,16 @@ public class MyJPushReceiver extends BroadcastReceiver {
     private void progressNoticeData(Context context, String jsonData) {
         try {
             JSONObject object = new JSONObject(jsonData);
-            int type = object.getInt("type");
-            String id = object.getString("id");
+            int type = object.getInt("pushType");
             Intent intent = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putString("messageId", id);
             switch (type) {
-
+                case 1:
+                    intent.setClass(context, AlarmReport.class);
+                    break;
+                case 2:
+                    intent.setClass(context, NoticeActivity.class);
+                    break;
             }
-
-            intent.putExtras(bundle);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         } catch (JSONException e) {

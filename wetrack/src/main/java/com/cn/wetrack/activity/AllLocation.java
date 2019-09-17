@@ -1,6 +1,5 @@
 package com.cn.wetrack.activity;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -8,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -21,7 +19,6 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -77,6 +74,7 @@ public class AllLocation extends FragmentActivity {
             .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
     private SWApplication glob;
     private ImageButton ImageButtonBack;// 返回
+    private ImageButton layerButton;
     private Button monitorButton;// 监控
     private SupportMapFragment mapFragment;
     private GoogleMap mMap;
@@ -114,6 +112,8 @@ public class AllLocation extends FragmentActivity {
 
     private LatLngBounds.Builder bounds;
     private PopupDialog popupDialog;
+
+    private int mapType = 0;
 
     //region 获取所有车辆位置信息返回处理
     private Handler handler = new Handler() {
@@ -475,6 +475,25 @@ public class AllLocation extends FragmentActivity {
             }
         });
 
+        layerButton = (ImageButton) findViewById(R.id.layerButton);
+        layerButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mapType == 0) {
+                    mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                    layerButton.setImageResource(R.drawable.nav_more_map_press);
+                    mapType = 1;
+                    return;
+                }
+
+                if (mapType == 1) {
+                    mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                    layerButton.setImageResource(R.drawable.nav_more_map_normal);
+                    mapType = 0;
+                    return;
+                }
+            }
+        });
 
         monitorButton = (Button) findViewById(R.id.monitorButton);
         monitorButton.setOnClickListener(new OnClickListener() {
@@ -484,6 +503,7 @@ public class AllLocation extends FragmentActivity {
                 startActivity(intent);
             }
         });
+
 
         new GetServiceExpiredList().start();
     }

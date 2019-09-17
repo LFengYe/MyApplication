@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_setting_bg">
+
+        <LinearLayout
+            android:id="@+id/ipAddress_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="3dp"
+            android:background="@mipmap/ic_color_bg_red"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ipAddress_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/setting_webServer_ipAddress_input"
+                android:textColor="#000"></TextView>
+
+            <EditText
+                android:id="@+id/ipAddress_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/setting_webServer_ipAddress_hint"></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/port_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ipAddress_setting"
+            android:layout_marginTop="3dp"
+            android:background="@mipmap/ic_color_bg_red"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/port_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/setting_webServer_port_input"
+                android:textColor="#000"></TextView>
+
+            <EditText
+                android:id="@+id/port_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/setting_webServer_port_hint"></EditText>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

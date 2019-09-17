@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\splash.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\drawable-ldpi\\splash.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\icon.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\drawable-ldpi\\icon.png"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\icon.png",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\drawable-ldpi\\icon.png"
+    },
+    {
+        "merged": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\push.png",
+        "source": "E:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\drawable-ldpi\\push.png"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\splash.png",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\drawable-ldpi\\splash.png"
+    },
+    {
+        "merged": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\push.png",
+        "source": "G:\\AndroidDevelop\\studioWorkspace\\MyApplication\\HBuilder-Integrate\\src\\main\\res\\drawable-ldpi\\push.png"
+    }
+]

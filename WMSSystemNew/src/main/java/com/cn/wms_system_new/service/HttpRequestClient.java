@@ -59,7 +59,7 @@ public class HttpRequestClient {
 			entity.setContentType("application/json");
 			post.setEntity(entity);
 			String result = EntityUtils.toString(client.execute(post).getEntity(), Consts.UTF_8);
-			System.out.println("返回数据:" + result);
+			//System.out.println("返回数据:" + result);
 			SResponse response = JSONObject.parseObject(result, SResponse.class);
 			return response;
 		} catch (Exception e) {

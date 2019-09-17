@@ -530,10 +530,10 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout ll_color = (LinearLayout) view.findViewById(R.id.ll_color);
         final TextView tv_color = (TextView) view.findViewById(R.id.tv_color);
         final TextView tv_text = (TextView) view.findViewById(R.id.tv_color_text);
-        System.out.println("filename:" + filename + ",status:" + status);
-        if (status == 0 || status == -99) {
+        //System.out.println("filename:" + filename + ",status:" + status);
+        //if (status == 0 || status == -99) {
             if (fieldValue.equals("")) {
-                fieldValue = "O";
+                //fieldValue = "O";
                 createJson(fieldValue, filename, fieldType);
                 ll_color.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -566,17 +566,19 @@ public class MainActivity extends AppCompatActivity {
                         });
 
                         builder.show();
-                        System.out.println(v.getId());
+                        //System.out.println(v.getId());
                     }
                 });
             } else {
                 tv_color.setBackgroundColor(ContextCompat.getColor(this, getTextColor(fieldValue)));
             }
+        /*
         } else {
             if (!fieldValue.equals("")) {
                 tv_color.setBackgroundColor(ContextCompat.getColor(this, getTextColor(fieldValue)));
             }
         }
+        */
         return view;
     }
 

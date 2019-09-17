@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">新仓库管理系统</string>
+    <string name="main_title">WMS系统&#8212;&#8212;作业控制系统</string>
+    <string name="btn_start">开始</string>
+    <string name="btn_finish">完成</string>
+    <string name="btn_audit">审核</string>
+    <string name="return_button">返回</string>
+    <string name="refresh_button">刷新</string>
+    <string name="back_to_main">返回主界面</string>
+    <string name="cur_time_promote">当前时间:</string>
+    <string name="loading">加载中...</string>
+
+    <string name="input_remark_promote">请输入备注信息</string>
+    <string name="remark_empty_promote">备注信息不能为空</string>
+
+    <string name="input_reject_promote">请输入不合格原因</string>
+    <string name="reject_empty_promote">不合格原因不能为空</string>
+    <string name="reject">不合格</string>
+    <string name="accept">合格</string>
+
+    <string name="response_empty">服务器返回数据为空!</string>
+    <string name="response_error">网络连接出错!</string>
+    <string name="response_unLogin">未登录!</string>
+    <string name="response_unformat">数据格式错误!</string>
+
+    <!-- 登录界面 -->
+    <string name="user_code">用户编码：</string>
+    <string name="land_password">登录密码：</string>
+    <string name="data_account">数据帐套：</string>
+    <string name="land_type">登录类型：</string>
+    <string name="server_setting">参数设置</string>
+    <string name="land_button">登录</string>
+    <string name="exit_button">退出</string>
+    <string name="username_password_empty">用户名或密码不能为空!</string>
+
+
+    <!-- 列表信息界面 -->
+    <string name="plan_demand_date">计划需求日期:</string>
+    <string name="report_end_time">报表结束时间:</string>
+    <string name="search_time">查询时间:</string>
+    <string name="date_arrive">至</string>
+    <string name="info_search">查找</string>
+    <string name="info_refresh">刷新</string>
+    <string name="quick_search">快速查询:</string>
+    <string name="list_search_promte">搜索字段计划单号、终端客户、计划员</string>
+    <string name="detail_search_promte">搜索字段供货单位、部品名称、部品件号、车型、包装盛具</string>
+    <string name="the_start_time_bigger_end_time">开始时间大于结束时间，请重新设定时间</string>
+    <string name="the_end_time_smaller_start_time">结束时间小于开始时间，请重新设定时间</string>
+    <string name="next_page">下一页</string>
+    <string name="previous_page">前一页</string>
+    <string name="last_page_promote">当前页为最后一页</string>
+    <string name="first_page_promote">当前页为第一页</string>
+    <string name="no_more">没有更多了!</string>
+    <string name="data_empty">数据为空!</string>
+
+    
+    <!-- 系统参数设置界面 -->
+    <string name="setting_update_time">设置为按时间间隔更新</string>
+    <string name="setting_update_time_min">最小时间间隔：</string>
+    <string name="setting_update_time_unit">单位:分</string>
+    <string name="setting_webServer_ipAddress_input">服务器地址:</string>
+    <string name="setting_webServer_port_input">服务器端口:</string>
+    <string name="setting_webServer_ipAddress_hint">192.168.1.181</string>
+    <string name="setting_webServer_port_hint">9698</string>
+    <string name="setting_save">保存</string>
+    <string name="setting_confirm">确认</string>
+    <string name="setting_cancel">取消</string>
+
+    <!-- 密码修改界面 -->
+    <string name="modify_password">修改登录密码</string>
+    <string name="old_password">原密码</string>
+    <string name="new_password">新密码</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="modify">修改</string>
+    <string name="input_old_password">请输入原密码</string>
+    <string name="input_new_password">请输入新密码</string>
+    <string name="input_confirm_password">请再次确认新密码</string>
+    <string name="old_password_error">原密码错误</string>
+    <string name="confirm_password_error">两次新密码输入不一致</string>
+    <string name="modify_success">密码修改成功,下次登陆请使用新密码</string>
+    <string name="modify_failed">密码修改失败</string>
+</resources>

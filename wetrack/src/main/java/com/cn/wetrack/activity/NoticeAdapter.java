@@ -1,6 +1,7 @@
 package com.cn.wetrack.activity;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import com.cn.wetrack.R;
 import com.cn.wetrack.entity.Notice;
+import com.cn.wetrack.widgets.RedTipTextView;
 
 import org.w3c.dom.Text;
 
@@ -58,6 +60,7 @@ public class NoticeAdapter extends BaseAdapter {
         if (null == convertView) {
             convertView = View.inflate(context, R.layout.item_notice, null);
             viewHolder = new ViewHolder();
+            viewHolder.redTip = (RedTipTextView) convertView.findViewById(R.id.red_tip);
             viewHolder.noticeTitle = (TextView) convertView.findViewById(R.id.notice_title);
             viewHolder.noticeDate = (TextView) convertView.findViewById(R.id.notice_date);
             convertView.setTag(viewHolder);
@@ -66,12 +69,22 @@ public class NoticeAdapter extends BaseAdapter {
         }
 
         Notice notice = data.get(position);
+        if (notice.getIsOpen().compareTo("True") == 0) {
+            viewHolder.noticeTitle.setCompoundDrawables(null, null, null, null);
+            //viewHolder.redTip.setVisibility(View.GONE);
+        } else {
+            Drawable drawable = context.getResources().getDrawable(R.drawable.shape_circle);
+            drawable.setBounds(0, -10, 10, 0);
+            viewHolder.noticeTitle.setCompoundDrawables(drawable, null, null, null);
+            //viewHolder.redTip.setVisibility(View.VISIBLE);
+        }
         viewHolder.noticeTitle.setText(notice.getNoticeTitle());
         viewHolder.noticeDate.setText(notice.getNoticeData());
         return convertView;
     }
 
     class ViewHolder {
+        private RedTipTextView redTip;
         private TextView noticeTitle;
         private TextView noticeDate;
     }
